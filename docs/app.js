@@ -272,10 +272,19 @@
       return;
     }
     if (WORKED.action_id !== top.action_id) {
+      // Where the briefed candidate landed matters. Second is a brief worth reading;
+      // fifteenth is a brief about something the instrument no longer recommends.
+      var was = D.actions.filter(function (a) { return a.action_id === WORKED.action_id; })[0];
+      var where = was
+        ? 'It now ranks ' + was.rank + ' of ' + D.actions.length +
+          (was.rank <= 3 ? ', so the brief is still about a candidate near the top.'
+                         : ', so it is no longer about a candidate this page would put in front of anyone.')
+        : 'It no longer appears in the list at all, which act three explains: candidates near the ' +
+          'threshold come and go as the evidence changes.';
       host.innerHTML = '<p class="small"><b>The written brief and the instrument have drifted apart.</b> ' +
-        'The hand-written Action below was prepared for <code>' +
-        esc(typeof WORKED !== 'undefined' && WORKED ? WORKED.action_id : 'nothing') +
+        'The hand-written Action below was prepared for <code>' + esc(WORKED.action_id) +
         '</code>, and the instrument now ranks <code>' + esc(top.action_id) + '</code> first. ' +
+        esc(where).replace(/&lt;/g, '<').replace(/&gt;/g, '>') + ' ' +
         'Rather than quietly show a brief for a candidate that is no longer top, the page says so. ' +
         'A specialist would rewrite it; this page will not fake it.</p>' +
         (typeof WORKED !== 'undefined' && WORKED ? '<hr style="border:0;border-top:1px solid var(--rule);margin:16px 0">' + WORKED.html : '');
