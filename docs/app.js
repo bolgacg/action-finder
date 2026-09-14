@@ -17,6 +17,14 @@
     });
   }
   function pct(x, d) { return x == null ? 'n/a' : (100 * x).toFixed(d == null ? 0 : d) + '%'; }
+  // Cutting a chart label at a fixed character count leaves words like "Intelligenc"
+  // sitting on the page. Trim back to the last whole word and mark it as trimmed.
+  function shorten(s, n) {
+    if (s.length <= n) return s;
+    var cut = s.slice(0, n);
+    var sp = cut.lastIndexOf(' ');
+    return (sp > n * 0.5 ? cut.slice(0, sp) : cut).replace(/[ ,]+$/, '') + '\u2026';
+  }
 
   var state = { dept: null, sel: null, names: false };
 
@@ -242,7 +250,7 @@
       'those years is misrepresented here, and that is a stronger objection than the headline ' +
       'percentage on its own suggests.';
 
-    var W = 860, H = 230, P = { l: 56, r: 20, t: 20, b: 46 };
+    var W = 860, H = 244, P = { l: 56, r: 20, t: 34, b: 46 };
     var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
       'aria-label': 'Share of each publication year whose papers reached a topic' });
     var bw = (W - P.l - P.r) / rows.length;
@@ -259,7 +267,7 @@
         'font-family': "'IBM Plex Mono',monospace", 'font-size': 9.5, fill: '#b5bcc4' },
         r.looked_up + '/' + r.with_doi));
     });
-    s.appendChild(el('text', { x: P.l, y: 13, 'font-family': "'IBM Plex Sans',sans-serif",
+    s.appendChild(el('text', { x: 0, y: 14, 'font-family': "'IBM Plex Sans',sans-serif",
       'font-size': 11.5, fill: '#5b6470' },
       'Share of each year’s papers that reached a topic, with the counts beneath. Red is under a quarter.'));
     host.innerHTML = ''; host.appendChild(s);
@@ -306,7 +314,7 @@
       var y = P.t + i * rowH + rowH / 2;
       s.appendChild(el('text', { x: P.l - 10, y: y + 4, 'text-anchor': 'end',
         'font-family': "'IBM Plex Sans',sans-serif", 'font-size': 11.5, fill: '#5b6470' },
-        (r.a.department.replace('Department of ', '') + ', ' + r.a.topic.subfield).slice(0, 40)));
+        shorten(r.a.department.replace('Department of ', '') + ', ' + r.a.topic.subfield, 38)));
       s.appendChild(el('line', { x1: X(r.s.rank_p5), y1: y, x2: X(r.s.rank_p95), y2: y,
         stroke: '#c9c5be', 'stroke-width': 6, 'stroke-linecap': 'round' }));
       s.appendChild(el('circle', { cx: X(r.s.median_rank != null ? r.s.median_rank : r.a.rank),
@@ -338,7 +346,9 @@
     var host = $('#covviz');
     var keys = Object.keys(years).sort();
     if (host && keys.length) {
-      var W = 860, H = 210, P = { l: 56, r: 20, t: 18, b: 34 };
+      // The caption sat on the same line as the tallest bar's value label and ran off
+      // the right edge. It now gets its own band above the plot, and wraps.
+      var W = 860, H = 232, P = { l: 56, r: 20, t: 46, b: 34 };
       var max = Math.max.apply(null, keys.map(function (k) { return years[k]; })) || 1;
       var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
         'aria-label': 'How many harvested records fall in each publication year' });
@@ -352,14 +362,23 @@
         s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b - hgt - 5, 'text-anchor': 'middle',
           'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, years[k]));
       });
-      s.appendChild(el('text', { x: P.l, y: 12, 'font-family': "'IBM Plex Sans',sans-serif", 'font-size': 11.5, fill: '#5b6470' },
-        'Harvested Aarhus records by publication year, over the window the harvest asked for. ' +
-        'The last bar is the year in progress, so it is short because the year is not over.'));
+      ['Harvested Aarhus records by publication year, over the window the harvest asked for.',
+       'The last bar is the year in progress, so it is short because the year is not over.'
+      ].forEach(function (line, li) {
+        s.appendChild(el('text', { x: 0, y: 14 + li * 15, 'font-family': "'IBM Plex Sans',sans-serif",
+          'font-size': 11.5, fill: '#5b6470' }, line));
+      });
       host.innerHTML = '';
       host.appendChild(s);
     }
 
     var ta = h.topic_assignment_accuracy || {};
+    // rank.py writes these as hand_checked and judged_right. Reading ta.checked and
+    // ta.correct found neither, so the panel printed "n/a" for a check that had in
+    // fact been done on twenty labels. Accept either spelling and prefer the real one.
+    var taChecked = ta.hand_checked != null ? ta.hand_checked : ta.checked;
+    var taRight = ta.judged_right != null ? ta.judged_right : ta.correct;
+    var taWrong = ta.judged_wrong != null ? ta.judged_wrong : null;
     var already = h.top_candidates_already_collaborating || {};
     $('#covstat').innerHTML =
       '<div><div class="k">AU records read</div><div class="n">' + (cov.records_read_from_cache || 'n/a') +
@@ -367,8 +386,8 @@
       '<div><div class="k">With a DOI</div><div class="n">' + (cov.doi_share_pct != null ? cov.doi_share_pct + '%' : 'n/a') +
       '</div><div class="s">only these can reach OpenAlex</div></div>' +
       '<div><div class="k">Topic labels checked</div><div class="n">' +
-      (ta.correct != null && ta.checked ? ta.correct + '/' + ta.checked : 'n/a') +
-      '</div><div class="s">by hand, on a sample</div></div>' +
+      (taChecked != null ? String(taChecked) : 'n/a') +
+      '</div><div class="s">by hand, and one route removed because of it</div></div>' +
       '<div><div class="k">Candidates</div><div class="n">' + D.actions.length +
       '</div><div class="s">of ' + (D.counts ? D.counts.candidate_pairs_clearing_thresholds : '?') + ' pairs clearing the bar</div></div>';
 
@@ -413,9 +432,25 @@
         ? 'Of those, ' + oa.match_rate_pct + ' percent have been looked up so far, so what you are reading is ' +
           'computed on a fraction of what Aarhus published.'
         : 'Anything published without one is invisible to this instrument.');
-    $('#lim2').textContent = 'A topic is an OpenAlex subfield, assigned by a classifier rather than by the authors. ' +
-      (ta.checked ? 'On a hand-checked sample of ' + ta.checked + ', ' + ta.correct + ' looked right. ' : '') +
-      'That is good enough to sort a shortlist and not good enough to tell a company what a department can do for it.';
+    // Quoting the raw 10-of-20 here would be unfair in the other direction: that sample
+    // was drawn from a run that still used a matching route this check then removed. The
+    // split by route is the honest reading, and so is saying the fix is not re-verified.
+    var byRoute = ta.by_bridge_match_method || {};
+    var kw = byRoute.topic_keyword || {}, sn = byRoute.subfield_name || {};
+    var byType = ta.by_check_type || {};
+    var paper = byType.paper_to_subfield || {};
+    $('#lim2').innerHTML = 'A topic is an OpenAlex subfield, assigned by a classifier rather than by ' +
+      'the authors, and the labels were checked by hand rather than trusted. ' +
+      (taChecked ? 'Twenty were read one by one. ' : '') +
+      (kw.checked ? 'That check is why one matching route is gone: of ' + kw.checked +
+        ' labels made by matching a project term against a topic keyword, ' + kw.wrong +
+        ' were plainly wrong, so that route was switched off and nothing on this page uses it. ' : '') +
+      (sn.checked ? 'The route that remains, matching against a subfield name, was right ' + sn.right +
+        ' times in ' + sn.checked + '. ' : '') +
+      (paper.checked ? 'On the paper side, ' + paper.checked + ' labels were read and ' + paper.wrong +
+        ' were wrong with ' + paper.partly_right + ' partly right. ' : '') +
+      '<b>The fix has not been re-verified on a fresh sample</b>, so the strongest claim available ' +
+      'is that the worst route was found and removed, not that what remains has been measured.';
   }
 
   function fillProse() {
