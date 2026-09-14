@@ -6,9 +6,9 @@
     "hand_checked_spurious": 1,
     "hand_checked_pending": 0,
     "name_match_precision_pct": 83.3,
-    "organisation_claims_checked": 214,
-    "claims_contradicted": 17,
-    "contradicted_pct": 7.9,
+    "organisation_claims_checked": 238,
+    "claims_contradicted": 15,
+    "contradicted_pct": 6.3,
     "findings": [
       {
         "rank": 1,
@@ -25,19 +25,6 @@
       },
       {
         "rank": 3,
-        "department": "Arctic Research Centre",
-        "topic": "Ecology",
-        "cordis_name": "KNOWLEDGE HUB ZEALAND",
-        "cordis_participant_id": "889267095",
-        "openalex_company_name": "Knowledge Centre for Agriculture",
-        "shared_name_tokens": [
-          "knowledge"
-        ],
-        "hand_verdict": "spurious",
-        "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
-      },
-      {
-        "rank": 4,
         "department": "Department of Biology",
         "topic": "Environmental Engineering",
         "cordis_name": "ORSTED WIND POWER A/S",
@@ -50,6 +37,19 @@
         "hand_note": "Orsted Wind Power A/S is part of the Orsted group, which is the entity OpenAlex records. Same group, so the existing co-authorship is real."
       },
       {
+        "rank": 4,
+        "department": "Arctic Research Centre",
+        "topic": "Ecology",
+        "cordis_name": "KNOWLEDGE HUB ZEALAND",
+        "cordis_participant_id": "889267095",
+        "openalex_company_name": "Knowledge Centre for Agriculture",
+        "shared_name_tokens": [
+          "knowledge"
+        ],
+        "hand_verdict": "spurious",
+        "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+      },
+      {
         "rank": 6,
         "department": "Department of Chemistry",
         "topic": "Organic Chemistry",
@@ -87,139 +87,9 @@
         ],
         "hand_verdict": "genuine",
         "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
-      },
-      {
-        "rank": 7,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Biomaterials",
-        "cordis_name": "NOVO NORDISK A/S",
-        "cordis_participant_id": "999940021",
-        "openalex_company_name": "Novo Nordisk (Denmark)",
-        "shared_name_tokens": [
-          "novo"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company."
       },
       {
         "rank": 8,
-        "department": "Department of Chemistry",
-        "topic": "Biomaterials",
-        "cordis_name": "NOVO NORDISK A/S",
-        "cordis_participant_id": "999940021",
-        "openalex_company_name": "Novo Nordisk (Denmark)",
-        "shared_name_tokens": [
-          "novo"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company."
-      },
-      {
-        "rank": 9,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Organic Chemistry",
-        "cordis_name": "NOVOZYMES A/S",
-        "cordis_participant_id": "999913346",
-        "openalex_company_name": "Novozymes (Denmark)",
-        "shared_name_tokens": [
-          "novozymes"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-      },
-      {
-        "rank": 9,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Organic Chemistry",
-        "cordis_name": "NOVO NORDISK A/S",
-        "cordis_participant_id": "999940021",
-        "openalex_company_name": "Novo Nordisk (Denmark)",
-        "shared_name_tokens": [
-          "novo"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company."
-      },
-      {
-        "rank": 9,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Organic Chemistry",
-        "cordis_name": "Unisense Environment A/S",
-        "cordis_participant_id": "934248517",
-        "openalex_company_name": "Unisense (Denmark)",
-        "shared_name_tokens": [
-          "unisense"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
-      },
-      {
-        "rank": 14,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Catalysis",
-        "cordis_name": "NOVOZYMES A/S",
-        "cordis_participant_id": "999913346",
-        "openalex_company_name": "Novozymes (Denmark)",
-        "shared_name_tokens": [
-          "novozymes"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-      },
-      {
-        "rank": 14,
-        "department": "Interdisciplinary Nanoscience Center",
-        "topic": "Catalysis",
-        "cordis_name": "TOPSOE AS",
-        "cordis_participant_id": "999432226",
-        "openalex_company_name": "Haldor Topsoe (Denmark)",
-        "shared_name_tokens": [
-          "topsoe"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
-      },
-      {
-        "rank": 15,
-        "department": "Department of Chemistry",
-        "topic": "Catalysis",
-        "cordis_name": "NOVOZYMES A/S",
-        "cordis_participant_id": "999913346",
-        "openalex_company_name": "Novozymes (Denmark)",
-        "shared_name_tokens": [
-          "novozymes"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-      },
-      {
-        "rank": 15,
-        "department": "Department of Chemistry",
-        "topic": "Catalysis",
-        "cordis_name": "TOPSOE AS",
-        "cordis_participant_id": "999432226",
-        "openalex_company_name": "Haldor Topsoe (Denmark)",
-        "shared_name_tokens": [
-          "topsoe"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
-      },
-      {
-        "rank": 19,
-        "department": "Department of Molecular Biology and Genetics",
-        "topic": "Cell Biology",
-        "cordis_name": "NOVO NORDISK A/S",
-        "cordis_participant_id": "999940021",
-        "openalex_company_name": "Novo Nordisk (Denmark)",
-        "shared_name_tokens": [
-          "novo"
-        ],
-        "hand_verdict": "genuine",
-        "hand_note": "The same company."
-      },
-      {
-        "rank": 20,
         "department": "Department of Molecular Biology and Genetics",
         "topic": "Ecology",
         "cordis_name": "KNOWLEDGE HUB ZEALAND",
@@ -230,6 +100,110 @@
         ],
         "hand_verdict": "spurious",
         "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+      },
+      {
+        "rank": 10,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Biomaterials",
+        "cordis_name": "NOVO NORDISK A/S",
+        "cordis_participant_id": "999940021",
+        "openalex_company_name": "Novo Nordisk (Denmark)",
+        "shared_name_tokens": [
+          "novo"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company."
+      },
+      {
+        "rank": 12,
+        "department": "Department of Chemistry",
+        "topic": "Biomaterials",
+        "cordis_name": "NOVO NORDISK A/S",
+        "cordis_participant_id": "999940021",
+        "openalex_company_name": "Novo Nordisk (Denmark)",
+        "shared_name_tokens": [
+          "novo"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company."
+      },
+      {
+        "rank": 13,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Organic Chemistry",
+        "cordis_name": "NOVOZYMES A/S",
+        "cordis_participant_id": "999913346",
+        "openalex_company_name": "Novozymes (Denmark)",
+        "shared_name_tokens": [
+          "novozymes"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+      },
+      {
+        "rank": 13,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Organic Chemistry",
+        "cordis_name": "NOVO NORDISK A/S",
+        "cordis_participant_id": "999940021",
+        "openalex_company_name": "Novo Nordisk (Denmark)",
+        "shared_name_tokens": [
+          "novo"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company."
+      },
+      {
+        "rank": 13,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Organic Chemistry",
+        "cordis_name": "Unisense Environment A/S",
+        "cordis_participant_id": "934248517",
+        "openalex_company_name": "Unisense (Denmark)",
+        "shared_name_tokens": [
+          "unisense"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
+      },
+      {
+        "rank": 18,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Oncology",
+        "cordis_name": "NOVO NORDISK A/S",
+        "cordis_participant_id": "999940021",
+        "openalex_company_name": "Novo Nordisk (Denmark)",
+        "shared_name_tokens": [
+          "novo"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company."
+      },
+      {
+        "rank": 19,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Catalysis",
+        "cordis_name": "NOVOZYMES A/S",
+        "cordis_participant_id": "999913346",
+        "openalex_company_name": "Novozymes (Denmark)",
+        "shared_name_tokens": [
+          "novozymes"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+      },
+      {
+        "rank": 19,
+        "department": "Interdisciplinary Nanoscience Center",
+        "topic": "Catalysis",
+        "cordis_name": "TOPSOE AS",
+        "cordis_participant_id": "999432226",
+        "openalex_company_name": "Haldor Topsoe (Denmark)",
+        "shared_name_tokens": [
+          "topsoe"
+        ],
+        "hand_verdict": "genuine",
+        "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
       }
     ],
     "match_rule": "a shared word of at least four characters that appears in fewer than five Danish organisation names in the corpus",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:25:39",
+  "generated_at": "2026-09-14T21:36:51",
   "what_this_panel_is": "the numbers that say how far the ranked list can be trusted, computed by the same scripts that produced the list",
   "headline_limitation": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
   "coverage_pure": {
@@ -198,7 +198,7 @@
     "estimated_white_space_flags_surviving": 2.0,
     "per_white_space_candidate": [
       {
-        "rank": 4,
+        "rank": 3,
         "action_id": "department-of-biology__2305",
         "observed_works": 12,
         "department_openalex_coverage_pct": 22.0,
@@ -206,7 +206,15 @@
         "estimated_chance_it_stays_white_space_pct": 1.7
       },
       {
-        "rank": 7,
+        "rank": 9,
+        "action_id": "interdisciplinary-nanoscience-center__2210",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 16.4,
+        "estimated_chance_it_stays_white_space_pct": 21.1
+      },
+      {
+        "rank": 10,
         "action_id": "interdisciplinary-nanoscience-center__2502",
         "observed_works": 10,
         "department_openalex_coverage_pct": 23.4,
@@ -214,7 +222,7 @@
         "estimated_chance_it_stays_white_space_pct": 4.4
       },
       {
-        "rank": 12,
+        "rank": 11,
         "action_id": "department-of-biology__2310",
         "observed_works": 6,
         "department_openalex_coverage_pct": 22.0,
@@ -222,31 +230,7 @@
         "estimated_chance_it_stays_white_space_pct": 13.2
       },
       {
-        "rank": 13,
-        "action_id": "department-of-mathematics__2604",
-        "observed_works": 9,
-        "department_openalex_coverage_pct": 14.3,
-        "estimated_unseen_works_in_this_topic": 53.8,
-        "estimated_chance_it_stays_white_space_pct": 0.6
-      },
-      {
-        "rank": 14,
-        "action_id": "interdisciplinary-nanoscience-center__1503",
-        "observed_works": 6,
-        "department_openalex_coverage_pct": 23.4,
-        "estimated_unseen_works_in_this_topic": 19.6,
-        "estimated_chance_it_stays_white_space_pct": 15.4
-      },
-      {
         "rank": 15,
-        "action_id": "department-of-chemistry__1503",
-        "observed_works": 5,
-        "department_openalex_coverage_pct": 24.8,
-        "estimated_unseen_works_in_this_topic": 15.2,
-        "estimated_chance_it_stays_white_space_pct": 23.6
-      },
-      {
-        "rank": 16,
         "action_id": "department-of-chemistry__1604",
         "observed_works": 5,
         "department_openalex_coverage_pct": 24.8,
@@ -255,22 +239,6 @@
       },
       {
         "rank": 17,
-        "action_id": "department-of-chemistry__1607",
-        "observed_works": 7,
-        "department_openalex_coverage_pct": 24.8,
-        "estimated_unseen_works_in_this_topic": 21.2,
-        "estimated_chance_it_stays_white_space_pct": 13.2
-      },
-      {
-        "rank": 19,
-        "action_id": "department-of-molecular-biology-and-genetics__1307",
-        "observed_works": 5,
-        "department_openalex_coverage_pct": 24.9,
-        "estimated_unseen_works_in_this_topic": 15.1,
-        "estimated_chance_it_stays_white_space_pct": 23.7
-      },
-      {
-        "rank": 21,
         "action_id": "department-of-molecular-biology-and-genetics__2713",
         "observed_works": 5,
         "department_openalex_coverage_pct": 24.9,
@@ -278,7 +246,39 @@
         "estimated_chance_it_stays_white_space_pct": 23.7
       },
       {
-        "rank": 22,
+        "rank": 18,
+        "action_id": "interdisciplinary-nanoscience-center__2730",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 16.4,
+        "estimated_chance_it_stays_white_space_pct": 21.1
+      },
+      {
+        "rank": 19,
+        "action_id": "interdisciplinary-nanoscience-center__1503",
+        "observed_works": 6,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 19.6,
+        "estimated_chance_it_stays_white_space_pct": 15.4
+      },
+      {
+        "rank": 20,
+        "action_id": "department-of-mathematics__2604",
+        "observed_works": 9,
+        "department_openalex_coverage_pct": 14.3,
+        "estimated_unseen_works_in_this_topic": 53.8,
+        "estimated_chance_it_stays_white_space_pct": 0.6
+      },
+      {
+        "rank": 21,
+        "action_id": "department-of-chemistry__1503",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 24.8,
+        "estimated_unseen_works_in_this_topic": 15.2,
+        "estimated_chance_it_stays_white_space_pct": 23.6
+      },
+      {
+        "rank": 23,
         "action_id": "department-of-physics-and-astronomy__1607",
         "observed_works": 8,
         "department_openalex_coverage_pct": 26.6,
@@ -287,19 +287,19 @@
       },
       {
         "rank": 24,
-        "action_id": "interdisciplinary-nanoscience-center__2210",
+        "action_id": "department-of-molecular-biology-and-genetics__1307",
         "observed_works": 5,
-        "department_openalex_coverage_pct": 23.4,
-        "estimated_unseen_works_in_this_topic": 16.4,
-        "estimated_chance_it_stays_white_space_pct": 21.1
+        "department_openalex_coverage_pct": 24.9,
+        "estimated_unseen_works_in_this_topic": 15.1,
+        "estimated_chance_it_stays_white_space_pct": 23.7
       },
       {
         "rank": 25,
-        "action_id": "interdisciplinary-nanoscience-center__2730",
-        "observed_works": 5,
-        "department_openalex_coverage_pct": 23.4,
-        "estimated_unseen_works_in_this_topic": 16.4,
-        "estimated_chance_it_stays_white_space_pct": 21.1
+        "action_id": "department-of-chemistry__1607",
+        "observed_works": 7,
+        "department_openalex_coverage_pct": 24.8,
+        "estimated_unseen_works_in_this_topic": 21.2,
+        "estimated_chance_it_stays_white_space_pct": 13.2
       }
     ],
     "assumptions": [
@@ -330,7 +330,7 @@
         "organisations_on_this_topic": 90
       },
       {
-        "rank": 3,
+        "rank": 4,
         "action_id": "arctic-research-centre__2303",
         "department": "Arctic Research Centre",
         "topic": "Ecology",
@@ -339,7 +339,7 @@
         "organisations_on_this_topic": 90
       },
       {
-        "rank": 20,
+        "rank": 8,
         "action_id": "department-of-molecular-biology-and-genetics__2303",
         "department": "Department of Molecular Biology and Genetics",
         "topic": "Ecology",
@@ -348,7 +348,7 @@
         "organisations_on_this_topic": 90
       },
       {
-        "rank": 12,
+        "rank": 11,
         "action_id": "department-of-biology__2310",
         "department": "Department of Biology",
         "topic": "Pollution",
@@ -357,7 +357,7 @@
         "organisations_on_this_topic": 34
       },
       {
-        "rank": 4,
+        "rank": 3,
         "action_id": "department-of-biology__2305",
         "department": "Department of Biology",
         "topic": "Environmental Engineering",
@@ -375,7 +375,7 @@
         "organisations_on_this_topic": 19
       },
       {
-        "rank": 9,
+        "rank": 13,
         "action_id": "interdisciplinary-nanoscience-center__1605",
         "department": "Interdisciplinary Nanoscience Center",
         "topic": "Organic Chemistry",
@@ -384,7 +384,7 @@
         "organisations_on_this_topic": 19
       },
       {
-        "rank": 16,
+        "rank": 15,
         "action_id": "department-of-chemistry__1604",
         "department": "Department of Chemistry",
         "topic": "Inorganic Chemistry",
@@ -487,25 +487,11 @@
         "terms_on_that_project": "1"
       },
       {
-        "organisation": "SAMPLIX ApS",
-        "organisation_type": "private for-profit",
-        "topic": "Immunology",
-        "department": "Department of Molecular Biology and Genetics",
-        "rank": 10,
-        "carried_by_term": [
-          "immunology"
-        ],
-        "project_id": "101227259",
-        "project_title": "UNderstanding Lipid ImmunoMetabolIsm To trEat Disease",
-        "call_topic": "HORIZON-MSCA-2024-DN-01-01",
-        "terms_on_that_project": "1"
-      },
-      {
         "organisation": "AQUAPORIN AS",
         "organisation_type": "private for-profit",
         "topic": "Pollution",
         "department": "Department of Biology",
-        "rank": 12,
+        "rank": 11,
         "carried_by_term": [
           "pollution"
         ],
@@ -519,7 +505,7 @@
         "organisation_type": "private for-profit",
         "topic": "Pollution",
         "department": "Department of Biology",
-        "rank": 12,
+        "rank": 11,
         "carried_by_term": [
           "pollution"
         ],
@@ -529,16 +515,16 @@
         "terms_on_that_project": "1"
       },
       {
-        "organisation": "MOSEK ApS",
+        "organisation": "SAMPLIX ApS",
         "organisation_type": "private for-profit",
-        "topic": "Applied Mathematics",
-        "department": "Department of Mathematics",
-        "rank": 13,
+        "topic": "Immunology",
+        "department": "Department of Molecular Biology and Genetics",
+        "rank": 14,
         "carried_by_term": [
-          "applied mathematics"
+          "immunology"
         ],
-        "project_id": "101226343",
-        "project_title": "Advances in Large-scale, Multilevel, and Hierarchical Optimisation for Challenging Applications",
+        "project_id": "101227259",
+        "project_title": "UNderstanding Lipid ImmunoMetabolIsm To trEat Disease",
         "call_topic": "HORIZON-MSCA-2024-DN-01-01",
         "terms_on_that_project": "1"
       },
@@ -547,7 +533,7 @@
         "organisation_type": "private for-profit",
         "topic": "Oncology",
         "department": "Interdisciplinary Nanoscience Center",
-        "rank": 25,
+        "rank": 18,
         "carried_by_term": [
           "oncology"
         ],
@@ -561,13 +547,27 @@
         "organisation_type": "public body",
         "topic": "Oncology",
         "department": "Interdisciplinary Nanoscience Center",
-        "rank": 25,
+        "rank": 18,
         "carried_by_term": [
           "oncology"
         ],
         "project_id": "101057292",
         "project_title": "Towards Cancer Patient Empowerment for Optimal Use of Antithrombotic Therapy at the End of Life",
         "call_topic": "HORIZON-HLTH-2021-DISEASE-04-01",
+        "terms_on_that_project": "1"
+      },
+      {
+        "organisation": "MOSEK ApS",
+        "organisation_type": "private for-profit",
+        "topic": "Applied Mathematics",
+        "department": "Department of Mathematics",
+        "rank": 20,
+        "carried_by_term": [
+          "applied mathematics"
+        ],
+        "project_id": "101226343",
+        "project_title": "Advances in Large-scale, Multilevel, and Hierarchical Optimisation for Challenging Applications",
+        "call_topic": "HORIZON-MSCA-2024-DN-01-01",
         "terms_on_that_project": "1"
       }
     ]
@@ -706,9 +706,9 @@
       "hand_checked_spurious": 1,
       "hand_checked_pending": 0,
       "name_match_precision_pct": 83.3,
-      "organisation_claims_checked": 214,
-      "claims_contradicted": 17,
-      "contradicted_pct": 7.9,
+      "organisation_claims_checked": 238,
+      "claims_contradicted": 15,
+      "contradicted_pct": 6.3,
       "findings": [
         {
           "rank": 1,
@@ -725,19 +725,6 @@
         },
         {
           "rank": 3,
-          "department": "Arctic Research Centre",
-          "topic": "Ecology",
-          "cordis_name": "KNOWLEDGE HUB ZEALAND",
-          "cordis_participant_id": "889267095",
-          "openalex_company_name": "Knowledge Centre for Agriculture",
-          "shared_name_tokens": [
-            "knowledge"
-          ],
-          "hand_verdict": "spurious",
-          "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
-        },
-        {
-          "rank": 4,
           "department": "Department of Biology",
           "topic": "Environmental Engineering",
           "cordis_name": "ORSTED WIND POWER A/S",
@@ -750,6 +737,19 @@
           "hand_note": "Orsted Wind Power A/S is part of the Orsted group, which is the entity OpenAlex records. Same group, so the existing co-authorship is real."
         },
         {
+          "rank": 4,
+          "department": "Arctic Research Centre",
+          "topic": "Ecology",
+          "cordis_name": "KNOWLEDGE HUB ZEALAND",
+          "cordis_participant_id": "889267095",
+          "openalex_company_name": "Knowledge Centre for Agriculture",
+          "shared_name_tokens": [
+            "knowledge"
+          ],
+          "hand_verdict": "spurious",
+          "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+        },
+        {
           "rank": 6,
           "department": "Department of Chemistry",
           "topic": "Organic Chemistry",
@@ -787,139 +787,9 @@
           ],
           "hand_verdict": "genuine",
           "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
-        },
-        {
-          "rank": 7,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Biomaterials",
-          "cordis_name": "NOVO NORDISK A/S",
-          "cordis_participant_id": "999940021",
-          "openalex_company_name": "Novo Nordisk (Denmark)",
-          "shared_name_tokens": [
-            "novo"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company."
         },
         {
           "rank": 8,
-          "department": "Department of Chemistry",
-          "topic": "Biomaterials",
-          "cordis_name": "NOVO NORDISK A/S",
-          "cordis_participant_id": "999940021",
-          "openalex_company_name": "Novo Nordisk (Denmark)",
-          "shared_name_tokens": [
-            "novo"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company."
-        },
-        {
-          "rank": 9,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Organic Chemistry",
-          "cordis_name": "NOVOZYMES A/S",
-          "cordis_participant_id": "999913346",
-          "openalex_company_name": "Novozymes (Denmark)",
-          "shared_name_tokens": [
-            "novozymes"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-        },
-        {
-          "rank": 9,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Organic Chemistry",
-          "cordis_name": "NOVO NORDISK A/S",
-          "cordis_participant_id": "999940021",
-          "openalex_company_name": "Novo Nordisk (Denmark)",
-          "shared_name_tokens": [
-            "novo"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company."
-        },
-        {
-          "rank": 9,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Organic Chemistry",
-          "cordis_name": "Unisense Environment A/S",
-          "cordis_participant_id": "934248517",
-          "openalex_company_name": "Unisense (Denmark)",
-          "shared_name_tokens": [
-            "unisense"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
-        },
-        {
-          "rank": 14,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Catalysis",
-          "cordis_name": "NOVOZYMES A/S",
-          "cordis_participant_id": "999913346",
-          "openalex_company_name": "Novozymes (Denmark)",
-          "shared_name_tokens": [
-            "novozymes"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-        },
-        {
-          "rank": 14,
-          "department": "Interdisciplinary Nanoscience Center",
-          "topic": "Catalysis",
-          "cordis_name": "TOPSOE AS",
-          "cordis_participant_id": "999432226",
-          "openalex_company_name": "Haldor Topsoe (Denmark)",
-          "shared_name_tokens": [
-            "topsoe"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
-        },
-        {
-          "rank": 15,
-          "department": "Department of Chemistry",
-          "topic": "Catalysis",
-          "cordis_name": "NOVOZYMES A/S",
-          "cordis_participant_id": "999913346",
-          "openalex_company_name": "Novozymes (Denmark)",
-          "shared_name_tokens": [
-            "novozymes"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
-        },
-        {
-          "rank": 15,
-          "department": "Department of Chemistry",
-          "topic": "Catalysis",
-          "cordis_name": "TOPSOE AS",
-          "cordis_participant_id": "999432226",
-          "openalex_company_name": "Haldor Topsoe (Denmark)",
-          "shared_name_tokens": [
-            "topsoe"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
-        },
-        {
-          "rank": 19,
-          "department": "Department of Molecular Biology and Genetics",
-          "topic": "Cell Biology",
-          "cordis_name": "NOVO NORDISK A/S",
-          "cordis_participant_id": "999940021",
-          "openalex_company_name": "Novo Nordisk (Denmark)",
-          "shared_name_tokens": [
-            "novo"
-          ],
-          "hand_verdict": "genuine",
-          "hand_note": "The same company."
-        },
-        {
-          "rank": 20,
           "department": "Department of Molecular Biology and Genetics",
           "topic": "Ecology",
           "cordis_name": "KNOWLEDGE HUB ZEALAND",
@@ -930,6 +800,110 @@
           ],
           "hand_verdict": "spurious",
           "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+        },
+        {
+          "rank": 10,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Biomaterials",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 12,
+          "department": "Department of Chemistry",
+          "topic": "Biomaterials",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 13,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 13,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 13,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "Unisense Environment A/S",
+          "cordis_participant_id": "934248517",
+          "openalex_company_name": "Unisense (Denmark)",
+          "shared_name_tokens": [
+            "unisense"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
+        },
+        {
+          "rank": 18,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Oncology",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 19,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Catalysis",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 19,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Catalysis",
+          "cordis_name": "TOPSOE AS",
+          "cordis_participant_id": "999432226",
+          "openalex_company_name": "Haldor Topsoe (Denmark)",
+          "shared_name_tokens": [
+            "topsoe"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
         }
       ],
       "match_rule": "a shared word of at least four characters that appears in fewer than five Danish organisation names in the corpus",
@@ -976,16 +950,6 @@
       },
       {
         "rank": 3,
-        "action_id": "arctic-research-centre__2303",
-        "organisations": 90,
-        "share_a_project_with_au_on_this_topic": 13,
-        "share_any_project_with_au": 29,
-        "share_pct_on_this_topic": 14.4,
-        "share_pct_any_topic": 32.2,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 4,
         "action_id": "department-of-biology__2305",
         "organisations": 222,
         "share_a_project_with_au_on_this_topic": 25,
@@ -993,6 +957,16 @@
         "share_pct_on_this_topic": 11.3,
         "share_pct_any_topic": 15.3,
         "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 4,
+        "action_id": "arctic-research-centre__2303",
+        "organisations": 90,
+        "share_a_project_with_au_on_this_topic": 13,
+        "share_any_project_with_au": 29,
+        "share_pct_on_this_topic": 14.4,
+        "share_pct_any_topic": 32.2,
+        "au_has_company_coauthor_in_topic": true
       },
       {
         "rank": 5,
@@ -1016,46 +990,6 @@
       },
       {
         "rank": 7,
-        "action_id": "interdisciplinary-nanoscience-center__2502",
-        "organisations": 19,
-        "share_a_project_with_au_on_this_topic": 3,
-        "share_any_project_with_au": 6,
-        "share_pct_on_this_topic": 15.8,
-        "share_pct_any_topic": 31.6,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 8,
-        "action_id": "department-of-chemistry__2502",
-        "organisations": 19,
-        "share_a_project_with_au_on_this_topic": 3,
-        "share_any_project_with_au": 6,
-        "share_pct_on_this_topic": 15.8,
-        "share_pct_any_topic": 31.6,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 9,
-        "action_id": "interdisciplinary-nanoscience-center__1605",
-        "organisations": 19,
-        "share_a_project_with_au_on_this_topic": 3,
-        "share_any_project_with_au": 8,
-        "share_pct_on_this_topic": 15.8,
-        "share_pct_any_topic": 42.1,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 10,
-        "action_id": "department-of-molecular-biology-and-genetics__2403",
-        "organisations": 16,
-        "share_a_project_with_au_on_this_topic": 2,
-        "share_any_project_with_au": 5,
-        "share_pct_on_this_topic": 12.5,
-        "share_pct_any_topic": 31.2,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 11,
         "action_id": "department-of-chemistry__2210",
         "organisations": 44,
         "share_a_project_with_au_on_this_topic": 0,
@@ -1065,87 +999,7 @@
         "au_has_company_coauthor_in_topic": true
       },
       {
-        "rank": 12,
-        "action_id": "department-of-biology__2310",
-        "organisations": 34,
-        "share_a_project_with_au_on_this_topic": 5,
-        "share_any_project_with_au": 12,
-        "share_pct_on_this_topic": 14.7,
-        "share_pct_any_topic": 35.3,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 13,
-        "action_id": "department-of-mathematics__2604",
-        "organisations": 6,
-        "share_a_project_with_au_on_this_topic": 0,
-        "share_any_project_with_au": 1,
-        "share_pct_on_this_topic": 0.0,
-        "share_pct_any_topic": 16.7,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 14,
-        "action_id": "interdisciplinary-nanoscience-center__1503",
-        "organisations": 14,
-        "share_a_project_with_au_on_this_topic": 2,
-        "share_any_project_with_au": 4,
-        "share_pct_on_this_topic": 14.3,
-        "share_pct_any_topic": 28.6,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 15,
-        "action_id": "department-of-chemistry__1503",
-        "organisations": 14,
-        "share_a_project_with_au_on_this_topic": 2,
-        "share_any_project_with_au": 4,
-        "share_pct_on_this_topic": 14.3,
-        "share_pct_any_topic": 28.6,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 16,
-        "action_id": "department-of-chemistry__1604",
-        "organisations": 25,
-        "share_a_project_with_au_on_this_topic": 2,
-        "share_any_project_with_au": 5,
-        "share_pct_on_this_topic": 8.0,
-        "share_pct_any_topic": 20.0,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 17,
-        "action_id": "department-of-chemistry__1607",
-        "organisations": 4,
-        "share_a_project_with_au_on_this_topic": 0,
-        "share_any_project_with_au": 0,
-        "share_pct_on_this_topic": 0.0,
-        "share_pct_any_topic": 0.0,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 18,
-        "action_id": "department-of-computer-science__1711",
-        "organisations": 8,
-        "share_a_project_with_au_on_this_topic": 0,
-        "share_any_project_with_au": 0,
-        "share_pct_on_this_topic": 0.0,
-        "share_pct_any_topic": 0.0,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 19,
-        "action_id": "department-of-molecular-biology-and-genetics__1307",
-        "organisations": 6,
-        "share_a_project_with_au_on_this_topic": 0,
-        "share_any_project_with_au": 3,
-        "share_pct_on_this_topic": 0.0,
-        "share_pct_any_topic": 50.0,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 20,
+        "rank": 8,
         "action_id": "department-of-molecular-biology-and-genetics__2303",
         "organisations": 90,
         "share_a_project_with_au_on_this_topic": 13,
@@ -1155,37 +1009,7 @@
         "au_has_company_coauthor_in_topic": true
       },
       {
-        "rank": 21,
-        "action_id": "department-of-molecular-biology-and-genetics__2713",
-        "organisations": 25,
-        "share_a_project_with_au_on_this_topic": 3,
-        "share_any_project_with_au": 8,
-        "share_pct_on_this_topic": 12.0,
-        "share_pct_any_topic": 32.0,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 22,
-        "action_id": "department-of-physics-and-astronomy__1607",
-        "organisations": 4,
-        "share_a_project_with_au_on_this_topic": 0,
-        "share_any_project_with_au": 0,
-        "share_pct_on_this_topic": 0.0,
-        "share_pct_any_topic": 0.0,
-        "au_has_company_coauthor_in_topic": false
-      },
-      {
-        "rank": 23,
-        "action_id": "interdisciplinary-nanoscience-center__1604",
-        "organisations": 25,
-        "share_a_project_with_au_on_this_topic": 2,
-        "share_any_project_with_au": 5,
-        "share_pct_on_this_topic": 8.0,
-        "share_pct_any_topic": 20.0,
-        "au_has_company_coauthor_in_topic": true
-      },
-      {
-        "rank": 24,
+        "rank": 9,
         "action_id": "interdisciplinary-nanoscience-center__2210",
         "organisations": 44,
         "share_a_project_with_au_on_this_topic": 0,
@@ -1195,13 +1019,163 @@
         "au_has_company_coauthor_in_topic": false
       },
       {
-        "rank": 25,
+        "rank": 10,
+        "action_id": "interdisciplinary-nanoscience-center__2502",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 6,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 31.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 11,
+        "action_id": "department-of-biology__2310",
+        "organisations": 34,
+        "share_a_project_with_au_on_this_topic": 5,
+        "share_any_project_with_au": 12,
+        "share_pct_on_this_topic": 14.7,
+        "share_pct_any_topic": 35.3,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 12,
+        "action_id": "department-of-chemistry__2502",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 6,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 31.6,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 13,
+        "action_id": "interdisciplinary-nanoscience-center__1605",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 8,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 42.1,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 14,
+        "action_id": "department-of-molecular-biology-and-genetics__2403",
+        "organisations": 16,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 12.5,
+        "share_pct_any_topic": 31.2,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 15,
+        "action_id": "department-of-chemistry__1604",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 8.0,
+        "share_pct_any_topic": 20.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 16,
+        "action_id": "interdisciplinary-nanoscience-center__1604",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 8.0,
+        "share_pct_any_topic": 20.0,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 17,
+        "action_id": "department-of-molecular-biology-and-genetics__2713",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 8,
+        "share_pct_on_this_topic": 12.0,
+        "share_pct_any_topic": 32.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 18,
         "action_id": "interdisciplinary-nanoscience-center__2730",
         "organisations": 32,
         "share_a_project_with_au_on_this_topic": 7,
         "share_any_project_with_au": 15,
         "share_pct_on_this_topic": 21.9,
         "share_pct_any_topic": 46.9,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 19,
+        "action_id": "interdisciplinary-nanoscience-center__1503",
+        "organisations": 14,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 14.3,
+        "share_pct_any_topic": 28.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 20,
+        "action_id": "department-of-mathematics__2604",
+        "organisations": 6,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 1,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 16.7,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 21,
+        "action_id": "department-of-chemistry__1503",
+        "organisations": 14,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 14.3,
+        "share_pct_any_topic": 28.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 22,
+        "action_id": "department-of-computer-science__1711",
+        "organisations": 8,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 23,
+        "action_id": "department-of-physics-and-astronomy__1607",
+        "organisations": 4,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 24,
+        "action_id": "department-of-molecular-biology-and-genetics__1307",
+        "organisations": 6,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 3,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 50.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 25,
+        "action_id": "department-of-chemistry__1607",
+        "organisations": 4,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
         "au_has_company_coauthor_in_topic": false
       }
     ],

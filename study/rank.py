@@ -93,16 +93,27 @@ def pipe_list(value) -> list[str]:
 
 
 def minmax(values: dict) -> dict:
-    """Scale to 0..1 on log1p. Log because a department with 200 papers in a
-    topic is not twenty times more promising than one with 10, and a raw linear
-    scale would let one large department own the whole list."""
+    """Scale against the largest, on log1p. Log because a department with 200
+    papers in a topic is not twenty times more promising than one with 10, and a
+    raw linear scale would let one large department own the whole list.
+
+    Against the largest, not between the smallest and the largest. A min-max
+    scale gives whichever candidate holds the minimum a value of exactly zero,
+    and because the score multiplies two of these together, one zero collapses
+    the whole score to zero. That happened to 11 of 25 candidates, every one of
+    them with real papers and real Danish organisations behind it: Chemistry and
+    Catalysis scored 0.000 on five papers and fourteen organisations. Eleven rows
+    tied at zero is not a ranking, and a reader who sees it concludes the page is
+    broken rather than that the candidate is weak. Dividing by the maximum keeps
+    the meaning, which is strength relative to the strongest candidate here, and
+    a real quantity can no longer become nothing."""
     logs = {k: math.log1p(v) for k, v in values.items()}
     if not logs:
         return {}
-    lo, hi = min(logs.values()), max(logs.values())
-    if hi <= lo:
+    hi = max(logs.values())
+    if hi <= 0:
         return {k: 1.0 for k in logs}
-    return {k: (v - lo) / (hi - lo) for k, v in logs.items()}
+    return {k: v / hi for k, v in logs.items()}
 
 
 def main() -> None:

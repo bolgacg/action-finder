@@ -50,56 +50,44 @@ def attach_stability(d: dict) -> None:
 def attach_coverage_by_year(d: dict) -> None:
     """How much of each publication year actually reached a topic.
 
-    The headline coverage figure is a single percentage, and a single percentage
-    invites the reader to assume the missing papers are missing at random. They
-    are not. The lookup walks the DOI list in order and stopped where the budget
-    ran out, so one year can be almost complete while the next is untouched, and
-    a ranking built on that is a ranking of whichever year got through. That is a
-    far sharper thing to tell a reader than "27.6 percent", so it is computed
-    here rather than described.
+    A single coverage percentage invites the reader to assume the missing papers
+    are missing at random. They are not: the lookup works down a list and stopped
+    where the daily budget ran out, so one year can be nearly complete while the
+    next is untouched, and a ranking built on that is closer to a ranking of
+    whichever year got through.
 
-    A caveat that belongs with the number: OpenAlex carries its own publication
-    year, which for a paper published near a year boundary can differ from the
-    year Pure records. So a year's covered count can exceed what Pure filed under
-    it. The rows are kept as they are and the difference is named on the page.
+    This reads the table rank.py already writes rather than recomputing it. A first
+    version here did recompute it, taking the numerator from OpenAlex's own
+    publication_year and the denominator from Pure's pub_year. Those are different
+    fields counting different papers: OpenAlex dates some papers to the year before
+    Pure files them, so the two disagree near every year boundary. It printed 253
+    covered works against a denominator of 4 for 2021, a coverage of 6,325 percent,
+    and it misstated every real year as well. Both sides must key on the same field,
+    and rank.py's table does.
     """
-    pure_p = DATA / "derived" / "pure_natsci_works.csv"
-    oa_p = DATA / "derived" / "openalex_works.csv"
-    if not (pure_p.exists() and oa_p.exists()):
+    src = (d.get("harvest_and_coverage_by_year") or {}).get("openalex_coverage_by_publication_year")
+    if not src:
         return
-    pure: dict[str, int] = {}
-    with pure_p.open() as f:
-        for row in csv.DictReader(f):
-            if (row.get("doi") or "").strip():
-                pure[row["pub_year"]] = pure.get(row["pub_year"], 0) + 1
-    looked: dict[str, int] = {}
-    with oa_p.open() as f:
-        for row in csv.DictReader(f):
-            y = row.get("publication_year") or ""
-            looked[y] = looked.get(y, 0) + 1
-
     rows = []
-    for y in sorted(pure):
+    for y in sorted(src):
         if not y.isdigit():
             continue
-        have, got = pure[y], looked.get(y, 0)
+        r = src[y]
         rows.append({
             "year": y,
-            "with_doi": have,
-            "looked_up": got,
-            "coverage_pct": round(100.0 * got / have, 1) if have else None,
+            "with_doi": r.get("natural_sciences_dois"),
+            "looked_up": r.get("covered_by_openalex"),
+            "coverage_pct": r.get("coverage_pct"),
         })
     if not rows:
         return
-    # Years outside the requested window hold a handful of oddly dated records, and
-    # the year-boundary effect above can put a covered count against a denominator of
-    # four, which reports a coverage of several thousand percent. Those rows stay in
-    # the table, because hiding them would be hiding a real quirk of the data, but the
-    # best and worst year are taken only from years the harvest actually asked for.
+    # Years outside the requested window hold a handful of oddly dated records, so
+    # the best and worst year are taken only from years the harvest asked for and
+    # that carry enough papers for a percentage to mean anything.
     window_from = int((d.get("window") or {}).get("publication_years_from") or 0)
     comparable = [
         r for r in rows
-        if r["coverage_pct"] is not None and int(r["year"]) >= window_from and r["with_doi"] >= 100
+        if r["coverage_pct"] is not None and int(r["year"]) >= window_from and (r["with_doi"] or 0) >= 100
     ]
     if not comparable:
         return
@@ -113,9 +101,7 @@ def attach_coverage_by_year(d: dict) -> None:
         "years_compared_from": window_from,
         "best_year": best,
         "worst_year": worst,
-        "note_on_years": ("OpenAlex records its own publication year, which can differ from "
-                          "the year Pure files a paper under, so a year's covered count can "
-                          "exceed the Pure count near a year boundary."),
+        "both_sides_keyed_on": "the publication year Pure files the paper under, on numerator and denominator alike",
     }
     print(f"  coverage by year: {best['year']} at {best['coverage_pct']}%, "
           f"{worst['year']} at {worst['coverage_pct']}%")

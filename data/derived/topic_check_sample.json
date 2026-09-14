@@ -1,33 +1,23 @@
 [
   {
     "check_type": "paper_to_subfield",
-    "action_id": "department-of-biology__2310",
-    "department": "Department of Biology",
-    "assigned_subfield": "Pollution",
-    "openalex_primary_topic": "Wastewater Treatment and Nitrogen Removal",
-    "paper_title": "Dissimilatory nitrate reduction by a freshwater cable bacterium",
-    "doi": "10.1038/s41396-021-01048-z",
+    "action_id": "department-of-chemistry__2502",
+    "department": "Department of Chemistry",
+    "assigned_subfield": "Biomaterials",
+    "openalex_primary_topic": "Silk-based biomaterials and applications",
+    "paper_title": "In Situ Identification of Secondary Structures in Unpurified <i>Bombyx mori</i> Silk Fibrils Using Polarized Two-Dimensional Infrared Spectroscopy",
+    "doi": "10.1021/acs.biomac.2c01156",
     "sample_id": "s01"
   },
   {
     "check_type": "paper_to_subfield",
-    "action_id": "interdisciplinary-nanoscience-center__1605",
+    "action_id": "interdisciplinary-nanoscience-center__2210",
     "department": "Interdisciplinary Nanoscience Center",
-    "assigned_subfield": "Organic Chemistry",
-    "openalex_primary_topic": "Advanced Polymer Synthesis and Characterization",
-    "paper_title": "On the assembly of zwitterionic block copolymers with phospholipids",
-    "doi": "10.1016/j.eurpolymj.2022.111612",
+    "assigned_subfield": "Mechanical Engineering",
+    "openalex_primary_topic": "Catalysis and Hydrodesulfurization Studies",
+    "paper_title": "In-situ NAP-XPS reveals water-induced phase segregation of MoS<sub>2</sub> nanoparticles in hydrodeoxygenation catalysis",
+    "doi": "10.1016/j.jcat.2026.116705",
     "sample_id": "s02"
-  },
-  {
-    "check_type": "paper_to_subfield",
-    "action_id": "interdisciplinary-nanoscience-center__2502",
-    "department": "Interdisciplinary Nanoscience Center",
-    "assigned_subfield": "Biomaterials",
-    "openalex_primary_topic": "Nanoparticle-Based Drug Delivery",
-    "paper_title": "Co-delivery of STAT3 siRNA and methotrexate in breast cancer cells",
-    "doi": "10.1080/21691401.2022.2030746",
-    "sample_id": "s03"
   },
   {
     "check_type": "paper_to_subfield",
@@ -37,57 +27,57 @@
     "openalex_primary_topic": "Metallic Glasses and Amorphous Alloys",
     "paper_title": "Delayed elasticity of metallic glasses",
     "doi": "10.1103/physrevmaterials.6.125601",
+    "sample_id": "s03"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-biology__2310",
+    "department": "Department of Biology",
+    "assigned_subfield": "Pollution",
+    "openalex_primary_topic": "Microplastics and Plastic Pollution",
+    "paper_title": "Interactions between microplastics and benthic biofilms in fluvial ecosystems",
+    "doi": "10.1086/721472",
     "sample_id": "s04"
   },
   {
     "check_type": "paper_to_subfield",
-    "action_id": "department-of-molecular-biology-and-genetics__2303",
-    "department": "Department of Molecular Biology and Genetics",
-    "assigned_subfield": "Ecology",
-    "openalex_primary_topic": "Wildlife Ecology and Conservation",
-    "paper_title": "Insights into bear evolution from a Pleistocene polar bear genome",
-    "doi": "10.1073/pnas.2200016119",
+    "action_id": "department-of-mathematics__2604",
+    "department": "Department of Mathematics",
+    "assigned_subfield": "Applied Mathematics",
+    "openalex_primary_topic": "Point processes and geometric inequalities",
+    "paper_title": "Improving Cavalieri volume estimation based on non-equidistant planar sections",
+    "doi": "10.1111/jmi.13141",
     "sample_id": "s05"
   },
   {
     "check_type": "paper_to_subfield",
-    "action_id": "department-of-physics-and-astronomy__1607",
-    "department": "Department of Physics and Astronomy",
-    "assigned_subfield": "Spectroscopy",
-    "openalex_primary_topic": "Mass Spectrometry Techniques and Applications",
-    "paper_title": "High-precision electron affinity of oxygen",
-    "doi": "10.1038/s41467-022-33438-y",
+    "action_id": "department-of-computer-science__1711",
+    "department": "Department of Computer Science",
+    "assigned_subfield": "Signal Processing",
+    "openalex_primary_topic": "Advanced Malware Detection Techniques",
+    "paper_title": "MITAKA",
+    "doi": "10.1007/978-3-031-07082-2_9",
     "sample_id": "s06"
-  },
-  {
-    "check_type": "paper_to_subfield",
-    "action_id": "arctic-research-centre__2303",
-    "department": "Arctic Research Centre",
-    "assigned_subfield": "Ecology",
-    "openalex_primary_topic": "Coastal wetland ecosystem dynamics",
-    "paper_title": "Sinking seaweed in the deep ocean for carbon neutrality is ahead of science and beyond the ethics",
-    "doi": "10.1088/1748-9326/ac82ff",
-    "sample_id": "s07"
-  },
-  {
-    "check_type": "paper_to_subfield",
-    "action_id": "department-of-molecular-biology-and-genetics__2403",
-    "department": "Department of Molecular Biology and Genetics",
-    "assigned_subfield": "Immunology",
-    "openalex_primary_topic": "Complement system in diseases",
-    "paper_title": "Development, Characterization, and in vivo Validation of a Humanized C6 Monoclonal Antibody that Inhibits the Membrane Attack Complex",
-    "doi": "10.1159/000524587",
-    "sample_id": "s08"
   },
   {
     "check_type": "paper_to_subfield",
     "action_id": "department-of-biology__2305",
     "department": "Department of Biology",
     "assigned_subfield": "Environmental Engineering",
-    "openalex_primary_topic": "Remote Sensing and LiDAR Applications",
-    "paper_title": "Shifts in structural diversity of Amazonian forest edges detected using terrestrial laser scanning",
-    "doi": "10.1016/j.rse.2022.112895",
-    "sample_id": "s09"
+    "openalex_primary_topic": "Microbial Fuel Cells and Bioremediation",
+    "paper_title": "The ins and outs of photo-assisted microbial electrochemical systems for synchronous wastewater treatment and bioenergy recovery",
+    "doi": "10.1016/j.resconrec.2022.106230",
+    "sample_id": "s07"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "interdisciplinary-nanoscience-center__2502",
+    "department": "Interdisciplinary Nanoscience Center",
+    "assigned_subfield": "Biomaterials",
+    "openalex_primary_topic": "Nanoparticle-Based Drug Delivery",
+    "paper_title": "Co-delivery of STAT3 siRNA and methotrexate in breast cancer cells",
+    "doi": "10.1080/21691401.2022.2030746",
+    "sample_id": "s08"
   },
   {
     "check_type": "paper_to_subfield",
@@ -97,6 +87,16 @@
     "openalex_primary_topic": "Polar Research and Ecology",
     "paper_title": "Seasonal Variation of the Atmospheric Bacterial Community in the Greenlandic High Arctic Is Influenced by Weather Events and Local and Distant Sources",
     "doi": "10.3389/fmicb.2022.909980",
+    "sample_id": "s09"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-biology__2305",
+    "department": "Department of Biology",
+    "assigned_subfield": "Environmental Engineering",
+    "openalex_primary_topic": "Remote Sensing and LiDAR Applications",
+    "paper_title": "Shifts in structural diversity of Amazonian forest edges detected using terrestrial laser scanning",
+    "doi": "10.1016/j.rse.2022.112895",
     "sample_id": "s10"
   },
   {

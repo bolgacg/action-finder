@@ -17,6 +17,9 @@
     });
   }
   function pct(x, d) { return x == null ? 'n/a' : (100 * x).toFixed(d == null ? 0 : d) + '%'; }
+  // A count of 2002 printed beside the year 2022 reads as a year. A thousands
+  // separator is the whole fix, and it is needed wherever counts and years meet.
+  function n(x) { return x == null ? 'n/a' : Number(x).toLocaleString('en-GB'); }
   // Cutting a chart label at a fixed character count leaves words like "Intelligenc"
   // sitting on the page. Trim back to the last whole word and mark it as trimmed.
   function shorten(s, n) {
@@ -117,14 +120,19 @@
       '<div class="card-title">' + esc(a.department) + ', ' + esc(a.topic.subfield) + '</div>' +
       '<p class="small">' + esc(a.topic.field) + ', ' + esc(a.topic.domain) +
       '. Ranked ' + a.rank + ' of ' + D.actions.length + ' with a score of ' + a.score.toFixed(3) + '.</p>' +
-      '<p class="small">The score multiplies three things and nothing else: <b>how much this ' +
-      'department publishes on this topic</b> compared with the others here (' +
-      pct(a.score_components.au_strength_scaled) + ' of the strongest), <b>how much Danish activity ' +
-      'there is on the topic</b> in European projects (' + pct(a.score_components.danish_activity_scaled) +
-      ' of the busiest), and <b>how much of that activity has no existing link to Aarhus</b> (' +
-      pct(a.score_components.unconnected_share) + ' of it). The first two are combined as a geometric ' +
-      'mean, so a topic strong on one side and weak on the other cannot score well, and the third ' +
-      'can at most double the result. Written out: <code>' + esc(a.score_components.formula) + '</code>.</p>' +
+      '<p class="small">The score combines three things and nothing else. <b>How much this department ' +
+      'publishes on this topic</b>, which is ' + n(a.au_evidence.works_in_window) + ' papers here. ' +
+      '<b>How many Danish organisations work on the same topic in European projects</b>, which is ' +
+      n(a.danish_evidence.organisations_on_this_topic) + '. And <b>how many of those have never shared ' +
+      'a project with Aarhus</b>, which is ' + n(a.danish_evidence.no_shared_project_with_au_on_this_topic) +
+      ', or ' + pct(a.score_components.unconnected_share) + ' of them.</p>' +
+      '<p class="small">The first two are each measured against the strongest candidate on this page ' +
+      'and on a log scale, so that a department with two hundred papers does not count twenty times a ' +
+      'department with ten and cannot own the whole list. They are then combined as a geometric mean, ' +
+      'so a topic strong on one side and weak on the other cannot score well, and the third can at ' +
+      'most double the result. Written out: <code>' + esc(a.score_components.formula) + '</code>, where ' +
+      'the two scaled terms are ' + a.score_components.au_strength_scaled.toFixed(2) + ' and ' +
+      a.score_components.danish_activity_scaled.toFixed(2) + ' for this candidate.</p>' +
       '<div class="stat">' +
       '<div><div class="k">AU papers</div><div class="n">' + a.au_evidence.works_in_window +
       '</div><div class="s">in this topic, in the window</div></div>' +
@@ -290,7 +298,7 @@
         'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, r.coverage_pct + '%'));
       s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b + 30, 'text-anchor': 'middle',
         'font-family': "'IBM Plex Mono',monospace", 'font-size': 9.5, fill: '#b5bcc4' },
-        r.looked_up + '/' + r.with_doi));
+        n(r.looked_up) + ' of ' + n(r.with_doi)));
     });
     s.appendChild(el('text', { x: 0, y: 14, 'font-family': "'IBM Plex Sans',sans-serif",
       'font-size': 11.5, fill: '#5b6470' },
@@ -385,7 +393,7 @@
         s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b + 15, 'text-anchor': 'middle',
           'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#8b95a1' }, k));
         s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b - hgt - 5, 'text-anchor': 'middle',
-          'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, years[k]));
+          'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, n(years[k])));
       });
       ['Harvested Aarhus records by publication year, over the window the harvest asked for.',
        'The last bar is the year in progress, so it is short because the year is not over.'
@@ -430,7 +438,8 @@
           'which is ' + am.share_pct_same_topic + ' percent of them. Widen it to any topic at all and it is ' +
           am.candidates_where_a_danish_organisation_already_shares_an_au_project_on_any_topic + ' of ' +
           am.top_n_examined + '. So this list mostly finds rooms where some door is already open, ' +
-          'and the value is in which door and about what, not in discovering strangers.'
+          'and the value is in which door and about what, not in discovering strangers.' +
+          (am.note ? ' Read it as a floor: ' + esc(am.note) + '.' : '')
         : 'How often its own candidates turn out to be talking already was not measured in this build.';
     }
 
@@ -478,10 +487,10 @@
     var v3;
     if (oa.lookup_complete === false && oa.match_rate_pct != null) {
       v3 = '<b>Most of the papers have not been looked up yet, and that is the biggest thing wrong with this page.</b> ' +
-        'Of the ' + oa.dois_looked_up + ' Natural Sciences papers that carry a DOI, ' + oa.dois_matched +
+        'Of the ' + n(oa.dois_looked_up) + ' Natural Sciences papers that carry a DOI, ' + n(oa.dois_matched) +
         ' have been matched to a topic, which is ' + oa.match_rate_pct + ' percent of them. ' +
         'OpenAlex moved to a paid interface partway through this build and the free daily allowance ran out, ' +
-        'so the other ' + oa.dois_never_asked + ' are waiting on the next reset rather than on a fix to the code. ' +
+        'so the other ' + n(oa.dois_never_asked) + ' are waiting on the next reset rather than on a fix to the code. ' +
         'Every count and every ranking above is computed on the matched share alone, so read the ordering as a draft ' +
         'that has not yet seen three quarters of its own evidence.';
     } else {
@@ -491,8 +500,9 @@
         'and a department that publishes where DOIs are rare will look quieter here than it is.';
     }
     if (lo != null && hi != null && done.length > 1) {
-      v3 += ' The harvest itself is even across the finished years in the window, between ' + lo + ' and ' + hi +
-        ' records a year, so the shortfall sits in the topic lookup rather than in what was collected.';
+      v3 += ' The harvest itself is even across the finished years in the window, at no fewer than ' +
+        n(lo) + ' and no more than ' + n(hi) + ' records in any one of them, so the shortfall sits in ' +
+        'the topic lookup rather than in what was collected.';
     }
     if (strayRecords) {
       v3 += ' A further ' + strayRecords + (strayRecords === 1 ? ' record carries' : ' records carry') +
