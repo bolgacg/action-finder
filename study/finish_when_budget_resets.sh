@@ -48,6 +48,10 @@ run() {
 run python3 study/openalex.py
 run python3 study/partners.py
 run python3 study/rank.py
+# stability.py bootstraps the published candidates, so it has to follow rank.py every
+# time. Skip it and build_page_data.py finds a stability file describing the previous
+# ordering, refuses to inline it, and the page quietly loses that section overnight.
+run python3 study/stability.py
 run python3 study/build_page_data.py
 
 # The point of the whole wait. If the lookup still did not complete, say so loudly
