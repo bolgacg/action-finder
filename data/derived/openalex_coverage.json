@@ -1,0 +1,21 @@
+{
+  "pure_works_total": 8920,
+  "pure_works_with_doi": 7329,
+  "openalex_matched": 2025,
+  "works_held_in_output_total": 2025,
+  "dois_fetched_this_run": 0,
+  "dois_confirmed_absent_from_openalex": 0,
+  "dois_never_asked": 5304,
+  "lookup_complete": false,
+  "rate_limited_this_run": true,
+  "coverage_warning": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "openalex_match_rate_pct": 27.6,
+  "matched_share_of_all_pure_works_pct": 22.7,
+  "matched_with_primary_subfield": 2025,
+  "matched_with_company_coauthor": 184,
+  "company_coauthor_share_pct": 9.1,
+  "matched_with_danish_company_coauthor": 39,
+  "institution_type_counts": {},
+  "institution_type_counts_scope": "no works fetched in this run; see the institutions CSV",
+  "note": "A DOI that does not match is usually a chapter, report or conference item that was never registered with Crossref. Unmatched works are dropped from the topic analysis, not counted as zero-company."
+}

@@ -1,0 +1,85 @@
+{
+  "_what_this_is": "Hand verdicts on the 20 topic assignments sampled in data/derived/topic_check_sample.json, seed 20260914. Judged by reading each row, not by any rule. 'right' means the assigned topic describes the paper or the term. 'partly right' means it is in the right area but loses or bends the meaning. 'wrong' means it would mislead someone reading the Action. Ten rows test the paper to subfield step, which is OpenAlex's work; ten test the euroSciVoc term to subfield bridge, which is this project's work.",
+
+  "s01": {
+    "verdict": "wrong",
+    "note": "A paper titled Computational Chemistry is assigned the topic Mass Spectrometry Techniques and Applications and so the subfield Spectroscopy. Computational chemistry is not spectroscopy. The paper to topic step misfired, probably on a short and generic title."
+  },
+  "s02": {
+    "verdict": "wrong",
+    "note": "A paper on solar variability from radiocarbon records lands in the subfield Molecular Biology. The paper to topic step is fine, Geomagnetism and Paleomagnetism Studies is a fair topic for it. The error is in OpenAlex's own hierarchy: that topic is filed under subfield Molecular Biology, field Biochemistry Genetics and Molecular Biology. Checked against the cached OpenAlex topic list, so this is upstream and not a fault of this pipeline."
+  },
+  "s03": {
+    "verdict": "right",
+    "note": "A diatom peptide used to fabricate titanium dioxide nanosheets, assigned Biomaterials. The topic Diatoms and Algae Research sits under Biomaterials in OpenAlex, which is odd in general, but for this particular paper Biomaterials is a fair description."
+  },
+  "s04": {
+    "verdict": "partly right",
+    "note": "Survival strategies under oxygen deprivation in vertebrates, assigned Molecular Biology through the topic Mitochondrial Function and Pathology. The work is comparative physiology. Physiology would describe it better, though the molecular framing is not absurd."
+  },
+  "s05": {
+    "verdict": "right",
+    "note": "Two-proton halo character of neon-17, assigned Nuclear and High Energy Physics. Exactly right."
+  },
+  "s06": {
+    "verdict": "right",
+    "note": "Temporal variation of coastal marine environmental DNA, assigned Ecology. Right."
+  },
+  "s07": {
+    "verdict": "right",
+    "note": "Microbial methanation in hybrid electric and biological anaerobic digestion, assigned Environmental Engineering. Right."
+  },
+  "s08": {
+    "verdict": "partly right",
+    "note": "Hydration friction at ionic interfaces probed at the atomic scale, assigned Atomic and Molecular Physics and Optics through a force microscopy topic. The work is nanoscale surface science; Condensed Matter Physics would fit better. In the right neighbourhood but not the right label."
+  },
+  "s09": {
+    "verdict": "right",
+    "note": "Critical Assessment of Metagenome Interpretation, assigned Molecular Biology. A computational biology label would be sharper, but Molecular Biology is defensible for a metagenomics benchmark."
+  },
+  "s10": {
+    "verdict": "right",
+    "note": "Rydberg exciton polaritons in a cuprous oxide microcavity, assigned Atomic and Molecular Physics and Optics. Right."
+  },
+
+  "s11": {
+    "verdict": "wrong",
+    "note": "The euroSciVoc term electric power generation, matched two levels up on electrical engineering, was assigned the subfield Atomic and Molecular Physics and Optics. Electrical engineering should reach Electrical and Electronic Engineering. The keyword route sent it somewhere unrelated."
+  },
+  "s12": {
+    "verdict": "right",
+    "note": "biocatalysis matched one level up on catalysis and assigned the subfield Catalysis. Correct, and the climb costs nothing here."
+  },
+  "s13": {
+    "verdict": "right",
+    "note": "hydrocarbons matched one level up on organic chemistry and assigned Organic Chemistry. Correct."
+  },
+  "s14": {
+    "verdict": "right",
+    "note": "ecosystems matched one level up on ecology and assigned Ecology. Correct."
+  },
+  "s15": {
+    "verdict": "wrong",
+    "note": "The term coal, under fossil energy, matched exactly as a topic keyword and was assigned Mechanical Engineering. Coal belongs with fuel or energy technology. An exact leaf match through the keyword route is still wrong, which shows that the climb distance is not what makes a match unreliable."
+  },
+  "s16": {
+    "verdict": "partly right",
+    "note": "mobile phones, under telecommunications, assigned Information Systems. Computer Networks and Communications, or Electrical and Electronic Engineering, would be closer. Adjacent rather than correct."
+  },
+  "s17": {
+    "verdict": "partly right",
+    "note": "hydroelectricity climbed three levels to environmental engineering and was assigned Environmental Engineering. The euroSciVoc path really does place it there, so the mapping is faithful, but three levels of climb throws away everything specific about hydropower."
+  },
+  "s18": {
+    "verdict": "wrong",
+    "note": "atmospheric turbulence, a meteorology term, was assigned Atomic and Molecular Physics and Optics. The phrase is a keyword on free space optics topics, so the keyword route matched the wrong sense of the words."
+  },
+  "s19": {
+    "verdict": "wrong",
+    "note": "cryptography, under computer security, was assigned Artificial Intelligence. A clear miss; cryptography is not AI. The keyword route again."
+  },
+  "s20": {
+    "verdict": "right",
+    "note": "molecular neuroscience matched one level up on molecular biology and assigned Molecular Biology. Correct."
+  }
+}

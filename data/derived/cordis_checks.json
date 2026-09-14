@@ -1,0 +1,46 @@
+{
+  "facts_recheck": {
+    "au_participant_id": "999997736",
+    "au_projects": 439,
+    "partner_rows_on_au_projects": 6012,
+    "partner_rows_including_au_own_rows": 6451,
+    "danish_for_profit_partner_rows": 67,
+    "danish_for_profit_partner_orgs": 53,
+    "danish_orgs_in_horizon_europe_total": 726,
+    "danish_for_profit_orgs_in_horizon_europe_total": 494,
+    "danish_orgs_with_no_au_project": 610
+  },
+  "topic_bridge": {
+    "keyword_route_used": false,
+    "euroscivoc_paths_total": 1007,
+    "euroscivoc_paths_mapped": 377,
+    "map_rate_pct": 37.4,
+    "method_counts": {
+      "unmapped": 630,
+      "subfield_name": 376,
+      "topic_name": 1
+    },
+    "levels_above_leaf": {
+      "0": 73,
+      "1": 191,
+      "2": 85,
+      "3": 21,
+      "4": 5,
+      "5": 2
+    },
+    "exact_leaf_match": 73,
+    "trusted_methods": [
+      "subfield_name",
+      "topic_name"
+    ],
+    "keyword_matching_enabled": false
+  },
+  "cordis_project_file": {
+    "project_rows_read": 23451,
+    "rows_well_formed": 23258,
+    "rows_running_long_from_unescaped_quotes": 193,
+    "rows_running_short": 0,
+    "rows_usable_for_this_study": 23451,
+    "why_usable": "the corruption is in the free-text objective column at index 15; every column this study reads sits before it and is still correctly positioned on a long row"
+  }
+}

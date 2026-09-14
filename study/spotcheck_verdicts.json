@@ -1,0 +1,31 @@
+{
+  "_what_this_is": "Hand verdicts on the name matches made by the offline falsification check in spotcheck.py. Keyed by 'CORDIS name::OpenAlex name'. 'genuine' means the two names are the same organisation or the same corporate group, so the tool was wrong to call them not yet connected. 'spurious' means the names matched on a word they happen to share and the organisations are different. Judged by reading the names, not by any automatic rule.",
+  "KNOWLEDGE HUB ZEALAND::Knowledge Centre for Agriculture": {
+    "verdict": "spurious",
+    "note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+  },
+  "COWI AS::Cowi (Denmark)": {
+    "verdict": "genuine",
+    "note": "The same Danish engineering consultancy. AU Natural Sciences does co-author with COWI, so calling this pair not yet connected on the topic understates the existing contact."
+  },
+  "NOVO NORDISK A/S::Novo Nordisk (Denmark)": {
+    "verdict": "genuine",
+    "note": "The same company."
+  },
+  "TOPSOE AS::Haldor Topsoe (Denmark)": {
+    "verdict": "genuine",
+    "note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
+  },
+  "ORSTED WIND POWER A/S::Ørsted (Denmark)": {
+    "verdict": "genuine",
+    "note": "Orsted Wind Power A/S is part of the Orsted group, which is the entity OpenAlex records. Same group, so the existing co-authorship is real."
+  },
+  "NOVOZYMES A/S::Novozymes (Denmark)": {
+    "verdict": "genuine",
+    "note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+  },
+  "Unisense Environment A/S::Unisense (Denmark)": {
+    "verdict": "genuine",
+    "note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
+  }
+}

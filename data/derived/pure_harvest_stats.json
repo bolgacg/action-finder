@@ -1,0 +1,94 @@
+{
+  "endpoint": "https://pure.au.dk/ws/oai",
+  "metadata_prefix": "ddf-mxd",
+  "sets": [
+    {
+      "set": "publications:year2022",
+      "pages": 138,
+      "pages_from_cache": 0,
+      "records": 13782,
+      "complete_list_size": 13782,
+      "scrub": {
+        "email_element": 19314,
+        "address_element": 19457,
+        "loc_per_id": 28942,
+        "orcid_id": 16548,
+        "person_profile_uri": 29979,
+        "bare_email_in_text": 48,
+        "person_profile_url_in_text": 0
+      }
+    },
+    {
+      "set": "publications:year2023",
+      "pages": 132,
+      "pages_from_cache": 0,
+      "records": 13139,
+      "complete_list_size": 13139,
+      "scrub": {
+        "email_element": 19917,
+        "address_element": 20052,
+        "loc_per_id": 28156,
+        "orcid_id": 16926,
+        "person_profile_uri": 29109,
+        "bare_email_in_text": 31,
+        "person_profile_url_in_text": 0
+      }
+    },
+    {
+      "set": "publications:year2024",
+      "pages": 131,
+      "pages_from_cache": 0,
+      "records": 13051,
+      "complete_list_size": 13051,
+      "scrub": {
+        "email_element": 20438,
+        "address_element": 20594,
+        "loc_per_id": 27069,
+        "orcid_id": 17678,
+        "person_profile_uri": 28043,
+        "bare_email_in_text": 58,
+        "person_profile_url_in_text": 0
+      }
+    },
+    {
+      "set": "publications:year2025",
+      "pages": 137,
+      "pages_from_cache": 0,
+      "records": 13697,
+      "complete_list_size": 13697,
+      "scrub": {
+        "email_element": 23721,
+        "address_element": 23905,
+        "loc_per_id": 29486,
+        "orcid_id": 19727,
+        "person_profile_uri": 30062,
+        "bare_email_in_text": 86,
+        "person_profile_url_in_text": 0
+      }
+    },
+    {
+      "set": "publications:year2026",
+      "pages": 95,
+      "pages_from_cache": 26,
+      "records": 9445,
+      "complete_list_size": 9445,
+      "scrub": {
+        "email_element": 12385,
+        "address_element": 12464,
+        "loc_per_id": 14801,
+        "orcid_id": 10148,
+        "person_profile_uri": 15019,
+        "bare_email_in_text": 102,
+        "person_profile_url_in_text": 0
+      }
+    }
+  ],
+  "scrub_totals": {
+    "email_element": 95775,
+    "address_element": 96472,
+    "loc_per_id": 128454,
+    "orcid_id": 81027,
+    "person_profile_uri": 132212,
+    "bare_email_in_text": 325
+  }
+}

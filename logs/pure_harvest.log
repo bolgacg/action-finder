@@ -1,0 +1,39 @@
+[20:29:13] harvesting publications:year2022
+[20:30:26]   publications:year2022: page 25, 2500 of 13782 records
+[20:31:43]   publications:year2022: page 50, 5000 of 13782 records
+[20:33:03]   publications:year2022: page 75, 7500 of 13782 records
+[20:34:16]   publications:year2022: page 100, 10000 of 13782 records
+[20:35:21]   publications:year2022: page 125, 12500 of 13782 records
+[20:36:00]   publications:year2022: page 138, 13782 of 13782 records
+[20:36:00] harvesting publications:year2023
+[20:37:19]   publications:year2023: page 25, 2500 of 13139 records
+[20:38:37]   publications:year2023: page 50, 5000 of 13139 records
+[20:39:49]   publications:year2023: page 75, 7500 of 13139 records
+[20:41:10]   publications:year2023: page 100, 10000 of 13139 records
+[20:42:14]   publications:year2023: page 125, 12500 of 13139 records
+[20:42:34]   publications:year2023: page 132, 13139 of 13139 records
+[20:42:34] harvesting publications:year2024
+[20:43:48]   publications:year2024: page 25, 2500 of 13051 records
+[20:44:54]   publications:year2024: page 50, 5000 of 13051 records
+[20:45:59]   publications:year2024: page 75, 7500 of 13051 records
+[20:47:30]   publications:year2024: page 100, 10000 of 13051 records
+[20:48:45]   publications:year2024: page 125, 12500 of 13051 records
+[20:48:56]   publications:year2024: page 131, 13051 of 13051 records
+[20:48:56] harvesting publications:year2025
+[20:49:52]   publications:year2025: page 25, 2500 of 13697 records
+[20:50:38]   publications:year2025: page 50, 5000 of 13697 records
+[20:51:27]   publications:year2025: page 75, 7500 of 13697 records
+[20:52:18]   publications:year2025: page 100, 10000 of 13697 records
+[20:53:05]   publications:year2025: page 125, 12500 of 13697 records
+[20:53:29]   publications:year2025: page 137, 13697 of 13697 records
+[20:53:29] harvesting publications:year2026
+[20:53:29]   publications:year2026: page 25, 2500 of 9445 records
+[20:54:16]   publications:year2026: page 50, 5000 of 9445 records
+[20:55:20]   publications:year2026: page 75, 7500 of 9445 records
+[20:56:30]   publications:year2026: page 95, 9445 of 9445 records
+[20:56:30] wrote /home/bolgac/projects/action-finder/data/derived/pure_harvest_stats.json (2 kB)
+[20:56:30] parsing cache
+[20:57:56] wrote /home/bolgac/projects/action-finder/data/derived/pure_natsci_works.csv (8920 works)
+[20:57:56] wrote /home/bolgac/projects/action-finder/data/derived/pure_natsci_affiliations.csv (10272 rows)
+[20:57:56] wrote /home/bolgac/projects/action-finder/data/derived/pure_coverage.json (2 kB)
+[20:57:56] Natural Sciences works 8920, with DOI 7344 (82.3%)

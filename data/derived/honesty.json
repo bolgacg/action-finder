@@ -1,0 +1,740 @@
+{
+  "generated_at": "2026-09-14T21:08:49",
+  "what_this_panel_is": "the numbers that say how far the ranked list can be trusted, computed by the same scripts that produced the list",
+  "headline_limitation": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "coverage_pure": {
+    "harvest_window_publication_years": {
+      "2020": 1,
+      "2021": 4,
+      "2022": 2002,
+      "2023": 1871,
+      "2024": 1925,
+      "2025": 1931,
+      "2026": 1185,
+      "2027": 1
+    },
+    "records_read_from_cache": 63114,
+    "natural_sciences_works": 8920,
+    "natural_sciences_works_with_doi": 7344,
+    "doi_share_pct": 82.3,
+    "works_by_department": {
+      "Department of Biology": 1876,
+      "Interdisciplinary Nanoscience Center": 1422,
+      "Department of Physics and Astronomy": 1400,
+      "Department of Chemistry": 1178,
+      "Department of Molecular Biology and Genetics": 1118,
+      "Department of Computer Science": 1088,
+      "Department of Mathematics": 837,
+      "Department of Geoscience": 834,
+      "Arctic Research Centre": 421,
+      "Science Museums": 47,
+      "iMAT": 34,
+      "Dean's Office, Natural Sciences": 13,
+      "SpaCe - Aarhus Space Centre": 4
+    },
+    "faculty_mentions_across_all_of_au": {
+      "Health Sciences": 37390,
+      "Technical Sciences": 20435,
+      "Arts": 15431,
+      "Natural Sciences": 11454,
+      "Aarhus BSS": 8284,
+      "Interfaculty Centre": 1172,
+      "AU Library - Royal Danish Library": 60,
+      "Central Administration": 28,
+      "Aarhus University": 8,
+      "Rector's Office": 4
+    }
+  },
+  "coverage_openalex": {
+    "lookup_complete": false,
+    "incomplete_because": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+    "dois_never_asked": 5304,
+    "dois_looked_up": 7329,
+    "dois_matched": 2025,
+    "match_rate_pct": 27.6,
+    "matched_share_of_all_natural_sciences_works_pct": 22.7,
+    "matched_works_with_a_primary_subfield": 2025,
+    "works_with_a_company_coauthor": 184,
+    "company_coauthor_share_pct": 9.1,
+    "institution_type_counts": {}
+  },
+  "coverage_cordis": {
+    "au_participant_id": "999997736",
+    "au_projects": 439,
+    "partner_rows_on_au_projects": 6012,
+    "partner_rows_including_au_own_rows": 6451,
+    "danish_for_profit_partner_rows": 67,
+    "danish_for_profit_partner_orgs": 53,
+    "danish_orgs_in_horizon_europe_total": 726,
+    "danish_for_profit_orgs_in_horizon_europe_total": 494,
+    "danish_orgs_with_no_au_project": 610
+  },
+  "topic_bridge": {
+    "keyword_route_used": false,
+    "euroscivoc_paths_total": 1007,
+    "euroscivoc_paths_mapped": 377,
+    "map_rate_pct": 37.4,
+    "method_counts": {
+      "unmapped": 630,
+      "subfield_name": 376,
+      "topic_name": 1
+    },
+    "levels_above_leaf": {
+      "0": 73,
+      "1": 191,
+      "2": 85,
+      "3": 21,
+      "4": 5,
+      "5": 2
+    },
+    "exact_leaf_match": 73,
+    "trusted_methods": [
+      "subfield_name",
+      "topic_name"
+    ],
+    "keyword_matching_enabled": false
+  },
+  "cordis_project_file": {
+    "project_rows_read": 23451,
+    "rows_well_formed": 23258,
+    "rows_running_long_from_unescaped_quotes": 193,
+    "rows_running_short": 0,
+    "rows_usable_for_this_study": 23451,
+    "why_usable": "the corruption is in the free-text objective column at index 15; every column this study reads sits before it and is still correctly positioned on a long row"
+  },
+  "topic_assignment_accuracy": {
+    "sample_drawn_from": "a run made before the topic keyword route was switched off, which is what this check found and removed",
+    "sample_size": 20,
+    "hand_checked": 20,
+    "fresh_sample_for_next_round": 20,
+    "judged_wrong": 6,
+    "judged_partly_right": 4,
+    "judged_right": 10,
+    "wrong_rate_pct": 30.0,
+    "wrong_or_partly_rate_pct": 50.0,
+    "by_check_type": {
+      "paper_to_subfield": {
+        "checked": 10,
+        "wrong": 2,
+        "partly_right": 2
+      },
+      "euroscivoc_term_to_subfield": {
+        "checked": 10,
+        "wrong": 4,
+        "partly_right": 2
+      }
+    },
+    "by_bridge_match_method": {
+      "subfield_name": {
+        "checked": 5,
+        "right": 4,
+        "partly_right": 1,
+        "wrong": 0
+      },
+      "topic_name": {
+        "checked": 0,
+        "right": 0,
+        "partly_right": 0,
+        "wrong": 0
+      },
+      "topic_keyword": {
+        "checked": 5,
+        "right": 0,
+        "partly_right": 1,
+        "wrong": 4
+      }
+    },
+    "verdicts": {
+      "_what_this_is": "Hand verdicts on the 20 topic assignments sampled in data/derived/topic_check_sample.json, seed 20260914. Judged by reading each row, not by any rule. 'right' means the assigned topic describes the paper or the term. 'partly right' means it is in the right area but loses or bends the meaning. 'wrong' means it would mislead someone reading the Action. Ten rows test the paper to subfield step, which is OpenAlex's work; ten test the euroSciVoc term to subfield bridge, which is this project's work.",
+      "s01": {
+        "verdict": "wrong",
+        "note": "A paper titled Computational Chemistry is assigned the topic Mass Spectrometry Techniques and Applications and so the subfield Spectroscopy. Computational chemistry is not spectroscopy. The paper to topic step misfired, probably on a short and generic title."
+      },
+      "s02": {
+        "verdict": "wrong",
+        "note": "A paper on solar variability from radiocarbon records lands in the subfield Molecular Biology. The paper to topic step is fine, Geomagnetism and Paleomagnetism Studies is a fair topic for it. The error is in OpenAlex's own hierarchy: that topic is filed under subfield Molecular Biology, field Biochemistry Genetics and Molecular Biology. Checked against the cached OpenAlex topic list, so this is upstream and not a fault of this pipeline."
+      },
+      "s03": {
+        "verdict": "right",
+        "note": "A diatom peptide used to fabricate titanium dioxide nanosheets, assigned Biomaterials. The topic Diatoms and Algae Research sits under Biomaterials in OpenAlex, which is odd in general, but for this particular paper Biomaterials is a fair description."
+      },
+      "s04": {
+        "verdict": "partly right",
+        "note": "Survival strategies under oxygen deprivation in vertebrates, assigned Molecular Biology through the topic Mitochondrial Function and Pathology. The work is comparative physiology. Physiology would describe it better, though the molecular framing is not absurd."
+      },
+      "s05": {
+        "verdict": "right",
+        "note": "Two-proton halo character of neon-17, assigned Nuclear and High Energy Physics. Exactly right."
+      },
+      "s06": {
+        "verdict": "right",
+        "note": "Temporal variation of coastal marine environmental DNA, assigned Ecology. Right."
+      },
+      "s07": {
+        "verdict": "right",
+        "note": "Microbial methanation in hybrid electric and biological anaerobic digestion, assigned Environmental Engineering. Right."
+      },
+      "s08": {
+        "verdict": "partly right",
+        "note": "Hydration friction at ionic interfaces probed at the atomic scale, assigned Atomic and Molecular Physics and Optics through a force microscopy topic. The work is nanoscale surface science; Condensed Matter Physics would fit better. In the right neighbourhood but not the right label."
+      },
+      "s09": {
+        "verdict": "right",
+        "note": "Critical Assessment of Metagenome Interpretation, assigned Molecular Biology. A computational biology label would be sharper, but Molecular Biology is defensible for a metagenomics benchmark."
+      },
+      "s10": {
+        "verdict": "right",
+        "note": "Rydberg exciton polaritons in a cuprous oxide microcavity, assigned Atomic and Molecular Physics and Optics. Right."
+      },
+      "s11": {
+        "verdict": "wrong",
+        "note": "The euroSciVoc term electric power generation, matched two levels up on electrical engineering, was assigned the subfield Atomic and Molecular Physics and Optics. Electrical engineering should reach Electrical and Electronic Engineering. The keyword route sent it somewhere unrelated."
+      },
+      "s12": {
+        "verdict": "right",
+        "note": "biocatalysis matched one level up on catalysis and assigned the subfield Catalysis. Correct, and the climb costs nothing here."
+      },
+      "s13": {
+        "verdict": "right",
+        "note": "hydrocarbons matched one level up on organic chemistry and assigned Organic Chemistry. Correct."
+      },
+      "s14": {
+        "verdict": "right",
+        "note": "ecosystems matched one level up on ecology and assigned Ecology. Correct."
+      },
+      "s15": {
+        "verdict": "wrong",
+        "note": "The term coal, under fossil energy, matched exactly as a topic keyword and was assigned Mechanical Engineering. Coal belongs with fuel or energy technology. An exact leaf match through the keyword route is still wrong, which shows that the climb distance is not what makes a match unreliable."
+      },
+      "s16": {
+        "verdict": "partly right",
+        "note": "mobile phones, under telecommunications, assigned Information Systems. Computer Networks and Communications, or Electrical and Electronic Engineering, would be closer. Adjacent rather than correct."
+      },
+      "s17": {
+        "verdict": "partly right",
+        "note": "hydroelectricity climbed three levels to environmental engineering and was assigned Environmental Engineering. The euroSciVoc path really does place it there, so the mapping is faithful, but three levels of climb throws away everything specific about hydropower."
+      },
+      "s18": {
+        "verdict": "wrong",
+        "note": "atmospheric turbulence, a meteorology term, was assigned Atomic and Molecular Physics and Optics. The phrase is a keyword on free space optics topics, so the keyword route matched the wrong sense of the words."
+      },
+      "s19": {
+        "verdict": "wrong",
+        "note": "cryptography, under computer security, was assigned Artificial Intelligence. A clear miss; cryptography is not AI. The keyword route again."
+      },
+      "s20": {
+        "verdict": "right",
+        "note": "molecular neuroscience matched one level up on molecular biology and assigned Molecular Biology. Correct."
+      }
+    }
+  },
+  "falsification_spotcheck": {
+    "offline_check_against_natural_sciences_coauthorship": {
+      "what_it_tests": "organisations the ranked list calls not yet connected on a topic, checked against the Danish companies that actually co-author papers with the Faculty of Natural Sciences",
+      "distinct_name_pairs_matched": 6,
+      "hand_checked_genuine": 5,
+      "hand_checked_spurious": 1,
+      "hand_checked_pending": 0,
+      "name_match_precision_pct": 83.3,
+      "organisation_claims_checked": 214,
+      "claims_contradicted": 17,
+      "contradicted_pct": 7.9,
+      "findings": [
+        {
+          "rank": 1,
+          "department": "Department of Biology",
+          "topic": "Ecology",
+          "cordis_name": "KNOWLEDGE HUB ZEALAND",
+          "cordis_participant_id": "889267095",
+          "openalex_company_name": "Knowledge Centre for Agriculture",
+          "shared_name_tokens": [
+            "knowledge"
+          ],
+          "hand_verdict": "spurious",
+          "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+        },
+        {
+          "rank": 3,
+          "department": "Arctic Research Centre",
+          "topic": "Ecology",
+          "cordis_name": "KNOWLEDGE HUB ZEALAND",
+          "cordis_participant_id": "889267095",
+          "openalex_company_name": "Knowledge Centre for Agriculture",
+          "shared_name_tokens": [
+            "knowledge"
+          ],
+          "hand_verdict": "spurious",
+          "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+        },
+        {
+          "rank": 4,
+          "department": "Department of Biology",
+          "topic": "Environmental Engineering",
+          "cordis_name": "ORSTED WIND POWER A/S",
+          "cordis_participant_id": "952875136",
+          "openalex_company_name": "Ørsted (Denmark)",
+          "shared_name_tokens": [
+            "orsted"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "Orsted Wind Power A/S is part of the Orsted group, which is the entity OpenAlex records. Same group, so the existing co-authorship is real."
+        },
+        {
+          "rank": 6,
+          "department": "Department of Chemistry",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 6,
+          "department": "Department of Chemistry",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 6,
+          "department": "Department of Chemistry",
+          "topic": "Organic Chemistry",
+          "cordis_name": "Unisense Environment A/S",
+          "cordis_participant_id": "934248517",
+          "openalex_company_name": "Unisense (Denmark)",
+          "shared_name_tokens": [
+            "unisense"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
+        },
+        {
+          "rank": 7,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Biomaterials",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 8,
+          "department": "Department of Chemistry",
+          "topic": "Biomaterials",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 9,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 9,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 9,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Organic Chemistry",
+          "cordis_name": "Unisense Environment A/S",
+          "cordis_participant_id": "934248517",
+          "openalex_company_name": "Unisense (Denmark)",
+          "shared_name_tokens": [
+            "unisense"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "Unisense Environment A/S is part of the Aarhus-based Unisense group that OpenAlex records. Same group."
+        },
+        {
+          "rank": 14,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Catalysis",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 14,
+          "department": "Interdisciplinary Nanoscience Center",
+          "topic": "Catalysis",
+          "cordis_name": "TOPSOE AS",
+          "cordis_participant_id": "999432226",
+          "openalex_company_name": "Haldor Topsoe (Denmark)",
+          "shared_name_tokens": [
+            "topsoe"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
+        },
+        {
+          "rank": 15,
+          "department": "Department of Chemistry",
+          "topic": "Catalysis",
+          "cordis_name": "NOVOZYMES A/S",
+          "cordis_participant_id": "999913346",
+          "openalex_company_name": "Novozymes (Denmark)",
+          "shared_name_tokens": [
+            "novozymes"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Novozymes merged with Chr. Hansen to form Novonesis in 2024; both sources still use the Novozymes name for the period covered."
+        },
+        {
+          "rank": 15,
+          "department": "Department of Chemistry",
+          "topic": "Catalysis",
+          "cordis_name": "TOPSOE AS",
+          "cordis_participant_id": "999432226",
+          "openalex_company_name": "Haldor Topsoe (Denmark)",
+          "shared_name_tokens": [
+            "topsoe"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company. Haldor Topsoe A/S was renamed Topsoe A/S in 2022 and OpenAlex still carries the former name."
+        },
+        {
+          "rank": 19,
+          "department": "Department of Molecular Biology and Genetics",
+          "topic": "Cell Biology",
+          "cordis_name": "NOVO NORDISK A/S",
+          "cordis_participant_id": "999940021",
+          "openalex_company_name": "Novo Nordisk (Denmark)",
+          "shared_name_tokens": [
+            "novo"
+          ],
+          "hand_verdict": "genuine",
+          "hand_note": "The same company."
+        },
+        {
+          "rank": 20,
+          "department": "Department of Molecular Biology and Genetics",
+          "topic": "Ecology",
+          "cordis_name": "KNOWLEDGE HUB ZEALAND",
+          "cordis_participant_id": "889267095",
+          "openalex_company_name": "Knowledge Centre for Agriculture",
+          "shared_name_tokens": [
+            "knowledge"
+          ],
+          "hand_verdict": "spurious",
+          "hand_note": "Two different organisations that share the common noun knowledge. Knowledge Hub Zealand is a regional innovation hub on Zealand; the Knowledge Centre for Agriculture is the Danish agricultural advisory body. No relation."
+        }
+      ],
+      "match_rule": "a shared word of at least four characters that appears in fewer than five Danish organisation names in the corpus",
+      "distinctive_word_threshold": "appears in fewer than 5 of 748 organisation names",
+      "caveat": "matched on name tokens, so each finding should be read before it is believed. A miss is not evidence of no contact."
+    },
+    "api_check_run": false,
+    "what_this_is": "an attempt to disprove the not-yet-connected claims in data/actions.json using a source CORDIS cannot see",
+    "method": "sample for-profit Danish organisations that the ranked list says share no Horizon Europe project with AU on that topic, resolve each to an OpenAlex institution by name, and count works co-authored by that institution and Aarhus University I204337017",
+    "name_matching_caveat": "a name match is used here and nowhere else. It is sound in one direction only: a hit disproves the claim under test, a miss proves nothing because the name may simply not have resolved. Matched names are listed so a bad match can be spotted and discarded.",
+    "sampled": 0,
+    "disproved_already_co_author_with_au": 0,
+    "disproved_pct": 0.0,
+    "unresolved_names": 0,
+    "results": []
+  },
+  "top_candidates_already_collaborating": {
+    "top_n_examined": 25,
+    "candidates_where_a_danish_organisation_already_shares_an_au_project_on_the_same_topic": 18,
+    "share_pct_same_topic": 72.0,
+    "candidates_where_a_danish_organisation_already_shares_an_au_project_on_any_topic": 22,
+    "share_pct_any_topic": 88.0,
+    "candidates_where_au_already_has_a_company_coauthor_in_that_topic": 12,
+    "per_candidate": [
+      {
+        "rank": 1,
+        "action_id": "department-of-biology__2303",
+        "organisations": 90,
+        "share_a_project_with_au_on_this_topic": 13,
+        "share_any_project_with_au": 29,
+        "share_pct_on_this_topic": 14.4,
+        "share_pct_any_topic": 32.2,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 2,
+        "action_id": "department-of-computer-science__1702",
+        "organisations": 87,
+        "share_a_project_with_au_on_this_topic": 16,
+        "share_any_project_with_au": 25,
+        "share_pct_on_this_topic": 18.4,
+        "share_pct_any_topic": 28.7,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 3,
+        "action_id": "arctic-research-centre__2303",
+        "organisations": 90,
+        "share_a_project_with_au_on_this_topic": 13,
+        "share_any_project_with_au": 29,
+        "share_pct_on_this_topic": 14.4,
+        "share_pct_any_topic": 32.2,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 4,
+        "action_id": "department-of-biology__2305",
+        "organisations": 222,
+        "share_a_project_with_au_on_this_topic": 25,
+        "share_any_project_with_au": 34,
+        "share_pct_on_this_topic": 11.3,
+        "share_pct_any_topic": 15.3,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 5,
+        "action_id": "department-of-physics-and-astronomy__1702",
+        "organisations": 87,
+        "share_a_project_with_au_on_this_topic": 16,
+        "share_any_project_with_au": 25,
+        "share_pct_on_this_topic": 18.4,
+        "share_pct_any_topic": 28.7,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 6,
+        "action_id": "department-of-chemistry__1605",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 8,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 42.1,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 7,
+        "action_id": "interdisciplinary-nanoscience-center__2502",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 6,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 31.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 8,
+        "action_id": "department-of-chemistry__2502",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 6,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 31.6,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 9,
+        "action_id": "interdisciplinary-nanoscience-center__1605",
+        "organisations": 19,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 8,
+        "share_pct_on_this_topic": 15.8,
+        "share_pct_any_topic": 42.1,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 10,
+        "action_id": "department-of-molecular-biology-and-genetics__2403",
+        "organisations": 16,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 12.5,
+        "share_pct_any_topic": 31.2,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 11,
+        "action_id": "department-of-chemistry__2210",
+        "organisations": 44,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 9.1,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 12,
+        "action_id": "department-of-biology__2310",
+        "organisations": 34,
+        "share_a_project_with_au_on_this_topic": 5,
+        "share_any_project_with_au": 12,
+        "share_pct_on_this_topic": 14.7,
+        "share_pct_any_topic": 35.3,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 13,
+        "action_id": "department-of-mathematics__2604",
+        "organisations": 6,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 1,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 16.7,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 14,
+        "action_id": "interdisciplinary-nanoscience-center__1503",
+        "organisations": 14,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 14.3,
+        "share_pct_any_topic": 28.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 15,
+        "action_id": "department-of-chemistry__1503",
+        "organisations": 14,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 14.3,
+        "share_pct_any_topic": 28.6,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 16,
+        "action_id": "department-of-chemistry__1604",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 8.0,
+        "share_pct_any_topic": 20.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 17,
+        "action_id": "department-of-chemistry__1607",
+        "organisations": 4,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 18,
+        "action_id": "department-of-computer-science__1711",
+        "organisations": 8,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 19,
+        "action_id": "department-of-molecular-biology-and-genetics__1307",
+        "organisations": 6,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 3,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 50.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 20,
+        "action_id": "department-of-molecular-biology-and-genetics__2303",
+        "organisations": 90,
+        "share_a_project_with_au_on_this_topic": 13,
+        "share_any_project_with_au": 29,
+        "share_pct_on_this_topic": 14.4,
+        "share_pct_any_topic": 32.2,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 21,
+        "action_id": "department-of-molecular-biology-and-genetics__2713",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 3,
+        "share_any_project_with_au": 8,
+        "share_pct_on_this_topic": 12.0,
+        "share_pct_any_topic": 32.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 22,
+        "action_id": "department-of-physics-and-astronomy__1607",
+        "organisations": 4,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 0,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 0.0,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 23,
+        "action_id": "interdisciplinary-nanoscience-center__1604",
+        "organisations": 25,
+        "share_a_project_with_au_on_this_topic": 2,
+        "share_any_project_with_au": 5,
+        "share_pct_on_this_topic": 8.0,
+        "share_pct_any_topic": 20.0,
+        "au_has_company_coauthor_in_topic": true
+      },
+      {
+        "rank": 24,
+        "action_id": "interdisciplinary-nanoscience-center__2210",
+        "organisations": 44,
+        "share_a_project_with_au_on_this_topic": 0,
+        "share_any_project_with_au": 4,
+        "share_pct_on_this_topic": 0.0,
+        "share_pct_any_topic": 9.1,
+        "au_has_company_coauthor_in_topic": false
+      },
+      {
+        "rank": 25,
+        "action_id": "interdisciplinary-nanoscience-center__2730",
+        "organisations": 32,
+        "share_a_project_with_au_on_this_topic": 7,
+        "share_any_project_with_au": 15,
+        "share_pct_on_this_topic": 21.9,
+        "share_pct_any_topic": 46.9,
+        "au_has_company_coauthor_in_topic": false
+      }
+    ],
+    "note": "a shared Horizon Europe project is the only kind of existing collaboration this can see; two organisations can work together through contract research, Innovation Fund Denmark, a student project or a consultancy and leave no trace in CORDIS, so this is a floor on existing collaboration and never a ceiling"
+  }
+}

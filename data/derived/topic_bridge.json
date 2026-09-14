@@ -1,0 +1,3772 @@
+{
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 0,
+    "leaf_term": "horticulture"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/arboriculture": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 1,
+    "leaf_term": "arboriculture"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/fruit growing": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 1,
+    "leaf_term": "fruit growing"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/urban horticulture": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 1,
+    "leaf_term": "urban horticulture"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/vegetable growing": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 1,
+    "leaf_term": "vegetable growing"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/vegetable growing/root crops": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 2,
+    "leaf_term": "root crops"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/agriculture/horticulture/viticulture": {
+    "subfield_id": "1108",
+    "subfield": "Horticulture",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "horticulture",
+    "levels_above_leaf": 1,
+    "leaf_term": "viticulture"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/forestry": {
+    "subfield_id": "1107",
+    "subfield": "Forestry",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "forestry",
+    "levels_above_leaf": 0,
+    "leaf_term": "forestry"
+  },
+  "agricultural sciences/agriculture, forestry, and fisheries/forestry/silviculture": {
+    "subfield_id": "1107",
+    "subfield": "Forestry",
+    "field": "Agricultural and Biological Sciences",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "forestry",
+    "levels_above_leaf": 1,
+    "leaf_term": "silviculture"
+  },
+  "engineering and technology/civil engineering/water engineering/ocean engineering": {
+    "subfield_id": "2212",
+    "subfield": "Ocean Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ocean engineering",
+    "levels_above_leaf": 0,
+    "leaf_term": "ocean engineering"
+  },
+  "engineering and technology/electrical engineering, electronic engineering, information engineering/electronic engineering/signal processing": {
+    "subfield_id": "1711",
+    "subfield": "Signal Processing",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "signal processing",
+    "levels_above_leaf": 0,
+    "leaf_term": "signal processing"
+  },
+  "engineering and technology/electrical engineering, electronic engineering, information engineering/electronic engineering/signal processing/compressed sensing": {
+    "subfield_id": "1711",
+    "subfield": "Signal Processing",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "signal processing",
+    "levels_above_leaf": 1,
+    "leaf_term": "compressed sensing"
+  },
+  "engineering and technology/environmental engineering": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 0,
+    "leaf_term": "environmental engineering"
+  },
+  "engineering and technology/environmental engineering/air pollution engineering": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "air pollution engineering"
+  },
+  "engineering and technology/environmental engineering/carbon capture engineering": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "carbon capture engineering"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "ecosystem-based management"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/climate change adaptation": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "climate change adaptation"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/climatic change mitigation": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "climatic change mitigation"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/ecological restoration": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "ecological restoration"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/green infrastructure": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "green infrastructure"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/habitat conservation": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "habitat conservation"
+  },
+  "engineering and technology/environmental engineering/ecosystem-based management/nature-based solutions": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "nature-based solutions"
+  },
+  "engineering and technology/environmental engineering/energy and fuels": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "energy and fuels"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/biomass energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "biomass energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/energy conversion": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "energy conversion"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/fossil energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "fossil energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/fossil energy/coal": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "coal"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/fossil energy/natural gas": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "natural gas"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/fossil energy/petroleum": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "petroleum"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/fuel cells": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "fuel cells"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/liquid fuels": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "liquid fuels"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/nuclear energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "nuclear energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "renewable energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/geothermal energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "geothermal energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hybrid energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "hybrid energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydroelectricity": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "hydroelectricity"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydroelectricity/marine energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 4,
+    "leaf_term": "marine energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydroelectricity/marine energy/tidal energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 5,
+    "leaf_term": "tidal energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydroelectricity/marine energy/wave power": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 5,
+    "leaf_term": "wave power"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydrogen energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "hydrogen energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/solar energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "solar energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/solar energy/concentrated solar power": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 4,
+    "leaf_term": "concentrated solar power"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/solar energy/photovoltaic": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 4,
+    "leaf_term": "photovoltaic"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/solar energy/solar thermal": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 4,
+    "leaf_term": "solar thermal"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/renewable energy/wind energy": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "wind energy"
+  },
+  "engineering and technology/environmental engineering/energy and fuels/synthetic fuels": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "synthetic fuels"
+  },
+  "engineering and technology/environmental engineering/geological engineering": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "geological engineering"
+  },
+  "engineering and technology/environmental engineering/geotechnics": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "geotechnics"
+  },
+  "engineering and technology/environmental engineering/mining and mineral processing": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "mining and mineral processing"
+  },
+  "engineering and technology/environmental engineering/mining and mineral processing/rare earths": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "rare earths"
+  },
+  "engineering and technology/environmental engineering/natural resources management": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "natural resources management"
+  },
+  "engineering and technology/environmental engineering/natural resources management/land management": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "land management"
+  },
+  "engineering and technology/environmental engineering/natural resources management/water management": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "water management"
+  },
+  "engineering and technology/environmental engineering/remote sensing": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "remote sensing"
+  },
+  "engineering and technology/environmental engineering/waste management": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "waste management"
+  },
+  "engineering and technology/environmental engineering/waste management/waste treatment processes": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "waste treatment processes"
+  },
+  "engineering and technology/environmental engineering/waste management/waste treatment processes/recycling": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "recycling"
+  },
+  "engineering and technology/environmental engineering/waste management/waste treatment processes/remanufacturing": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "remanufacturing"
+  },
+  "engineering and technology/environmental engineering/water treatment processes": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "water treatment processes"
+  },
+  "engineering and technology/environmental engineering/water treatment processes/drinking water treatment processes": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "drinking water treatment processes"
+  },
+  "engineering and technology/environmental engineering/water treatment processes/wastewater treatment processes": {
+    "subfield_id": "2305",
+    "subfield": "Environmental Engineering",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "environmental engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "wastewater treatment processes"
+  },
+  "engineering and technology/industrial biotechnology/biomaterials": {
+    "subfield_id": "2502",
+    "subfield": "Biomaterials",
+    "field": "Materials Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biomaterials",
+    "levels_above_leaf": 0,
+    "leaf_term": "biomaterials"
+  },
+  "engineering and technology/industrial biotechnology/biomaterials/biofuels": {
+    "subfield_id": "2502",
+    "subfield": "Biomaterials",
+    "field": "Materials Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biomaterials",
+    "levels_above_leaf": 1,
+    "leaf_term": "biofuels"
+  },
+  "engineering and technology/industrial biotechnology/biomaterials/bioplastics": {
+    "subfield_id": "2502",
+    "subfield": "Biomaterials",
+    "field": "Materials Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biomaterials",
+    "levels_above_leaf": 1,
+    "leaf_term": "bioplastics"
+  },
+  "engineering and technology/industrial biotechnology/biomaterials/bioplastics/polyhydroxyalkanoates": {
+    "subfield_id": "2502",
+    "subfield": "Biomaterials",
+    "field": "Materials Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biomaterials",
+    "levels_above_leaf": 2,
+    "leaf_term": "polyhydroxyalkanoates"
+  },
+  "engineering and technology/industrial biotechnology/biomaterials/bioplastics/polylactic acid": {
+    "subfield_id": "2502",
+    "subfield": "Biomaterials",
+    "field": "Materials Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biomaterials",
+    "levels_above_leaf": 2,
+    "leaf_term": "polylactic acid"
+  },
+  "engineering and technology/mechanical engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 0,
+    "leaf_term": "mechanical engineering"
+  },
+  "engineering and technology/mechanical engineering/applied mechanics": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "applied mechanics"
+  },
+  "engineering and technology/mechanical engineering/manufacturing engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "manufacturing engineering"
+  },
+  "engineering and technology/mechanical engineering/manufacturing engineering/additive manufacturing": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "additive manufacturing"
+  },
+  "engineering and technology/mechanical engineering/manufacturing engineering/product engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "product engineering"
+  },
+  "engineering and technology/mechanical engineering/manufacturing engineering/subtractive manufacturing": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "subtractive manufacturing"
+  },
+  "engineering and technology/mechanical engineering/mechatronics": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "mechatronics"
+  },
+  "engineering and technology/mechanical engineering/thermodynamic engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "thermodynamic engineering"
+  },
+  "engineering and technology/mechanical engineering/thermodynamic engineering/heat engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "heat engineering"
+  },
+  "engineering and technology/mechanical engineering/tribology": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "tribology"
+  },
+  "engineering and technology/mechanical engineering/tribology/lubrication": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "lubrication"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "vehicle engineering"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 0,
+    "leaf_term": "aerospace engineering"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering/aeronautical engineering": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "aeronautical engineering"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering/aircraft": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "aircraft"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering/aircraft/rotorcraft": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "rotorcraft"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering/astronautical engineering/spacecraft": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "spacecraft"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/aerospace engineering/satellite technology": {
+    "subfield_id": "2202",
+    "subfield": "Aerospace Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "aerospace engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "satellite technology"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/automotive engineering": {
+    "subfield_id": "2203",
+    "subfield": "Automotive Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "automotive engineering",
+    "levels_above_leaf": 0,
+    "leaf_term": "automotive engineering"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/automotive engineering/autonomous vehicles": {
+    "subfield_id": "2203",
+    "subfield": "Automotive Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "automotive engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "autonomous vehicles"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/automotive engineering/drive by wire": {
+    "subfield_id": "2203",
+    "subfield": "Automotive Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "automotive engineering",
+    "levels_above_leaf": 1,
+    "leaf_term": "drive by wire"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/naval engineering": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 2,
+    "leaf_term": "naval engineering"
+  },
+  "engineering and technology/mechanical engineering/vehicle engineering/naval engineering/sea vessels": {
+    "subfield_id": "2210",
+    "subfield": "Mechanical Engineering",
+    "field": "Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mechanical engineering",
+    "levels_above_leaf": 3,
+    "leaf_term": "sea vessels"
+  },
+  "engineering and technology/medical engineering/medical laboratory technology": {
+    "subfield_id": "3607",
+    "subfield": "Medical Laboratory Technology",
+    "field": "Health Professions",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "medical laboratory technology",
+    "levels_above_leaf": 0,
+    "leaf_term": "medical laboratory technology"
+  },
+  "engineering and technology/medical engineering/medical laboratory technology/diagnostic technologies": {
+    "subfield_id": "3607",
+    "subfield": "Medical Laboratory Technology",
+    "field": "Health Professions",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "medical laboratory technology",
+    "levels_above_leaf": 1,
+    "leaf_term": "diagnostic technologies"
+  },
+  "engineering and technology/medical engineering/medical laboratory technology/laboratory samples analysis": {
+    "subfield_id": "3607",
+    "subfield": "Medical Laboratory Technology",
+    "field": "Health Professions",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "medical laboratory technology",
+    "levels_above_leaf": 1,
+    "leaf_term": "laboratory samples analysis"
+  },
+  "humanities/history and archaeology/history": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 0,
+    "leaf_term": "history"
+  },
+  "humanities/history and archaeology/history/ancient history": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 1,
+    "leaf_term": "ancient history"
+  },
+  "humanities/history and archaeology/history/contemporary history": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 1,
+    "leaf_term": "contemporary history"
+  },
+  "humanities/history and archaeology/history/medieval history": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 1,
+    "leaf_term": "medieval history"
+  },
+  "humanities/history and archaeology/history/modern history": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 1,
+    "leaf_term": "modern history"
+  },
+  "humanities/history and archaeology/history/prehistory": {
+    "subfield_id": "1202",
+    "subfield": "History",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "history",
+    "levels_above_leaf": 1,
+    "leaf_term": "prehistory"
+  },
+  "humanities/philosophy, ethics and religion/philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 0,
+    "leaf_term": "philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/epistemology": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 1,
+    "leaf_term": "epistemology"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/history of philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 1,
+    "leaf_term": "history of philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/history of philosophy/ancient philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 2,
+    "leaf_term": "ancient philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/history of philosophy/contemporary philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 2,
+    "leaf_term": "contemporary philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/history of philosophy/medieval philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 2,
+    "leaf_term": "medieval philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/history of philosophy/modern philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 2,
+    "leaf_term": "modern philosophy"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/metaphysics": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 1,
+    "leaf_term": "metaphysics"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/metaphysics/teleology": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 2,
+    "leaf_term": "teleology"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/philosophy of language": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 1,
+    "leaf_term": "philosophy of language"
+  },
+  "humanities/philosophy, ethics and religion/philosophy/political philosophy": {
+    "subfield_id": "1211",
+    "subfield": "Philosophy",
+    "field": "Arts and Humanities",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "philosophy",
+    "levels_above_leaf": 1,
+    "leaf_term": "political philosophy"
+  },
+  "medical and health sciences/basic medicine/immunology": {
+    "subfield_id": "2403",
+    "subfield": "Immunology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "immunology",
+    "levels_above_leaf": 0,
+    "leaf_term": "immunology"
+  },
+  "medical and health sciences/basic medicine/immunology/autoimmune diseases": {
+    "subfield_id": "2403",
+    "subfield": "Immunology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "immunology",
+    "levels_above_leaf": 1,
+    "leaf_term": "autoimmune diseases"
+  },
+  "medical and health sciences/basic medicine/immunology/immunisation": {
+    "subfield_id": "2403",
+    "subfield": "Immunology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "immunology",
+    "levels_above_leaf": 1,
+    "leaf_term": "immunisation"
+  },
+  "medical and health sciences/basic medicine/immunology/immunotherapy": {
+    "subfield_id": "2403",
+    "subfield": "Immunology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "immunology",
+    "levels_above_leaf": 1,
+    "leaf_term": "immunotherapy"
+  },
+  "medical and health sciences/basic medicine/neurology": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 0,
+    "leaf_term": "neurology"
+  },
+  "medical and health sciences/basic medicine/neurology/amyotrophic lateral sclerosis": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "amyotrophic lateral sclerosis"
+  },
+  "medical and health sciences/basic medicine/neurology/dementia": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "dementia"
+  },
+  "medical and health sciences/basic medicine/neurology/dementia/alzheimer": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 2,
+    "leaf_term": "alzheimer"
+  },
+  "medical and health sciences/basic medicine/neurology/epilepsy": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "epilepsy"
+  },
+  "medical and health sciences/basic medicine/neurology/multiple sclerosis": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "multiple sclerosis"
+  },
+  "medical and health sciences/basic medicine/neurology/muscular dystrophies": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "muscular dystrophies"
+  },
+  "medical and health sciences/basic medicine/neurology/muscular dystrophies/duchenne muscular dystrophy": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 2,
+    "leaf_term": "duchenne muscular dystrophy"
+  },
+  "medical and health sciences/basic medicine/neurology/parkinson": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "parkinson"
+  },
+  "medical and health sciences/basic medicine/neurology/stroke": {
+    "subfield_id": "2808",
+    "subfield": "Neurology",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "neurology",
+    "levels_above_leaf": 1,
+    "leaf_term": "stroke"
+  },
+  "medical and health sciences/basic medicine/pharmacology and pharmacy/drug discovery": {
+    "subfield_id": "3002",
+    "subfield": "Drug Discovery",
+    "field": "Pharmacology, Toxicology and Pharmaceutics",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "drug discovery",
+    "levels_above_leaf": 0,
+    "leaf_term": "drug discovery"
+  },
+  "medical and health sciences/basic medicine/physiology": {
+    "subfield_id": "1314",
+    "subfield": "Physiology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "physiology",
+    "levels_above_leaf": 0,
+    "leaf_term": "physiology"
+  },
+  "medical and health sciences/basic medicine/physiology/cytology": {
+    "subfield_id": "1314",
+    "subfield": "Physiology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "physiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cytology"
+  },
+  "medical and health sciences/basic medicine/physiology/homeostasis": {
+    "subfield_id": "1314",
+    "subfield": "Physiology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "physiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "homeostasis"
+  },
+  "medical and health sciences/basic medicine/physiology/pathophysiology": {
+    "subfield_id": "1314",
+    "subfield": "Physiology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "physiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "pathophysiology"
+  },
+  "medical and health sciences/basic medicine/toxicology": {
+    "subfield_id": "3005",
+    "subfield": "Toxicology",
+    "field": "Pharmacology, Toxicology and Pharmaceutics",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "toxicology",
+    "levels_above_leaf": 0,
+    "leaf_term": "toxicology"
+  },
+  "medical and health sciences/clinical medicine/dermatology": {
+    "subfield_id": "2708",
+    "subfield": "Dermatology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "dermatology",
+    "levels_above_leaf": 0,
+    "leaf_term": "dermatology"
+  },
+  "medical and health sciences/clinical medicine/emergency medicine": {
+    "subfield_id": "2711",
+    "subfield": "Emergency Medicine",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "emergency medicine",
+    "levels_above_leaf": 0,
+    "leaf_term": "emergency medicine"
+  },
+  "medical and health sciences/clinical medicine/emergency medicine/graft versus host disease": {
+    "subfield_id": "2711",
+    "subfield": "Emergency Medicine",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "emergency medicine",
+    "levels_above_leaf": 1,
+    "leaf_term": "graft versus host disease"
+  },
+  "medical and health sciences/clinical medicine/endocrinology": {
+    "subfield_id": "1310",
+    "subfield": "Endocrinology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "endocrinology",
+    "levels_above_leaf": 0,
+    "leaf_term": "endocrinology"
+  },
+  "medical and health sciences/clinical medicine/endocrinology/diabetes": {
+    "subfield_id": "1310",
+    "subfield": "Endocrinology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "endocrinology",
+    "levels_above_leaf": 1,
+    "leaf_term": "diabetes"
+  },
+  "medical and health sciences/clinical medicine/gastroenterology": {
+    "subfield_id": "2715",
+    "subfield": "Gastroenterology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "gastroenterology",
+    "levels_above_leaf": 0,
+    "leaf_term": "gastroenterology"
+  },
+  "medical and health sciences/clinical medicine/gastroenterology/inflammatory bowel disease": {
+    "subfield_id": "1311",
+    "subfield": "Genetics",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "topic_name",
+    "matched_term": "inflammatory bowel disease",
+    "levels_above_leaf": 0,
+    "leaf_term": "inflammatory bowel disease"
+  },
+  "medical and health sciences/clinical medicine/gynaecology/reproductive medicine": {
+    "subfield_id": "2743",
+    "subfield": "Reproductive Medicine",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "reproductive medicine",
+    "levels_above_leaf": 0,
+    "leaf_term": "reproductive medicine"
+  },
+  "medical and health sciences/clinical medicine/hematology": {
+    "subfield_id": "2720",
+    "subfield": "Hematology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "hematology",
+    "levels_above_leaf": 0,
+    "leaf_term": "hematology"
+  },
+  "medical and health sciences/clinical medicine/hepatology": {
+    "subfield_id": "2721",
+    "subfield": "Hepatology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "hepatology",
+    "levels_above_leaf": 0,
+    "leaf_term": "hepatology"
+  },
+  "medical and health sciences/clinical medicine/nephrology": {
+    "subfield_id": "2727",
+    "subfield": "Nephrology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "nephrology",
+    "levels_above_leaf": 0,
+    "leaf_term": "nephrology"
+  },
+  "medical and health sciences/clinical medicine/nephrology/kidney diseases": {
+    "subfield_id": "2727",
+    "subfield": "Nephrology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "nephrology",
+    "levels_above_leaf": 1,
+    "leaf_term": "kidney diseases"
+  },
+  "medical and health sciences/clinical medicine/nephrology/renal dialysis": {
+    "subfield_id": "2727",
+    "subfield": "Nephrology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "nephrology",
+    "levels_above_leaf": 1,
+    "leaf_term": "renal dialysis"
+  },
+  "medical and health sciences/clinical medicine/odontology/orthodontics": {
+    "subfield_id": "3505",
+    "subfield": "Orthodontics",
+    "field": "Dentistry",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "orthodontics",
+    "levels_above_leaf": 0,
+    "leaf_term": "orthodontics"
+  },
+  "medical and health sciences/clinical medicine/oncology": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 0,
+    "leaf_term": "oncology"
+  },
+  "medical and health sciences/clinical medicine/oncology/bladder cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "bladder cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/breast cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "breast cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/cervical cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cervical cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/colorectal cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "colorectal cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/head and neck cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "head and neck cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/leukemia": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "leukemia"
+  },
+  "medical and health sciences/clinical medicine/oncology/liver cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "liver cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/lung cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "lung cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/pancreatic cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "pancreatic cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/prostate cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "prostate cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/skin cancer": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 1,
+    "leaf_term": "skin cancer"
+  },
+  "medical and health sciences/clinical medicine/oncology/skin cancer/melanoma": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 2,
+    "leaf_term": "melanoma"
+  },
+  "medical and health sciences/clinical medicine/oncology/skin cancer/squamous cell carcinoma": {
+    "subfield_id": "2730",
+    "subfield": "Oncology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oncology",
+    "levels_above_leaf": 2,
+    "leaf_term": "squamous cell carcinoma"
+  },
+  "medical and health sciences/clinical medicine/ophthalmology": {
+    "subfield_id": "2731",
+    "subfield": "Ophthalmology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ophthalmology",
+    "levels_above_leaf": 0,
+    "leaf_term": "ophthalmology"
+  },
+  "medical and health sciences/clinical medicine/ophthalmology/glaucoma": {
+    "subfield_id": "2731",
+    "subfield": "Ophthalmology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ophthalmology",
+    "levels_above_leaf": 1,
+    "leaf_term": "glaucoma"
+  },
+  "medical and health sciences/clinical medicine/ophthalmology/retinopathy": {
+    "subfield_id": "2731",
+    "subfield": "Ophthalmology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ophthalmology",
+    "levels_above_leaf": 1,
+    "leaf_term": "retinopathy"
+  },
+  "medical and health sciences/clinical medicine/otorhinolaryngology": {
+    "subfield_id": "2733",
+    "subfield": "Otorhinolaryngology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "otorhinolaryngology",
+    "levels_above_leaf": 0,
+    "leaf_term": "otorhinolaryngology"
+  },
+  "medical and health sciences/clinical medicine/rheumatology": {
+    "subfield_id": "2745",
+    "subfield": "Rheumatology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "rheumatology",
+    "levels_above_leaf": 0,
+    "leaf_term": "rheumatology"
+  },
+  "medical and health sciences/clinical medicine/surgery": {
+    "subfield_id": "2746",
+    "subfield": "Surgery",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "surgery",
+    "levels_above_leaf": 0,
+    "leaf_term": "surgery"
+  },
+  "medical and health sciences/clinical medicine/surgery/robotic surgery": {
+    "subfield_id": "2746",
+    "subfield": "Surgery",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "surgery",
+    "levels_above_leaf": 1,
+    "leaf_term": "robotic surgery"
+  },
+  "medical and health sciences/clinical medicine/surgery/surgical procedures": {
+    "subfield_id": "2746",
+    "subfield": "Surgery",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "surgery",
+    "levels_above_leaf": 1,
+    "leaf_term": "surgical procedures"
+  },
+  "medical and health sciences/clinical medicine/surgery/surgical specialties": {
+    "subfield_id": "2746",
+    "subfield": "Surgery",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "surgery",
+    "levels_above_leaf": 1,
+    "leaf_term": "surgical specialties"
+  },
+  "medical and health sciences/clinical medicine/transplantation": {
+    "subfield_id": "2747",
+    "subfield": "Transplantation",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "transplantation",
+    "levels_above_leaf": 0,
+    "leaf_term": "transplantation"
+  },
+  "medical and health sciences/clinical medicine/urology": {
+    "subfield_id": "2748",
+    "subfield": "Urology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "urology",
+    "levels_above_leaf": 0,
+    "leaf_term": "urology"
+  },
+  "medical and health sciences/health sciences/infectious diseases": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 0,
+    "leaf_term": "infectious diseases"
+  },
+  "medical and health sciences/health sciences/infectious diseases/DNA viruses": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 1,
+    "leaf_term": "DNA viruses"
+  },
+  "medical and health sciences/health sciences/infectious diseases/DNA viruses/hepatitis B": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "hepatitis B"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 1,
+    "leaf_term": "RNA viruses"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses/HIV": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "HIV"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses/coronaviruses": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "coronaviruses"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses/ebola": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "ebola"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses/hepatitis C": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "hepatitis C"
+  },
+  "medical and health sciences/health sciences/infectious diseases/RNA viruses/influenza": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 2,
+    "leaf_term": "influenza"
+  },
+  "medical and health sciences/health sciences/infectious diseases/malaria": {
+    "subfield_id": "2725",
+    "subfield": "Infectious Diseases",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "infectious diseases",
+    "levels_above_leaf": 1,
+    "leaf_term": "malaria"
+  },
+  "medical and health sciences/health sciences/parasitology": {
+    "subfield_id": "2405",
+    "subfield": "Parasitology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "parasitology",
+    "levels_above_leaf": 0,
+    "leaf_term": "parasitology"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 0,
+    "leaf_term": "epidemiology"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology/epidemics prevention": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "epidemics prevention"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology/exposomes": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "exposomes"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology/modeling of diseases spread": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "modeling of diseases spread"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology/pandemics": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "pandemics"
+  },
+  "medical and health sciences/health sciences/public health/epidemiology/zoonosis": {
+    "subfield_id": "2713",
+    "subfield": "Epidemiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "epidemiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "zoonosis"
+  },
+  "natural sciences/biological sciences/biochemistry": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 0,
+    "leaf_term": "biochemistry"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "biomolecules"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/carbohydrates": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 2,
+    "leaf_term": "carbohydrates"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/lipids": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 2,
+    "leaf_term": "lipids"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/nucleic acids": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 2,
+    "leaf_term": "nucleic acids"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/proteins": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 2,
+    "leaf_term": "proteins"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/proteins/enzymes": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 3,
+    "leaf_term": "enzymes"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/proteins/protein folding": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 3,
+    "leaf_term": "protein folding"
+  },
+  "natural sciences/biological sciences/biochemistry/biomolecules/proteins/proteomics": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 3,
+    "leaf_term": "proteomics"
+  },
+  "natural sciences/biological sciences/biochemistry/metabolomes": {
+    "subfield_id": "2704",
+    "subfield": "Biochemistry",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "metabolomes"
+  },
+  "natural sciences/biological sciences/biophysics": {
+    "subfield_id": "1304",
+    "subfield": "Biophysics",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "biophysics",
+    "levels_above_leaf": 0,
+    "leaf_term": "biophysics"
+  },
+  "natural sciences/biological sciences/cell biology": {
+    "subfield_id": "1307",
+    "subfield": "Cell Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "cell biology",
+    "levels_above_leaf": 0,
+    "leaf_term": "cell biology"
+  },
+  "natural sciences/biological sciences/cell biology/cell metabolism": {
+    "subfield_id": "1307",
+    "subfield": "Cell Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "cell biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cell metabolism"
+  },
+  "natural sciences/biological sciences/cell biology/cell polarity": {
+    "subfield_id": "1307",
+    "subfield": "Cell Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "cell biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cell polarity"
+  },
+  "natural sciences/biological sciences/cell biology/cell signaling": {
+    "subfield_id": "1307",
+    "subfield": "Cell Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "cell biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cell signaling"
+  },
+  "natural sciences/biological sciences/developmental biology": {
+    "subfield_id": "1309",
+    "subfield": "Developmental Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "developmental biology",
+    "levels_above_leaf": 0,
+    "leaf_term": "developmental biology"
+  },
+  "natural sciences/biological sciences/ecology": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 0,
+    "leaf_term": "ecology"
+  },
+  "natural sciences/biological sciences/ecology/ecosystems": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 1,
+    "leaf_term": "ecosystems"
+  },
+  "natural sciences/biological sciences/ecology/ecosystems/coastal ecosystems": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 2,
+    "leaf_term": "coastal ecosystems"
+  },
+  "natural sciences/biological sciences/ecology/ecosystems/freshwater ecosystems": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 2,
+    "leaf_term": "freshwater ecosystems"
+  },
+  "natural sciences/biological sciences/ecology/evolutionary ecology": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 1,
+    "leaf_term": "evolutionary ecology"
+  },
+  "natural sciences/biological sciences/ecology/invasive species": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 1,
+    "leaf_term": "invasive species"
+  },
+  "natural sciences/biological sciences/ecology/landscape ecology": {
+    "subfield_id": "2303",
+    "subfield": "Ecology",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "ecology",
+    "levels_above_leaf": 1,
+    "leaf_term": "landscape ecology"
+  },
+  "natural sciences/biological sciences/genetics": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 0,
+    "leaf_term": "genetics"
+  },
+  "natural sciences/biological sciences/genetics/DNA": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "DNA"
+  },
+  "natural sciences/biological sciences/genetics/RNA": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "RNA"
+  },
+  "natural sciences/biological sciences/genetics/RNA/transcriptomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "transcriptomes"
+  },
+  "natural sciences/biological sciences/genetics/chromosomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "chromosomes"
+  },
+  "natural sciences/biological sciences/genetics/epigenetics": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "epigenetics"
+  },
+  "natural sciences/biological sciences/genetics/epigenetics/epigenomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "epigenomes"
+  },
+  "natural sciences/biological sciences/genetics/genetic selection": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "genetic selection"
+  },
+  "natural sciences/biological sciences/genetics/genomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "genomes"
+  },
+  "natural sciences/biological sciences/genetics/genomes/eukaryotic genomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "eukaryotic genomes"
+  },
+  "natural sciences/biological sciences/genetics/genomes/prokaryotic genomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "prokaryotic genomes"
+  },
+  "natural sciences/biological sciences/genetics/genomes/viral genomes": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "viral genomes"
+  },
+  "natural sciences/biological sciences/genetics/heredity": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "heredity"
+  },
+  "natural sciences/biological sciences/genetics/mutation": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "mutation"
+  },
+  "natural sciences/biological sciences/genetics/mutation/virus mutation": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 2,
+    "leaf_term": "virus mutation"
+  },
+  "natural sciences/biological sciences/genetics/nucleotides": {
+    "subfield_id": "2716",
+    "subfield": "Genetics",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "genetics",
+    "levels_above_leaf": 1,
+    "leaf_term": "nucleotides"
+  },
+  "natural sciences/biological sciences/microbiology": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 0,
+    "leaf_term": "microbiology"
+  },
+  "natural sciences/biological sciences/microbiology/bacteriology": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "bacteriology"
+  },
+  "natural sciences/biological sciences/microbiology/bacteriology/bacteriomes": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 2,
+    "leaf_term": "bacteriomes"
+  },
+  "natural sciences/biological sciences/microbiology/microbiomes": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "microbiomes"
+  },
+  "natural sciences/biological sciences/microbiology/mycology": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "mycology"
+  },
+  "natural sciences/biological sciences/microbiology/mycology/ethnolichenology": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 2,
+    "leaf_term": "ethnolichenology"
+  },
+  "natural sciences/biological sciences/microbiology/phycology": {
+    "subfield_id": "2726",
+    "subfield": "Microbiology",
+    "field": "Medicine",
+    "domain": "Health Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "microbiology",
+    "levels_above_leaf": 1,
+    "leaf_term": "phycology"
+  },
+  "natural sciences/biological sciences/microbiology/virology": {
+    "subfield_id": "2406",
+    "subfield": "Virology",
+    "field": "Immunology and Microbiology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "virology",
+    "levels_above_leaf": 0,
+    "leaf_term": "virology"
+  },
+  "natural sciences/biological sciences/molecular biology": {
+    "subfield_id": "1312",
+    "subfield": "Molecular Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "molecular biology",
+    "levels_above_leaf": 0,
+    "leaf_term": "molecular biology"
+  },
+  "natural sciences/biological sciences/molecular biology/molecular evolution": {
+    "subfield_id": "1312",
+    "subfield": "Molecular Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "molecular biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "molecular evolution"
+  },
+  "natural sciences/biological sciences/molecular biology/molecular genetics": {
+    "subfield_id": "1312",
+    "subfield": "Molecular Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "molecular biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "molecular genetics"
+  },
+  "natural sciences/biological sciences/molecular biology/molecular neuroscience": {
+    "subfield_id": "1312",
+    "subfield": "Molecular Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "molecular biology",
+    "levels_above_leaf": 1,
+    "leaf_term": "molecular neuroscience"
+  },
+  "natural sciences/biological sciences/molecular biology/structural biology": {
+    "subfield_id": "1315",
+    "subfield": "Structural Biology",
+    "field": "Biochemistry, Genetics and Molecular Biology",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "structural biology",
+    "levels_above_leaf": 0,
+    "leaf_term": "structural biology"
+  },
+  "natural sciences/biological sciences/neurobiology/cognitive neuroscience": {
+    "subfield_id": "2805",
+    "subfield": "Cognitive Neuroscience",
+    "field": "Neuroscience",
+    "domain": "Life Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "cognitive neuroscience",
+    "levels_above_leaf": 0,
+    "leaf_term": "cognitive neuroscience"
+  },
+  "natural sciences/chemical sciences/analytical chemistry": {
+    "subfield_id": "1602",
+    "subfield": "Analytical Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "analytical chemistry",
+    "levels_above_leaf": 0,
+    "leaf_term": "analytical chemistry"
+  },
+  "natural sciences/chemical sciences/analytical chemistry/calorimetry": {
+    "subfield_id": "1602",
+    "subfield": "Analytical Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "analytical chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "calorimetry"
+  },
+  "natural sciences/chemical sciences/analytical chemistry/mass spectrometry": {
+    "subfield_id": "1602",
+    "subfield": "Analytical Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "analytical chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "mass spectrometry"
+  },
+  "natural sciences/chemical sciences/catalysis": {
+    "subfield_id": "1503",
+    "subfield": "Catalysis",
+    "field": "Chemical Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "catalysis",
+    "levels_above_leaf": 0,
+    "leaf_term": "catalysis"
+  },
+  "natural sciences/chemical sciences/catalysis/biocatalysis": {
+    "subfield_id": "1503",
+    "subfield": "Catalysis",
+    "field": "Chemical Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "catalysis",
+    "levels_above_leaf": 1,
+    "leaf_term": "biocatalysis"
+  },
+  "natural sciences/chemical sciences/catalysis/electrocatalysis": {
+    "subfield_id": "1503",
+    "subfield": "Catalysis",
+    "field": "Chemical Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "catalysis",
+    "levels_above_leaf": 1,
+    "leaf_term": "electrocatalysis"
+  },
+  "natural sciences/chemical sciences/catalysis/photocatalysis": {
+    "subfield_id": "1503",
+    "subfield": "Catalysis",
+    "field": "Chemical Engineering",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "catalysis",
+    "levels_above_leaf": 1,
+    "leaf_term": "photocatalysis"
+  },
+  "natural sciences/chemical sciences/electrochemistry": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 0,
+    "leaf_term": "electrochemistry"
+  },
+  "natural sciences/chemical sciences/electrochemistry/bioelectrochemistry": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "bioelectrochemistry"
+  },
+  "natural sciences/chemical sciences/electrochemistry/bioelectrochemistry/electroporation": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 2,
+    "leaf_term": "electroporation"
+  },
+  "natural sciences/chemical sciences/electrochemistry/electric batteries": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "electric batteries"
+  },
+  "natural sciences/chemical sciences/electrochemistry/electrolysis": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "electrolysis"
+  },
+  "natural sciences/chemical sciences/electrochemistry/electrophoresis": {
+    "subfield_id": "1603",
+    "subfield": "Electrochemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "electrochemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "electrophoresis"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 0,
+    "leaf_term": "inorganic chemistry"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/alkali metals": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "alkali metals"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/alkaline earth metals": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "alkaline earth metals"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/halogens": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "halogens"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/inorganic compounds": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "inorganic compounds"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/metalloids": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "metalloids"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/noble gases": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "noble gases"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/organometallic chemistry": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "organometallic chemistry"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/post-transition metals": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "post-transition metals"
+  },
+  "natural sciences/chemical sciences/inorganic chemistry/transition metals": {
+    "subfield_id": "1604",
+    "subfield": "Inorganic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "inorganic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "transition metals"
+  },
+  "natural sciences/chemical sciences/organic chemistry": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 0,
+    "leaf_term": "organic chemistry"
+  },
+  "natural sciences/chemical sciences/organic chemistry/alcohols": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "alcohols"
+  },
+  "natural sciences/chemical sciences/organic chemistry/aldehydes": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "aldehydes"
+  },
+  "natural sciences/chemical sciences/organic chemistry/aliphatic compounds": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "aliphatic compounds"
+  },
+  "natural sciences/chemical sciences/organic chemistry/amines": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "amines"
+  },
+  "natural sciences/chemical sciences/organic chemistry/aromatic compounds": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "aromatic compounds"
+  },
+  "natural sciences/chemical sciences/organic chemistry/heterocyclic compounds": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "heterocyclic compounds"
+  },
+  "natural sciences/chemical sciences/organic chemistry/hydrocarbons": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "hydrocarbons"
+  },
+  "natural sciences/chemical sciences/organic chemistry/ketones": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "ketones"
+  },
+  "natural sciences/chemical sciences/organic chemistry/organic acids": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "organic acids"
+  },
+  "natural sciences/chemical sciences/organic chemistry/organic reactions": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "organic reactions"
+  },
+  "natural sciences/chemical sciences/organic chemistry/volatile organic compounds": {
+    "subfield_id": "1605",
+    "subfield": "Organic Chemistry",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "organic chemistry",
+    "levels_above_leaf": 1,
+    "leaf_term": "volatile organic compounds"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 0,
+    "leaf_term": "artificial intelligence"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/computational intelligence": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "computational intelligence"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/computer vision": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "computer vision"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/computer vision/image recognition": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "image recognition"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/computer vision/motion analysis": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "motion analysis"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/computer vision/object detection": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "object detection"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/edge artificial intelligence": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "edge artificial intelligence"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/expert systems": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "expert systems"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/generative artificial intelligence": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "generative artificial intelligence"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/heuristic programming": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "heuristic programming"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "machine learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/deep learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "deep learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/reinforcement learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "reinforcement learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/semisupervised learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "semisupervised learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/supervised learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "supervised learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/transfer learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "transfer learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/machine learning/unsupervised learning": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 2,
+    "leaf_term": "unsupervised learning"
+  },
+  "natural sciences/computer and information sciences/artificial intelligence/pattern recognition": {
+    "subfield_id": "1702",
+    "subfield": "Artificial Intelligence",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "artificial intelligence",
+    "levels_above_leaf": 1,
+    "leaf_term": "pattern recognition"
+  },
+  "natural sciences/computer and information sciences/software": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 0,
+    "leaf_term": "software"
+  },
+  "natural sciences/computer and information sciences/software/software applications": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 1,
+    "leaf_term": "software applications"
+  },
+  "natural sciences/computer and information sciences/software/software applications/simulation software": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 2,
+    "leaf_term": "simulation software"
+  },
+  "natural sciences/computer and information sciences/software/software applications/system software": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 2,
+    "leaf_term": "system software"
+  },
+  "natural sciences/computer and information sciences/software/software applications/system software/device drivers": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 3,
+    "leaf_term": "device drivers"
+  },
+  "natural sciences/computer and information sciences/software/software applications/system software/operating systems": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 3,
+    "leaf_term": "operating systems"
+  },
+  "natural sciences/computer and information sciences/software/software applications/video games": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 2,
+    "leaf_term": "video games"
+  },
+  "natural sciences/computer and information sciences/software/software applications/virtual reality": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 2,
+    "leaf_term": "virtual reality"
+  },
+  "natural sciences/computer and information sciences/software/software development": {
+    "subfield_id": "1712",
+    "subfield": "Software",
+    "field": "Computer Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "software",
+    "levels_above_leaf": 1,
+    "leaf_term": "software development"
+  },
+  "natural sciences/earth and related environmental sciences/environmental sciences/pollution": {
+    "subfield_id": "2310",
+    "subfield": "Pollution",
+    "field": "Environmental Science",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "pollution",
+    "levels_above_leaf": 0,
+    "leaf_term": "pollution"
+  },
+  "natural sciences/earth and related environmental sciences/geology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 0,
+    "leaf_term": "geology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/geochronology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "geochronology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/geomorphology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "geomorphology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/geomorphology/speleology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "speleology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/lithology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "lithology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/mineralogy": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "mineralogy"
+  },
+  "natural sciences/earth and related environmental sciences/geology/mineralogy/crystallography": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "crystallography"
+  },
+  "natural sciences/earth and related environmental sciences/geology/petrology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "petrology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/petrology/igneous petrology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "igneous petrology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/petrology/petrography": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "petrography"
+  },
+  "natural sciences/earth and related environmental sciences/geology/petrology/sedimentary petrology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "sedimentary petrology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/sedimentology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "sedimentology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/seismology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "seismology"
+  },
+  "natural sciences/earth and related environmental sciences/geology/seismology/microseisms": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "microseisms"
+  },
+  "natural sciences/earth and related environmental sciences/geology/seismology/plate tectonics": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 2,
+    "leaf_term": "plate tectonics"
+  },
+  "natural sciences/earth and related environmental sciences/geology/volcanology": {
+    "subfield_id": "1907",
+    "subfield": "Geology",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geology",
+    "levels_above_leaf": 1,
+    "leaf_term": "volcanology"
+  },
+  "natural sciences/earth and related environmental sciences/geophysics": {
+    "subfield_id": "1908",
+    "subfield": "Geophysics",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "geophysics",
+    "levels_above_leaf": 0,
+    "leaf_term": "geophysics"
+  },
+  "natural sciences/earth and related environmental sciences/oceanography": {
+    "subfield_id": "1910",
+    "subfield": "Oceanography",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oceanography",
+    "levels_above_leaf": 0,
+    "leaf_term": "oceanography"
+  },
+  "natural sciences/earth and related environmental sciences/oceanography/ocean chemistry": {
+    "subfield_id": "1910",
+    "subfield": "Oceanography",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oceanography",
+    "levels_above_leaf": 1,
+    "leaf_term": "ocean chemistry"
+  },
+  "natural sciences/earth and related environmental sciences/oceanography/physical oceanography": {
+    "subfield_id": "1910",
+    "subfield": "Oceanography",
+    "field": "Earth and Planetary Sciences",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "oceanography",
+    "levels_above_leaf": 1,
+    "leaf_term": "physical oceanography"
+  },
+  "natural sciences/mathematics/applied mathematics": {
+    "subfield_id": "2604",
+    "subfield": "Applied Mathematics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "applied mathematics",
+    "levels_above_leaf": 0,
+    "leaf_term": "applied mathematics"
+  },
+  "natural sciences/mathematics/applied mathematics/dynamical systems": {
+    "subfield_id": "2604",
+    "subfield": "Applied Mathematics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "applied mathematics",
+    "levels_above_leaf": 1,
+    "leaf_term": "dynamical systems"
+  },
+  "natural sciences/mathematics/applied mathematics/game theory": {
+    "subfield_id": "2604",
+    "subfield": "Applied Mathematics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "applied mathematics",
+    "levels_above_leaf": 1,
+    "leaf_term": "game theory"
+  },
+  "natural sciences/mathematics/applied mathematics/mathematical model": {
+    "subfield_id": "2604",
+    "subfield": "Applied Mathematics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "applied mathematics",
+    "levels_above_leaf": 1,
+    "leaf_term": "mathematical model"
+  },
+  "natural sciences/mathematics/applied mathematics/mathematical physics": {
+    "subfield_id": "2610",
+    "subfield": "Mathematical Physics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mathematical physics",
+    "levels_above_leaf": 0,
+    "leaf_term": "mathematical physics"
+  },
+  "natural sciences/mathematics/applied mathematics/mathematical physics/conformal field theory": {
+    "subfield_id": "2610",
+    "subfield": "Mathematical Physics",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "mathematical physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "conformal field theory"
+  },
+  "natural sciences/mathematics/applied mathematics/numerical analysis": {
+    "subfield_id": "2612",
+    "subfield": "Numerical Analysis",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "numerical analysis",
+    "levels_above_leaf": 0,
+    "leaf_term": "numerical analysis"
+  },
+  "natural sciences/mathematics/applied mathematics/statistics and probability": {
+    "subfield_id": "2613",
+    "subfield": "Statistics and Probability",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "statistics and probability",
+    "levels_above_leaf": 0,
+    "leaf_term": "statistics and probability"
+  },
+  "natural sciences/mathematics/applied mathematics/statistics and probability/bayesian statistics": {
+    "subfield_id": "2613",
+    "subfield": "Statistics and Probability",
+    "field": "Mathematics",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "statistics and probability",
+    "levels_above_leaf": 1,
+    "leaf_term": "bayesian statistics"
+  },
+  "natural sciences/physical sciences/condensed matter physics": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 0,
+    "leaf_term": "condensed matter physics"
+  },
+  "natural sciences/physical sciences/condensed matter physics/bose-einstein condensates": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "bose-einstein condensates"
+  },
+  "natural sciences/physical sciences/condensed matter physics/mesoscopic physics": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "mesoscopic physics"
+  },
+  "natural sciences/physical sciences/condensed matter physics/quantum gases": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "quantum gases"
+  },
+  "natural sciences/physical sciences/condensed matter physics/quasiparticles": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "quasiparticles"
+  },
+  "natural sciences/physical sciences/condensed matter physics/soft matter physics": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "soft matter physics"
+  },
+  "natural sciences/physical sciences/condensed matter physics/solid-state physics": {
+    "subfield_id": "3104",
+    "subfield": "Condensed Matter Physics",
+    "field": "Physics and Astronomy",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "condensed matter physics",
+    "levels_above_leaf": 1,
+    "leaf_term": "solid-state physics"
+  },
+  "natural sciences/physical sciences/optics/spectroscopy": {
+    "subfield_id": "1607",
+    "subfield": "Spectroscopy",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "spectroscopy",
+    "levels_above_leaf": 0,
+    "leaf_term": "spectroscopy"
+  },
+  "natural sciences/physical sciences/optics/spectroscopy/absorption spectroscopy": {
+    "subfield_id": "1607",
+    "subfield": "Spectroscopy",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "spectroscopy",
+    "levels_above_leaf": 1,
+    "leaf_term": "absorption spectroscopy"
+  },
+  "natural sciences/physical sciences/optics/spectroscopy/emission spectroscopy": {
+    "subfield_id": "1607",
+    "subfield": "Spectroscopy",
+    "field": "Chemistry",
+    "domain": "Physical Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "spectroscopy",
+    "levels_above_leaf": 1,
+    "leaf_term": "emission spectroscopy"
+  },
+  "social sciences/law": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 0,
+    "leaf_term": "law"
+  },
+  "social sciences/law/constitutional law": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "constitutional law"
+  },
+  "social sciences/law/criminology": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "criminology"
+  },
+  "social sciences/law/environmental law": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "environmental law"
+  },
+  "social sciences/law/human rights": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "human rights"
+  },
+  "social sciences/law/human rights/human rights law": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 2,
+    "leaf_term": "human rights law"
+  },
+  "social sciences/law/human rights/human rights law/national state of emergency": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 3,
+    "leaf_term": "national state of emergency"
+  },
+  "social sciences/law/human rights/human rights law/national state of emergency/pandemic risks": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 4,
+    "leaf_term": "pandemic risks"
+  },
+  "social sciences/law/human rights/human rights violations": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 2,
+    "leaf_term": "human rights violations"
+  },
+  "social sciences/law/human rights/human rights violations/human trafficking": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 3,
+    "leaf_term": "human trafficking"
+  },
+  "social sciences/law/human rights/human rights violations/political violence": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 3,
+    "leaf_term": "political violence"
+  },
+  "social sciences/law/human rights/human rights violations/sexual violence": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 3,
+    "leaf_term": "sexual violence"
+  },
+  "social sciences/law/human rights/international protection of human rights": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 2,
+    "leaf_term": "international protection of human rights"
+  },
+  "social sciences/law/international law": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "international law"
+  },
+  "social sciences/law/law enforcement": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "law enforcement"
+  },
+  "social sciences/law/penology": {
+    "subfield_id": "3308",
+    "subfield": "Law",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "law",
+    "levels_above_leaf": 1,
+    "leaf_term": "penology"
+  },
+  "social sciences/political sciences/public administration": {
+    "subfield_id": "3321",
+    "subfield": "Public Administration",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "public administration",
+    "levels_above_leaf": 0,
+    "leaf_term": "public administration"
+  },
+  "social sciences/political sciences/public administration/bureaucracy": {
+    "subfield_id": "3321",
+    "subfield": "Public Administration",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "public administration",
+    "levels_above_leaf": 1,
+    "leaf_term": "bureaucracy"
+  },
+  "social sciences/psychology/social psychology": {
+    "subfield_id": "3207",
+    "subfield": "Social Psychology",
+    "field": "Psychology",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "social psychology",
+    "levels_above_leaf": 0,
+    "leaf_term": "social psychology"
+  },
+  "social sciences/social geography/urban studies": {
+    "subfield_id": "3322",
+    "subfield": "Urban Studies",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "urban studies",
+    "levels_above_leaf": 0,
+    "leaf_term": "urban studies"
+  },
+  "social sciences/sociology/anthropology": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 0,
+    "leaf_term": "anthropology"
+  },
+  "social sciences/sociology/anthropology/cultural anthropology": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 1,
+    "leaf_term": "cultural anthropology"
+  },
+  "social sciences/sociology/anthropology/cultural anthropology/folklore": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 2,
+    "leaf_term": "folklore"
+  },
+  "social sciences/sociology/anthropology/ethnology": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 1,
+    "leaf_term": "ethnology"
+  },
+  "social sciences/sociology/anthropology/physical anthropology": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 1,
+    "leaf_term": "physical anthropology"
+  },
+  "social sciences/sociology/anthropology/science and technology studies": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 1,
+    "leaf_term": "science and technology studies"
+  },
+  "social sciences/sociology/anthropology/social anthropology": {
+    "subfield_id": "3314",
+    "subfield": "Anthropology",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "anthropology",
+    "levels_above_leaf": 1,
+    "leaf_term": "social anthropology"
+  },
+  "social sciences/sociology/demography": {
+    "subfield_id": "3317",
+    "subfield": "Demography",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "demography",
+    "levels_above_leaf": 0,
+    "leaf_term": "demography"
+  },
+  "social sciences/sociology/demography/census": {
+    "subfield_id": "3317",
+    "subfield": "Demography",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "demography",
+    "levels_above_leaf": 1,
+    "leaf_term": "census"
+  },
+  "social sciences/sociology/demography/fertility": {
+    "subfield_id": "3317",
+    "subfield": "Demography",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "demography",
+    "levels_above_leaf": 1,
+    "leaf_term": "fertility"
+  },
+  "social sciences/sociology/demography/human migrations": {
+    "subfield_id": "3317",
+    "subfield": "Demography",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "demography",
+    "levels_above_leaf": 1,
+    "leaf_term": "human migrations"
+  },
+  "social sciences/sociology/demography/mortality": {
+    "subfield_id": "3317",
+    "subfield": "Demography",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "demography",
+    "levels_above_leaf": 1,
+    "leaf_term": "mortality"
+  },
+  "social sciences/sociology/gender studies": {
+    "subfield_id": "3318",
+    "subfield": "Gender Studies",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "gender studies",
+    "levels_above_leaf": 0,
+    "leaf_term": "gender studies"
+  },
+  "social sciences/sociology/gender studies/gender equality": {
+    "subfield_id": "3318",
+    "subfield": "Gender Studies",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "gender studies",
+    "levels_above_leaf": 1,
+    "leaf_term": "gender equality"
+  },
+  "social sciences/sociology/gender studies/women’s studies": {
+    "subfield_id": "3318",
+    "subfield": "Gender Studies",
+    "field": "Social Sciences",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "gender studies",
+    "levels_above_leaf": 1,
+    "leaf_term": "women’s studies"
+  },
+  "social sciences/sociology/industrial relations": {
+    "subfield_id": "1410",
+    "subfield": "Industrial relations",
+    "field": "Business, Management and Accounting",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "industrial relations",
+    "levels_above_leaf": 0,
+    "leaf_term": "industrial relations"
+  },
+  "social sciences/sociology/industrial relations/automation": {
+    "subfield_id": "1410",
+    "subfield": "Industrial relations",
+    "field": "Business, Management and Accounting",
+    "domain": "Social Sciences",
+    "match_method": "subfield_name",
+    "matched_term": "industrial relations",
+    "levels_above_leaf": 1,
+    "leaf_term": "automation"
+  }
+}

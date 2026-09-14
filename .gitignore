@@ -1,0 +1,11 @@
+# Raw harvest caches. Large, rebuildable, and not what a reader comes here for.
+data/cordis-he/
+data/cordis-he.zip
+data/pure-raw/
+data/openalex-raw/
+data/shots/
+data/finish.log
+
+# Intermediate tables. The JSON beside them is what the page and the honesty
+# panel actually quote; these are the working files that produced them.
+data/derived/*.csv

@@ -1,0 +1,202 @@
+[
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-chemistry__1607",
+    "department": "Department of Chemistry",
+    "assigned_subfield": "Spectroscopy",
+    "openalex_primary_topic": "Mass Spectrometry Techniques and Applications",
+    "paper_title": "Computational Chemistry",
+    "doi": "10.1002/ijch.202100027",
+    "sample_id": "s01"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-physics-and-astronomy__1312",
+    "department": "Department of Physics and Astronomy",
+    "assigned_subfield": "Molecular Biology",
+    "openalex_primary_topic": "Geomagnetism and Paleomagnetism Studies",
+    "paper_title": "Solar variability between 650 CE and 1900 - Novel insights from a global compilation of new and existing high-resolution <sup>14</sup>C records",
+    "doi": "10.1016/j.quascirev.2022.107617",
+    "sample_id": "s02"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-chemistry__2502",
+    "department": "Department of Chemistry",
+    "assigned_subfield": "Biomaterials",
+    "openalex_primary_topic": "Diatoms and Algae Research",
+    "paper_title": "The Diatom Peptide R5 Fabricates Two-Dimensional Titanium Dioxide Nanosheets",
+    "doi": "10.1021/acs.jpclett.2c01088",
+    "sample_id": "s03"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-biology__1312",
+    "department": "Department of Biology",
+    "assigned_subfield": "Molecular Biology",
+    "openalex_primary_topic": "Mitochondrial Function and Pathology",
+    "paper_title": "New insights into survival strategies to oxygen deprivation in anoxia-tolerant vertebrates",
+    "doi": "10.1111/apha.13841",
+    "sample_id": "s04"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-physics-and-astronomy__3106",
+    "department": "Department of Physics and Astronomy",
+    "assigned_subfield": "Nuclear and High Energy Physics",
+    "openalex_primary_topic": "Nuclear physics research studies",
+    "paper_title": "Unveiling the two-proton halo character of <sup>17</sup>Ne",
+    "doi": "10.1016/j.physletb.2022.136957",
+    "sample_id": "s05"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-biology__2303",
+    "department": "Department of Biology",
+    "assigned_subfield": "Ecology",
+    "openalex_primary_topic": "Environmental DNA in Biodiversity Studies",
+    "paper_title": "Short-term temporal variation of coastal marine eDNA",
+    "doi": "10.1002/edn3.285",
+    "sample_id": "s06"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-biology__2305",
+    "department": "Department of Biology",
+    "assigned_subfield": "Environmental Engineering",
+    "openalex_primary_topic": "Microbial Fuel Cells and Bioremediation",
+    "paper_title": "Microbial fingerprints of methanation in a hybrid electric-biological anaerobic digestion",
+    "doi": "10.1016/j.watres.2022.119270",
+    "sample_id": "s07"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "interdisciplinary-nanoscience-center__3107",
+    "department": "Interdisciplinary Nanoscience Center",
+    "assigned_subfield": "Atomic and Molecular Physics, and Optics",
+    "openalex_primary_topic": "Force Microscopy Techniques and Applications",
+    "paper_title": "Probing the hydration friction of ionic interfaces at the atomic scale",
+    "doi": "10.1039/d1nh00564b",
+    "sample_id": "s08"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-molecular-biology-and-genetics__1312",
+    "department": "Department of Molecular Biology and Genetics",
+    "assigned_subfield": "Molecular Biology",
+    "openalex_primary_topic": "Genomics and Phylogenetic Studies",
+    "paper_title": "Critical Assessment of Metagenome Interpretation",
+    "doi": "10.1038/s41592-022-01431-4",
+    "sample_id": "s09"
+  },
+  {
+    "check_type": "paper_to_subfield",
+    "action_id": "department-of-physics-and-astronomy__3107",
+    "department": "Department of Physics and Astronomy",
+    "assigned_subfield": "Atomic and Molecular Physics, and Optics",
+    "openalex_primary_topic": "Strong Light-Matter Interactions",
+    "paper_title": "Rydberg exciton–polaritons in a Cu<sub>2</sub>O microcavity",
+    "doi": "10.1038/s41563-022-01230-4",
+    "sample_id": "s10"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "engineering and technology/electrical engineering, electronic engineering, information engineering/electrical engineering/power engineering/electric power generation",
+    "leaf_term": "electric power generation",
+    "matched_term": "electrical engineering",
+    "assigned_subfield": "Atomic and Molecular Physics, and Optics",
+    "match_method": "topic_keyword",
+    "levels_above_leaf": 2,
+    "sample_id": "s11"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/chemical sciences/catalysis/biocatalysis",
+    "leaf_term": "biocatalysis",
+    "matched_term": "catalysis",
+    "assigned_subfield": "Catalysis",
+    "match_method": "subfield_name",
+    "levels_above_leaf": 1,
+    "sample_id": "s12"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/chemical sciences/organic chemistry/hydrocarbons",
+    "leaf_term": "hydrocarbons",
+    "matched_term": "organic chemistry",
+    "assigned_subfield": "Organic Chemistry",
+    "match_method": "subfield_name",
+    "levels_above_leaf": 1,
+    "sample_id": "s13"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/biological sciences/ecology/ecosystems",
+    "leaf_term": "ecosystems",
+    "matched_term": "ecology",
+    "assigned_subfield": "Ecology",
+    "match_method": "subfield_name",
+    "levels_above_leaf": 1,
+    "sample_id": "s14"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "engineering and technology/environmental engineering/energy and fuels/fossil energy/coal",
+    "leaf_term": "coal",
+    "matched_term": "coal",
+    "assigned_subfield": "Mechanical Engineering",
+    "match_method": "topic_keyword",
+    "levels_above_leaf": 0,
+    "sample_id": "s15"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "engineering and technology/electrical engineering, electronic engineering, information engineering/information engineering/telecommunications/mobile phones",
+    "leaf_term": "mobile phones",
+    "matched_term": "mobile phones",
+    "assigned_subfield": "Information Systems",
+    "match_method": "topic_keyword",
+    "levels_above_leaf": 0,
+    "sample_id": "s16"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "engineering and technology/environmental engineering/energy and fuels/renewable energy/hydroelectricity",
+    "leaf_term": "hydroelectricity",
+    "matched_term": "environmental engineering",
+    "assigned_subfield": "Environmental Engineering",
+    "match_method": "subfield_name",
+    "levels_above_leaf": 3,
+    "sample_id": "s17"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/earth and related environmental sciences/atmospheric sciences/meteorology/atmospheric circulation/atmospheric turbulence",
+    "leaf_term": "atmospheric turbulence",
+    "matched_term": "atmospheric turbulence",
+    "assigned_subfield": "Atomic and Molecular Physics, and Optics",
+    "match_method": "topic_keyword",
+    "levels_above_leaf": 0,
+    "sample_id": "s18"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/computer and information sciences/computer security/cryptography",
+    "leaf_term": "cryptography",
+    "matched_term": "cryptography",
+    "assigned_subfield": "Artificial Intelligence",
+    "match_method": "topic_keyword",
+    "levels_above_leaf": 0,
+    "sample_id": "s19"
+  },
+  {
+    "check_type": "euroscivoc_term_to_subfield",
+    "euroscivoc_path": "natural sciences/biological sciences/molecular biology/molecular neuroscience",
+    "leaf_term": "molecular neuroscience",
+    "matched_term": "molecular biology",
+    "assigned_subfield": "Molecular Biology",
+    "match_method": "subfield_name",
+    "levels_above_leaf": 1,
+    "sample_id": "s20"
+  }
+]
