@@ -45,7 +45,7 @@
       { x: 8, w: 200, t: 'AU Pure', s: 'which faculty and department a paper belongs to, which is the one thing OpenAlex cannot say' },
       { x: 236, w: 200, t: 'OpenAlex', s: 'the topic of each paper, and whether any co-author was a company' },
       { x: 464, w: 200, t: 'CORDIS', s: 'Danish organisations working on the same topics in European projects' },
-      { x: 700, w: 192, t: 'A candidate', s: 'a department and a topic where the two have not yet met' }
+      { x: 700, w: 192, t: 'A candidate', s: 'a department and a topic, ranked partly by how much of that Danish activity has no Aarhus link' }
     ];
     boxes.forEach(function (b, i) {
       s.appendChild(el('rect', { x: b.x, y: 28, width: b.w, height: 124, rx: 6, fill: '#fff', stroke: '#c9c5be' }));
@@ -564,6 +564,11 @@
       ' written up have no company co-author anywhere in the world.</strong> ' +
       'Each one carries the papers, the Danish organisations and the reason it was scored that way, ' +
       'so you can disagree with the ranking and recompute it. ' +
+      (already.share_pct_same_topic != null
+        ? 'This is rarely about strangers: ' + already.share_pct_same_topic + ' percent of these candidates ' +
+          'already have a Danish organisation on a European project with Aarhus about that very topic, ' +
+          'so what is missing is usually the subject rather than the introduction. '
+        : '') +
       'The last act is the instrument measuring what it cannot tell you.';
     $('#methodtext').innerHTML =
       'Aarhus Pure is harvested over its OAI-PMH endpoint, which is the only source that knows which faculty a paper ' +
@@ -580,7 +585,7 @@
     var root = $('#tour'), hl = $('.tour-hl', root), card = $('.tour-card', root), idx = 0;
     var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     var STEPS = [
-      { sel: 'header h1', k: 'Welcome · 1 of 5', html: 'A shortlist of conversations that nobody at Aarhus appears to have had yet, built from three public sources and joined on identifiers rather than names.' },
+      { sel: 'header h1', k: 'Welcome · 1 of 5', html: 'A shortlist of subjects Aarhus could raise with Danish organisations it has mostly already met, built from three public sources and joined on identifiers rather than names.' },
       { sel: '#domain', k: 'Where it comes from · 2 of 5', html: 'Pure knows which faculty a paper belongs to. OpenAlex knows its topic and whether a company co-authored it. CORDIS knows which Danish organisations work on the same topics in European projects.' },
       { sel: '#alist', k: 'The candidates · 3 of 5', html: '<b>Pick a department above, then click a row.</b> Every candidate opens to show the papers, the organisations, and whether the two have already met.' },
       // The tour must not promise a brief that is not there. Which step four is
