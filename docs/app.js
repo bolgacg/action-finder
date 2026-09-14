@@ -24,6 +24,20 @@
   // to under half size and an 11px caption becomes 5px, which is not readable. So
   // captions live in HTML above the chart and stay at body size at every width.
   function caption(id, text) { var e = $(id + '-cap'); if (e) e.textContent = text; }
+  // These charts are drawn in coordinate spaces 860 to 900 units wide and rendered into
+  // whatever width the column has. On a phone that is about 350px, so every label inside
+  // them renders at 40 percent of its stated size. Drawing a narrower picture on a narrow
+  // screen keeps the text near the size it was written at.
+  function isNarrow() { return window.innerWidth < 620; }
+  function redrawOnWidthChange(fn) {
+    if (fn._bound) return;
+    fn._bound = true;
+    var last = isNarrow();
+    window.addEventListener('resize', function () {
+      var now = isNarrow();
+      if (now !== last) { last = now; fn(); }
+    });
+  }
   // Cutting a chart label at a fixed character count leaves words like "Intelligenc"
   // sitting on the page. Trim back to the last whole word and mark it as trimmed.
   function shorten(s, n) {
@@ -38,37 +52,77 @@
   /* ---------- the three sources, drawn once ---------- */
   function drawDomain() {
     var host = $('#domainviz'); if (!host) return;
-    var W = 900, H = 200;
-    var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
-      'aria-label': 'Three public sources joined on identifiers to produce candidate Actions' });
     var boxes = [
-      { x: 8, w: 200, t: 'AU Pure', s: 'which faculty and department a paper belongs to, which is the one thing OpenAlex cannot say' },
-      { x: 236, w: 200, t: 'OpenAlex', s: 'the topic of each paper, and whether any co-author was a company' },
-      { x: 464, w: 200, t: 'CORDIS', s: 'Danish organisations working on the same topics in European projects' },
-      { x: 700, w: 192, t: 'A candidate', s: 'a department and a topic, ranked partly by how much of that Danish activity has no Aarhus link' }
+      { t: 'AU Pure', s: 'which faculty and department a paper belongs to, which is the one thing OpenAlex cannot say' },
+      { t: 'OpenAlex', s: 'the topic of each paper, and whether any co-author was a company' },
+      { t: 'CORDIS', s: 'Danish organisations working on the same topics in European projects' },
+      { t: 'A candidate', s: 'a department and a topic, ranked partly by how much of that Danish activity has no Aarhus link' }
     ];
-    boxes.forEach(function (b, i) {
-      s.appendChild(el('rect', { x: b.x, y: 28, width: b.w, height: 124, rx: 6, fill: '#fff', stroke: '#c9c5be' }));
-      s.appendChild(el('text', { x: b.x + 13, y: 53, 'font-family': "'Newsreader',Georgia,serif",
-        'font-size': 17, 'font-weight': 600, fill: '#1a1d21' }, b.t));
-      var words = b.s.split(' '), line = '', y = 74;
-      var put = function (tx) {
-        s.appendChild(el('text', { x: b.x + 13, y: y, 'font-family': "'IBM Plex Sans',sans-serif",
-          'font-size': 11, fill: '#5b6470' }, tx));
-        y += 14;
-      };
-      words.forEach(function (w) { if ((line + ' ' + w).length > 28) { put(line); line = w; } else line = line ? line + ' ' + w : w; });
+    var foot = 'The AU to Danish-organisation link is a join on the European participant identifier, ' +
+      'so no organisation name is ever matched to another.';
+    function wrap(text, perLine, put) {
+      var words = text.split(' '), line = '';
+      words.forEach(function (w) {
+        if ((line + ' ' + w).length > perLine) { put(line); line = w; } else line = line ? line + ' ' + w : w;
+      });
       if (line) put(line);
-      if (i < boxes.length - 1) {
-        var x1 = b.x + b.w + 4, x2 = boxes[i + 1].x - 4;
-        s.appendChild(el('line', { x1: x1, y1: 90, x2: x2, y2: 90, stroke: '#8b95a1', 'stroke-width': 1.5 }));
-        s.appendChild(el('circle', { cx: x2 - 2, cy: 90, r: 2.5, fill: '#8b95a1' }));
-      }
-    });
-    s.appendChild(el('text', { x: 8, y: 180, 'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#8b95a1' },
-      'The AU to Danish-organisation link is a join on the European participant identifier, so no organisation name is ever matched to another.'));
-    host.innerHTML = '';
-    host.appendChild(s);
+    }
+    // Four boxes side by side need 900 units of width, which on a phone column scales every
+    // label to under four pixels. Stacked, each box gets the whole width instead.
+    var narrow = isNarrow(), s2;
+    if (narrow) {
+      var BW = 380, BH = 78, GAP = 16, W = 400, H = boxes.length * (BH + GAP) + 46;
+      s2 = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+        'aria-label': 'Three public sources joined on identifiers to produce candidate Actions' });
+      boxes.forEach(function (b, i) {
+        var y = i * (BH + GAP);
+        s2.appendChild(el('rect', { x: 10, y: y, width: BW, height: BH, rx: 6, fill: '#fff', stroke: '#c9c5be' }));
+        s2.appendChild(el('text', { x: 22, y: y + 22, 'font-family': "'Newsreader',Georgia,serif",
+          'font-size': 15, 'font-weight': 600, fill: '#1a1d21' }, b.t));
+        var ty = y + 40;
+        wrap(b.s, 52, function (line) {
+          s2.appendChild(el('text', { x: 22, y: ty, 'font-family': "'IBM Plex Sans',sans-serif",
+            'font-size': 11, fill: '#5b6470' }, line));
+          ty += 14;
+        });
+        if (i < boxes.length - 1) {
+          s2.appendChild(el('line', { x1: 200, y1: y + BH + 2, x2: 200, y2: y + BH + GAP - 2,
+            stroke: '#8b95a1', 'stroke-width': 1.5 }));
+          s2.appendChild(el('circle', { cx: 200, cy: y + BH + GAP - 3, r: 2.5, fill: '#8b95a1' }));
+        }
+      });
+      var fy = boxes.length * (BH + GAP) + 6;
+      wrap(foot, 56, function (line) {
+        s2.appendChild(el('text', { x: 10, y: fy, 'font-family': "'IBM Plex Mono',monospace",
+          'font-size': 9.5, fill: '#8b95a1' }, line));
+        fy += 13;
+      });
+    } else {
+      var W2 = 900, H2 = 200;
+      s2 = el('svg', { viewBox: '0 0 ' + W2 + ' ' + H2, role: 'img',
+        'aria-label': 'Three public sources joined on identifiers to produce candidate Actions' });
+      var xs = [{ x: 8, w: 200 }, { x: 236, w: 200 }, { x: 464, w: 200 }, { x: 700, w: 192 }];
+      boxes.forEach(function (b, i) {
+        var g = xs[i];
+        s2.appendChild(el('rect', { x: g.x, y: 28, width: g.w, height: 124, rx: 6, fill: '#fff', stroke: '#c9c5be' }));
+        s2.appendChild(el('text', { x: g.x + 13, y: 53, 'font-family': "'Newsreader',Georgia,serif",
+          'font-size': 17, 'font-weight': 600, fill: '#1a1d21' }, b.t));
+        var y = 74;
+        wrap(b.s, 28, function (line) {
+          s2.appendChild(el('text', { x: g.x + 13, y: y, 'font-family': "'IBM Plex Sans',sans-serif",
+            'font-size': 11, fill: '#5b6470' }, line));
+          y += 14;
+        });
+        if (i < boxes.length - 1) {
+          var x1 = g.x + g.w + 4, x2 = xs[i + 1].x - 4;
+          s2.appendChild(el('line', { x1: x1, y1: 90, x2: x2, y2: 90, stroke: '#8b95a1', 'stroke-width': 1.5 }));
+          s2.appendChild(el('circle', { cx: x2 - 2, cy: 90, r: 2.5, fill: '#8b95a1' }));
+        }
+      });
+      s2.appendChild(el('text', { x: 8, y: 180, 'font-family': "'IBM Plex Mono',monospace",
+        'font-size': 10.5, fill: '#8b95a1' }, foot));
+    }
+    host.innerHTML = ''; host.appendChild(s2);
   }
 
   /* ---------- act one ---------- */
@@ -287,7 +341,9 @@
       'those years is misrepresented here, and that is a stronger objection than the headline ' +
       'percentage on its own suggests.';
 
-    var W = 860, H = 212, P = { l: 56, r: 20, t: 14, b: 46 };
+    var narrow = isNarrow();
+    var W = narrow ? 400 : 860, H = narrow ? 230 : 212;
+    var P = narrow ? { l: 40, r: 12, t: 14, b: 50 } : { l: 56, r: 20, t: 14, b: 46 };
     var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
       'aria-label': 'Share of each publication year whose papers reached a topic' });
     var bw = (W - P.l - P.r) / rows.length;
@@ -399,7 +455,9 @@
     if (host && keys.length) {
       // The caption sat on the same line as the tallest bar's value label and ran off
       // the right edge. It now gets its own band above the plot, and wraps.
-      var W = 860, H = 196, P = { l: 56, r: 20, t: 20, b: 34 };
+      var narrow = isNarrow();
+      var W = narrow ? 400 : 860, H = narrow ? 210 : 196;
+      var P = narrow ? { l: 40, r: 12, t: 20, b: 34 } : { l: 56, r: 20, t: 20, b: 34 };
       var max = Math.max.apply(null, keys.map(function (k) { return years[k]; })) || 1;
       var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
         'aria-label': 'How many harvested records fall in each publication year' });
@@ -642,6 +700,9 @@
     renderDetail();
     renderWorked();
     selfCheck();
+    redrawOnWidthChange(drawDomain);
+    redrawOnWidthChange(renderCoverage);
+    redrawOnWidthChange(renderCoverageByYear);
     renderCoverageByYear();
     renderStability();
     renderCoverage();
