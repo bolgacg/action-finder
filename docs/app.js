@@ -20,6 +20,10 @@
   // A count of 2002 printed beside the year 2022 reads as a year. A thousands
   // separator is the whole fix, and it is needed wherever counts and years meet.
   function n(x) { return x == null ? 'n/a' : Number(x).toLocaleString('en-GB'); }
+  // A caption drawn inside an SVG shrinks with the SVG. At 390px these charts scale
+  // to under half size and an 11px caption becomes 5px, which is not readable. So
+  // captions live in HTML above the chart and stay at body size at every width.
+  function caption(id, text) { var e = $(id + '-cap'); if (e) e.textContent = text; }
   // Cutting a chart label at a fixed character count leaves words like "Intelligenc"
   // sitting on the page. Trim back to the last whole word and mark it as trimmed.
   function shorten(s, n) {
@@ -283,7 +287,7 @@
       'those years is misrepresented here, and that is a stronger objection than the headline ' +
       'percentage on its own suggests.';
 
-    var W = 860, H = 244, P = { l: 56, r: 20, t: 34, b: 46 };
+    var W = 860, H = 212, P = { l: 56, r: 20, t: 14, b: 46 };
     var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
       'aria-label': 'Share of each publication year whose papers reached a topic' });
     var bw = (W - P.l - P.r) / rows.length;
@@ -300,9 +304,8 @@
         'font-family': "'IBM Plex Mono',monospace", 'font-size': 9.5, fill: '#b5bcc4' },
         n(r.looked_up) + ' of ' + n(r.with_doi)));
     });
-    s.appendChild(el('text', { x: 0, y: 14, 'font-family': "'IBM Plex Sans',sans-serif",
-      'font-size': 11.5, fill: '#5b6470' },
-      'Share of each year’s papers that reached a topic, with the counts beneath. Red is under a quarter.'));
+    caption('#covyearviz', 'Share of each year’s papers that reached a topic, with the counts beneath. ' +
+      'Red is under a quarter.');
     host.innerHTML = ''; host.appendChild(s);
   }
 
@@ -331,23 +334,30 @@
       'rather than at random, the real movement is larger than these bands.';
 
     var by = st.by_action || {};
-    var rows = D.actions.slice().sort(function (a, b) { return a.rank - b.rank; }).slice(0, 12)
+    // A twelve-row chart scaled into 390px puts its labels at about five pixels. On a
+    // narrow screen it shows fewer rows in a narrower drawing, so the same text ends up
+    // larger once the browser scales it to the column width.
+    var narrow = window.innerWidth < 620;
+    var rows = D.actions.slice().sort(function (a, b) { return a.rank - b.rank; })
+      .slice(0, narrow ? 6 : 12)
       .map(function (a) { return { a: a, s: by[a.action_id] || {} }; })
       .filter(function (r) { return r.s.rank_p5 != null && r.s.rank_p95 != null; });
     if (!rows.length || !host) return;
-    var W = 860, rowH = 26, P = { l: 250, r: 54, t: 26, b: 18 };
+    var W = narrow ? 460 : 860, rowH = narrow ? 30 : 26;
+    var P = { l: narrow ? 190 : 250, r: narrow ? 44 : 54, t: 10, b: 18 };
     var H = P.t + P.b + rows.length * rowH;
     var maxR = Math.max.apply(null, rows.map(function (r) { return r.s.rank_p95; }));
     var X = function (v) { return P.l + (v - 1) / Math.max(1, maxR - 1) * (W - P.l - P.r); };
     var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
       'aria-label': 'Rank of each candidate across resamples, with its 5th to 95th percentile band' });
-    s.appendChild(el('text', { x: P.l, y: 13, 'font-family': "'IBM Plex Sans',sans-serif",
-      'font-size': 11.5, fill: '#5b6470' }, 'Rank across ' + st.resamples + ' redraws. Left is better. The bar is the middle 90 percent.'));
+    caption('#stabviz', 'Rank across ' + st.resamples + ' redraws. Left is better, and the bar is the ' +
+      'middle 90 percent of where a candidate landed. A percentage on the right means the candidate ' +
+      'did not survive every redraw.');
     rows.forEach(function (r, i) {
       var y = P.t + i * rowH + rowH / 2;
       s.appendChild(el('text', { x: P.l - 10, y: y + 4, 'text-anchor': 'end',
         'font-family': "'IBM Plex Sans',sans-serif", 'font-size': 11.5, fill: '#5b6470' },
-        shorten(r.a.department.replace('Department of ', '') + ', ' + r.a.topic.subfield, 38)));
+        shorten(r.a.department.replace('Department of ', '') + ', ' + r.a.topic.subfield, narrow ? 26 : 38)));
       s.appendChild(el('line', { x1: X(r.s.rank_p5), y1: y, x2: X(r.s.rank_p95), y2: y,
         stroke: '#c9c5be', 'stroke-width': 6, 'stroke-linecap': 'round' }));
       s.appendChild(el('circle', { cx: X(r.s.median_rank != null ? r.s.median_rank : r.a.rank),
@@ -358,6 +368,14 @@
       }
     });
     host.innerHTML = ''; host.appendChild(s);
+    if (!renderStability.bound) {
+      renderStability.bound = true;
+      var last = narrow;
+      window.addEventListener('resize', function () {
+        var now = window.innerWidth < 620;
+        if (now !== last) { last = now; renderStability(); }
+      });
+    }
   }
 
   function renderCoverage() {
@@ -381,7 +399,7 @@
     if (host && keys.length) {
       // The caption sat on the same line as the tallest bar's value label and ran off
       // the right edge. It now gets its own band above the plot, and wraps.
-      var W = 860, H = 232, P = { l: 56, r: 20, t: 46, b: 34 };
+      var W = 860, H = 196, P = { l: 56, r: 20, t: 20, b: 34 };
       var max = Math.max.apply(null, keys.map(function (k) { return years[k]; })) || 1;
       var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
         'aria-label': 'How many harvested records fall in each publication year' });
@@ -395,12 +413,8 @@
         s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b - hgt - 5, 'text-anchor': 'middle',
           'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, n(years[k])));
       });
-      ['Harvested Aarhus records by publication year, over the window the harvest asked for.',
-       'The last bar is the year in progress, so it is short because the year is not over.'
-      ].forEach(function (line, li) {
-        s.appendChild(el('text', { x: 0, y: 14 + li * 15, 'font-family': "'IBM Plex Sans',sans-serif",
-          'font-size': 11.5, fill: '#5b6470' }, line));
-      });
+      caption('#covviz', 'Harvested Aarhus records by publication year, over the window the harvest ' +
+        'asked for. The last bar is the year in progress, so it is short because the year is not over.');
       host.innerHTML = '';
       host.appendChild(s);
     }
