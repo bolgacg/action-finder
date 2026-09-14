@@ -421,7 +421,7 @@
       (typeof WORKED !== 'undefined' && WORKED && D.actions.length &&
        WORKED.action_id === D.actions.slice().sort(function (a, b) { return b.score - a.score; })[0].action_id)
         ? { sel: '#worked', k: 'The job itself · 4 of 5', html: 'The instrument gives a shortlist. This is the top one taken as far as a specialist would take it, by hand: who is in the room, what the first session produces, what would kill it.' }
-        : { sel: '#worked', k: 'The job itself · 4 of 5', html: 'This is where the shortlist stops being arithmetic. One candidate gets taken as far as a specialist would take it by hand, and this act is honest that it is not written yet, because the ranking above is still moving as the last act explains.' },
+        : { sel: '#worked', k: 'The job itself · 4 of 5', html: 'This is where the shortlist stops being arithmetic. One candidate gets taken as far as a specialist would take it by hand. It is not written yet, because the ranking above still moves as coverage lands, for the reason the last act gives.' },
       { sel: '#covviz', k: 'What it cannot tell you · 5 of 5', html: 'Coverage, topic accuracy, and how often the tool\'s own top candidates turn out to be talking already. This act is the reason to trust the others.' }
     ];
     function place() {
