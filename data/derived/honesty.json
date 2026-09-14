@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:13:35",
+  "generated_at": "2026-09-14T21:19:07",
   "what_this_panel_is": "the numbers that say how far the ranked list can be trusted, computed by the same scripts that produced the list",
   "headline_limitation": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
   "coverage_pure": {

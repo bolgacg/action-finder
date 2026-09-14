@@ -185,7 +185,108 @@
     host.innerHTML = WORKED.html;
   }
 
-  /* ---------- act three ---------- */
+  /* ---------- act three, the two measurements of the instrument itself ---------- */
+
+  // A single coverage percentage invites the reader to assume the missing papers are
+  // missing at random. They are not, and the shape of that is the sharpest thing this
+  // page can say against itself, so it gets its own chart rather than a clause.
+  function renderCoverageByYear() {
+    var cy = (D.honesty_panel || {}).coverage_by_year;
+    var text = $('#covyeartext'), host = $('#covyearviz');
+    if (!text || !cy || !cy.rows || !cy.rows.length) {
+      if (text) text.textContent = 'Not measured.';
+      return;
+    }
+    var from = cy.years_compared_from || 0;
+    var rows = cy.rows.filter(function (r) { return Number(r.year) >= from && r.coverage_pct != null; });
+    if (!rows.length) { text.textContent = 'Not measured.'; return; }
+    var b = cy.best_year, w = cy.worst_year;
+    text.innerHTML = 'The papers that have not been looked up are not a random quarter of the whole. ' +
+      'The lookup works down a list and stopped where the budget ran out, so it finished one year and ' +
+      'barely started another. Of the papers published in ' + esc(b.year) + ', ' + b.coverage_pct +
+      ' percent reached a topic. Of those published in ' + esc(w.year) + ', ' + w.coverage_pct +
+      ' percent did. <b>So the ranking above is close to a ranking of what Aarhus published in ' +
+      esc(b.year) + '</b>, rather than of the window it claims. A department whose work shifted between ' +
+      'those years is misrepresented here, and that is a stronger objection than the headline ' +
+      'percentage on its own suggests.';
+
+    var W = 860, H = 230, P = { l: 56, r: 20, t: 20, b: 46 };
+    var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+      'aria-label': 'Share of each publication year whose papers reached a topic' });
+    var bw = (W - P.l - P.r) / rows.length;
+    var scale = Math.max(100, Math.max.apply(null, rows.map(function (r) { return r.coverage_pct; })));
+    rows.forEach(function (r, i) {
+      var hgt = r.coverage_pct / scale * (H - P.t - P.b);
+      s.appendChild(el('rect', { x: P.l + i * bw + 8, y: H - P.b - hgt, width: bw - 16,
+        height: Math.max(1, hgt), rx: 2, fill: r.coverage_pct < 25 ? '#b03a3a' : '#2c4a6b' }));
+      s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b + 15, 'text-anchor': 'middle',
+        'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#8b95a1' }, r.year));
+      s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b - hgt - 5, 'text-anchor': 'middle',
+        'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, r.coverage_pct + '%'));
+      s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b + 30, 'text-anchor': 'middle',
+        'font-family': "'IBM Plex Mono',monospace", 'font-size': 9.5, fill: '#b5bcc4' },
+        r.looked_up + '/' + r.with_doi));
+    });
+    s.appendChild(el('text', { x: P.l, y: 13, 'font-family': "'IBM Plex Sans',sans-serif",
+      'font-size': 11.5, fill: '#5b6470' },
+      'Share of each year’s papers that reached a topic, with the counts beneath. Red is under a quarter.'));
+    host.innerHTML = ''; host.appendChild(s);
+  }
+
+  // Resampling says how much of the order is real and how much is an accident of which
+  // works happened to be drawn. It answers a fair objection, and it is careful not to
+  // claim more than a bootstrap can: it cannot speak for the papers never fetched.
+  function renderStability() {
+    var st = D.stability, text = $('#stabtext'), host = $('#stabviz');
+    if (!text) return;
+    if (!st || !st.available) {
+      text.textContent = 'Not measured' + (st && st.reason ? ' (' + st.reason + ').' : '.');
+      return;
+    }
+    var h = st.headline || {};
+    text.innerHTML = 'The covered papers were drawn again with replacement ' + st.resamples +
+      ' times, and the whole ranking recomputed each time, thresholds included, so a candidate ' +
+      'that only just clears the bar is allowed to vanish. ' +
+      (h.top_candidate ? '<b>' + esc(h.top_candidate) + '</b> comes first in ' +
+        h.top_candidate_ranked_first_pct + ' percent of them. ' : '') +
+      (h.candidates_appearing_in_under_80_pct != null
+        ? h.candidates_appearing_in_at_least_99_pct + ' of the ' + D.actions.length +
+          ' candidates survive almost every redraw, while ' + h.candidates_appearing_in_under_80_pct +
+          ' come and go. Those are the rows to distrust. ' : '') +
+      'One thing this cannot do, and the page will not pretend otherwise: redrawing the papers ' +
+      'already in hand says nothing about the ones never fetched. Since those are missing by year ' +
+      'rather than at random, the real movement is larger than these bands.';
+
+    var by = st.by_action || {};
+    var rows = D.actions.slice().sort(function (a, b) { return a.rank - b.rank; }).slice(0, 12)
+      .map(function (a) { return { a: a, s: by[a.action_id] || {} }; })
+      .filter(function (r) { return r.s.rank_p5 != null && r.s.rank_p95 != null; });
+    if (!rows.length || !host) return;
+    var W = 860, rowH = 26, P = { l: 250, r: 54, t: 26, b: 18 };
+    var H = P.t + P.b + rows.length * rowH;
+    var maxR = Math.max.apply(null, rows.map(function (r) { return r.s.rank_p95; }));
+    var X = function (v) { return P.l + (v - 1) / Math.max(1, maxR - 1) * (W - P.l - P.r); };
+    var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+      'aria-label': 'Rank of each candidate across resamples, with its 5th to 95th percentile band' });
+    s.appendChild(el('text', { x: P.l, y: 13, 'font-family': "'IBM Plex Sans',sans-serif",
+      'font-size': 11.5, fill: '#5b6470' }, 'Rank across ' + st.resamples + ' redraws. Left is better. The bar is the middle 90 percent.'));
+    rows.forEach(function (r, i) {
+      var y = P.t + i * rowH + rowH / 2;
+      s.appendChild(el('text', { x: P.l - 10, y: y + 4, 'text-anchor': 'end',
+        'font-family': "'IBM Plex Sans',sans-serif", 'font-size': 11.5, fill: '#5b6470' },
+        (r.a.department.replace('Department of ', '') + ', ' + r.a.topic.subfield).slice(0, 40)));
+      s.appendChild(el('line', { x1: X(r.s.rank_p5), y1: y, x2: X(r.s.rank_p95), y2: y,
+        stroke: '#c9c5be', 'stroke-width': 6, 'stroke-linecap': 'round' }));
+      s.appendChild(el('circle', { cx: X(r.s.median_rank != null ? r.s.median_rank : r.a.rank),
+        cy: y, r: 4.5, fill: '#2c4a6b' }));
+      if (r.s.appears_pct != null && r.s.appears_pct < 80) {
+        s.appendChild(el('text', { x: W - P.r + 8, y: y + 4, 'font-family': "'IBM Plex Mono',monospace",
+          'font-size': 10, fill: '#b03a3a' }, Math.round(r.s.appears_pct) + '%'));
+      }
+    });
+    host.innerHTML = ''; host.appendChild(s);
+  }
+
   function renderCoverage() {
     var h = D.honesty_panel || {};
     var cov = h.coverage_pure || {};
@@ -368,6 +469,8 @@
     renderList();
     renderDetail();
     renderWorked();
+    renderCoverageByYear();
+    renderStability();
     renderCoverage();
     fillProse();
     $('#v1').innerHTML = '<b>The white-space mark is the one worth arguing with.</b> ' +
