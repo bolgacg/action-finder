@@ -116,8 +116,15 @@
     host.innerHTML =
       '<div class="card-title">' + esc(a.department) + ', ' + esc(a.topic.subfield) + '</div>' +
       '<p class="small">' + esc(a.topic.field) + ', ' + esc(a.topic.domain) +
-      '. Ranked ' + a.rank + ' of ' + D.actions.length + ' with a score of ' + a.score.toFixed(3) + ', built as ' +
-      esc(a.score_components.formula) + '.</p>' +
+      '. Ranked ' + a.rank + ' of ' + D.actions.length + ' with a score of ' + a.score.toFixed(3) + '.</p>' +
+      '<p class="small">The score multiplies three things and nothing else: <b>how much this ' +
+      'department publishes on this topic</b> compared with the others here (' +
+      pct(a.score_components.au_strength_scaled) + ' of the strongest), <b>how much Danish activity ' +
+      'there is on the topic</b> in European projects (' + pct(a.score_components.danish_activity_scaled) +
+      ' of the busiest), and <b>how much of that activity has no existing link to Aarhus</b> (' +
+      pct(a.score_components.unconnected_share) + ' of it). The first two are combined as a geometric ' +
+      'mean, so a topic strong on one side and weak on the other cannot score well, and the third ' +
+      'can at most double the result. Written out: <code>' + esc(a.score_components.formula) + '</code>.</p>' +
       '<div class="stat">' +
       '<div><div class="k">AU papers</div><div class="n">' + a.au_evidence.works_in_window +
       '</div><div class="s">in this topic, in the window</div></div>' +
@@ -129,10 +136,28 @@
       '</div><div class="s">of the department\'s papers here</div></div>' +
       '</div>' +
       '<p class="small" style="margin-top:14px"><b>Danish organisations on this topic.</b> ' +
-      'Those already sharing a project with Aarhus are marked, because they are a warm call rather than a cold one.</p>' +
+      'Each one says whether Aarhus is already on a European project with it, on this topic or on ' +
+      'another, because those are three different phone calls. Some also carry a warning: the ' +
+      'project keyword that put the organisation on this topic has nothing corroborating it, which ' +
+      'is how a pharmaceutical company ends up under Ecology.</p>' +
       '<div class="orglist">' + orgs.map(function (o) {
+        // Three states, not two, because they are three different phone calls: a
+        // partner already on an Aarhus project about this topic, one already on an
+        // Aarhus project about something else, and one with no existing link at all.
+        var link = o.shares_a_project_with_au_on_this_topic
+          ? '<span style="color:var(--pos)">already with AU on this topic</span>'
+          : (o.shares_project_with_au
+              ? '<span style="color:var(--accent)">already with AU, another topic</span>'
+              : 'no shared project with AU');
+        // A weakly supported link comes from a project whose topic keyword has nothing
+        // corroborating it, which is how a pharmaceutical company lands under Ecology.
+        var weak = o.topic_support && o.topic_support !== 'corroborated'
+          ? ' <span style="color:var(--neg)" title="' +
+            esc(o.topic_support_detail || 'the project keyword that produced this topic has nothing corroborating it') +
+            '">topic tag unsupported</span>'
+          : '';
         return '<div><b>' + esc(o.name) + '</b> <span class="hint">' + esc(o.activity || '') +
-          (o.shares_project_with_au ? ', already with AU' : '') + '</span></div>';
+          ', ' + link + weak + '</span></div>';
       }).join('') + '</div>' +
       (a.danish_evidence.organisations_on_this_topic > orgs.length
         ? '<p class="hint">' + (a.danish_evidence.organisations_on_this_topic - orgs.length) + ' more in the data.</p>' : '') +
@@ -390,6 +415,57 @@
       '</div><div class="s">by hand, and one route removed because of it</div></div>' +
       '<div><div class="k">Candidates</div><div class="n">' + D.actions.length +
       '</div><div class="s">of ' + (D.counts ? D.counts.candidate_pairs_clearing_thresholds : '?') + ' pairs clearing the bar</div></div>';
+
+    // The question a partnerships reader actually has: is this list finding me anything
+    // I do not already know? The instrument measures that against itself and the answer
+    // is unflattering, so it is printed rather than left in the data file.
+    var am = h.top_candidates_already_collaborating || {};
+    var amEl = $('#alreadymet');
+    if (amEl) {
+      amEl.innerHTML = am.share_pct_same_topic != null
+        ? 'It measures that against itself, and the answer is not comfortable: of the ' +
+          am.top_n_examined + ' candidates here, <b>' +
+          am.candidates_where_a_danish_organisation_already_shares_an_au_project_on_the_same_topic +
+          ' already have a Danish organisation on a European project with Aarhus about that very topic</b>, ' +
+          'which is ' + am.share_pct_same_topic + ' percent of them. Widen it to any topic at all and it is ' +
+          am.candidates_where_a_danish_organisation_already_shares_an_au_project_on_any_topic + ' of ' +
+          am.top_n_examined + '. So this list mostly finds rooms where some door is already open, ' +
+          'and the value is in which door and about what, not in discovering strangers.'
+        : 'How often its own candidates turn out to be talking already was not measured in this build.';
+    }
+
+    // A topic keyword can be a homonym, and a correct mapping from a loose tag still
+    // produces a wrong answer. Named with the worst real case rather than described,
+    // and quantified, because a general warning tells a reader nothing about how often.
+    var lt = h.loose_cordis_tags || {};
+    var ltEl = $('#loosetags');
+    if (ltEl) {
+      var ex = (lt.named_examples || []).filter(function (e) { return /UNIVERSITETSHOSPITAL/i.test(e.organisation); })[0]
+        || (lt.named_examples || [])[0];
+      var worst = (lt.worst_candidates || [])[0];
+      ltEl.innerHTML = (ex
+        ? 'The clearest case is on the top candidate. <b>' + esc(ex.organisation) + '</b> is offered as ' +
+          'a partner for ' + esc(ex.department) + ' on ' + esc(ex.topic) + ', because it joined project ' +
+          esc(ex.project_id) + ', "' + esc(ex.project_title) + '", and CORDIS tagged that project with the ' +
+          'keyword <i>' + esc((ex.carried_by_term || []).join(', ')) + '</i>. That word sits under ecology in ' +
+          'the vocabulary and meant something else in the project, so the page ends up proposing that ' +
+          'Aarhus introduce its ecologists to its own university hospital about rare diseases. The mapping ' +
+          'worked correctly and the answer is still wrong. '
+        : '') +
+        (lt.weakly_supported_pct_of_listed_organisations != null
+          ? 'This is measured rather than left as a warning: ' + lt.weakly_supported_pct_of_listed_organisations +
+            ' percent of the organisations listed on this page reach their topic through a keyword with ' +
+            'nothing corroborating it, and they are marked as such where they appear. '
+          : '') +
+        (worst
+          ? 'It is not spread evenly. <b>' + esc(worst.topic) + ' is the worst affected at ' +
+            worst.weakly_supported_pct + ' percent</b>, because "ecosystems" means one thing to a biologist ' +
+            'and another to everyone writing about business, innovation and health. '
+          : '') +
+        'Weak support is not the same as a wrong link, which is why none of these are dropped: a ' +
+        'bio-methanol company reaches organic chemistry through the word "alcohols", uncorroborated and ' +
+        'entirely correct. Read the project titles before reading the organisation names.';
+    }
 
     var oa = h.coverage_openalex || {};
     // Only the finished years can be compared against each other. The year in

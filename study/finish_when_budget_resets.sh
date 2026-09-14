@@ -47,43 +47,52 @@ run() {
 
 run python3 study/openalex.py
 run python3 study/partners.py
+
+# rank, spotcheck, rank again. The spot-check reads the finished actions.json, and
+# rank.py folds the spot-check back into the honesty panel, so a single pass would
+# publish falsification numbers describing the previous ranking.
 run python3 study/rank.py
+run python3 study/spotcheck.py
+run python3 study/rank.py
+
 # stability.py bootstraps the published candidates, so it has to follow rank.py every
 # time. Skip it and build_page_data.py finds a stability file describing the previous
 # ordering, refuses to inline it, and the page quietly loses that section overnight.
 run python3 study/stability.py
 run python3 study/build_page_data.py
 
-# The point of the whole wait. If the lookup still did not complete, say so loudly
-# rather than leaving a page that claims more coverage than it has.
-python3 - <<'PY' | tee -a "$LOG"
-import json
-c = json.load(open('data/derived/openalex_coverage.json'))
-print(f"match rate now {c['openalex_match_rate_pct']} percent, "
-      f"{c['openalex_matched']} of {c['pure_works_with_doi']} DOIs matched, "
-      f"{c['dois_never_asked']} never asked")
-print("lookup complete" if c['lookup_complete'] else "LOOKUP STILL INCOMPLETE")
-PY
+MATCHED=$(python3 -c "import json;print(json.load(open('data/derived/openalex_coverage.json'))['openalex_match_rate_pct'])")
+COMPLETE=$(python3 -c "import json;print('yes' if json.load(open('data/derived/openalex_coverage.json'))['lookup_complete'] else 'no')")
+say "match rate now ${MATCHED} percent, lookup complete: ${COMPLETE}"
 
-# Publish the completed data. The page is already live and says openly that it was
-# built on a fraction of the papers, so the honest move is to replace that state as
-# soon as there is a better one rather than to leave the caveat standing.
+# Whether to publish an incomplete result. Refusing to push would leave the 27.6
+# percent page live, which is worse than whatever this run reached, and the page
+# states its own coverage in act three either way. So it publishes regardless and
+# the script exits non-zero when the lookup did not finish, so the morning check
+# sees a failure rather than a silent partial success.
 if git diff --quiet -- docs/data.js data/actions.json data/derived; then
   say "no change to the published data, nothing to push"
 else
-  MATCHED=$(python3 -c "import json;print(json.load(open('data/derived/openalex_coverage.json'))['openalex_match_rate_pct'])")
   git add -A -- docs data
-  git commit -q -m "Complete the OpenAlex lookup and rerank
+  git commit -q -m "Rerun the lookup once the OpenAlex allowance reset
 
-The first build reached ${MATCHED} percent of the Natural Sciences papers
+The first build reached 27.6 percent of the Natural Sciences papers
 carrying a DOI, because OpenAlex moved to a paid interface partway through
-and the free daily allowance ran out. This is the same pipeline rerun once
-the allowance reset, with the ranking recomputed on the fuller set."
+and the free daily allowance ran out. This is the same pipeline rerun on
+the fuller set, now at ${MATCHED} percent, with the spot-check and the
+stability bootstrap regenerated against the new ranking rather than left
+describing the old one."
   if git push -q origin HEAD 2>>"$LOG"; then
-    say "pushed the completed data, match rate now ${MATCHED} percent"
+    say "pushed, match rate now ${MATCHED} percent"
   else
     say "rebuild succeeded but the push failed, run git push by hand"
+    exit 1
   fi
+fi
+
+if [ "$COMPLETE" != "yes" ]; then
+  say "LOOKUP STILL INCOMPLETE at ${MATCHED} percent. The page is published and says so, but rerun this script."
+  exit 1
 fi
 
 say "done"
