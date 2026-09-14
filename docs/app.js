@@ -315,7 +315,12 @@
       { sel: 'header h1', k: 'Welcome · 1 of 5', html: 'A shortlist of conversations that nobody at Aarhus appears to have had yet, built from three public sources and joined on identifiers rather than names.' },
       { sel: '#domain', k: 'Where it comes from · 2 of 5', html: 'Pure knows which faculty a paper belongs to. OpenAlex knows its topic and whether a company co-authored it. CORDIS knows which Danish organisations work on the same topics in European projects.' },
       { sel: '#alist', k: 'The candidates · 3 of 5', html: '<b>Pick a department above, then click a row.</b> Every candidate opens to show the papers, the organisations, and whether the two have already met.' },
-      { sel: '#worked', k: 'The job itself · 4 of 5', html: 'The instrument gives a shortlist. This is the top one taken as far as a specialist would take it, by hand: who is in the room, what the first session produces, what would kill it.' },
+      // The tour must not promise a brief that is not there. Which step four is
+      // depends on whether the hand-written Action exists for the current top candidate.
+      (typeof WORKED !== 'undefined' && WORKED && D.actions.length &&
+       WORKED.action_id === D.actions.slice().sort(function (a, b) { return b.score - a.score; })[0].action_id)
+        ? { sel: '#worked', k: 'The job itself · 4 of 5', html: 'The instrument gives a shortlist. This is the top one taken as far as a specialist would take it, by hand: who is in the room, what the first session produces, what would kill it.' }
+        : { sel: '#worked', k: 'The job itself · 4 of 5', html: 'This is where the shortlist stops being arithmetic. One candidate gets taken as far as a specialist would take it by hand, and this act is honest that it is not written yet, because the ranking above is still moving as the last act explains.' },
       { sel: '#covviz', k: 'What it cannot tell you · 5 of 5', html: 'Coverage, topic accuracy, and how often the tool\'s own top candidates turn out to be talking already. This act is the reason to trust the others.' }
     ];
     function place() {

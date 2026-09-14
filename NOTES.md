@@ -8,25 +8,61 @@ into a file in `data/`, and nothing in this file was typed in by hand.
 
 ## Read this first
 
-The OpenAlex lookup is **incomplete**. OpenAlex rate limited this address part
-way through the run and answered every later request, including a single minimal
-one, with HTTP 429 and a Retry-After of about five hours. So of the 7,329
-Natural Sciences DOIs, 2,025 have OpenAlex data and 5,304 do not, which is 27.6
-percent coverage. Everything downstream is computed on the covered 2,025.
+The OpenAlex lookup is **incomplete**. Of the 7,329 Natural Sciences DOIs, 2,025
+have OpenAlex data and 5,304 do not, which is 27.6 percent coverage. Everything
+downstream is computed on the covered 2,025.
 
-That is not a small caveat, and it has a visible shape: the DOIs that did get
-through are the ones from the 2022 publication year set, so the topic and
-co-authorship evidence in `actions.json` is effectively a 2022 slice while the
-Pure side spans 2022 to 2026. Candidate Actions are therefore ranked on about a
-fifth of the evidence the pipeline is built to use, and the counts in each
-`au_evidence` block are floors rather than totals.
+The cause is not a rate limit that backing off would solve. OpenAlex now meters
+its API against a daily spending allowance, and this address had spent its free
+allowance. The service replies:
 
-Nothing was faked to paper over it. `study/openalex.py` now caches per DOI
-rather than per batch, so rerunning it resumes from exactly where it stopped:
+    {"error":"Rate limit exceeded",
+     "message":"Insufficient budget. This request costs $0.0001 but you only
+                have $0 remaining. Resets at midnight UTC",
+     "retryAfter":17659,"dailyRemainingUsd":0}
 
-    python3 study/openalex.py && python3 study/rank.py
+So the fix is the clock, not the code. The allowance resets at 00:00 UTC. The
+remaining 5,304 DOIs are 107 requests at 50 DOIs each, which is under two US
+cents. What spent the allowance was an earlier per-DOI version of the lookup,
+not the batched code that is in the repository now.
 
-The numbers below are what the pipeline actually produced under that limit.
+**Do not read a thin year as a thin harvest.** The Pure harvest is complete and
+even. Counted straight from the raw cache before any filter or join, AU records
+per publication year run 13,724 / 13,106 / 12,959 / 14,365 / 8,898 across 2022
+to 2026, and Natural Sciences works run 2,002 / 1,871 / 1,925 / 1,931 / 1,185.
+The 2026 figure is lower because the year is not over. All five OAI sets match
+the `completeListSize` the endpoint reports for them.
+
+The unevenness is entirely in the OpenAlex lookup, and it is severe because the
+batch that succeeded was drawn from a DOI list built when only the 2022 set had
+been parsed:
+
+| publication year | Natural Sciences DOIs | covered by OpenAlex |
+| --- | --- | --- |
+| 2022 | 1,650 | 98.4 percent |
+| 2023 | 1,518 | 8.0 percent |
+| 2024 | 1,580 | 0.1 percent |
+| 2025 | 1,584 | 5.1 percent |
+| 2026 | 992 | 19.5 percent |
+
+That is why a candidate can show `works_by_year` of 2022: 82, 2023: 3, 2025: 5,
+2026: 13 with 2024 missing. The department did not stop publishing in 2024. The
+lookup never reached those papers. Every candidate now carries
+`au_evidence.openalex_coverage_for_this_department` giving that department's
+DOI-carrying Pure works per year beside the number covered, so the ambiguity
+cannot survive a reading of the entry. The same tables are at the top of
+`actions.json` under `harvest_and_coverage_by_year`.
+
+Nothing was faked to paper over any of this. To finish the lane once the
+allowance resets:
+
+    bash /home/bolgac/projects/action-finder/study/finish_lane.sh
+
+It refuses to run before 00:05 UTC on 15 September 2026, takes a lock, logs to
+`logs/finish_lane.log`, and exits non-zero if any step fails or if the lookup is
+still short. It publishes nothing.
+
+The numbers below are what the pipeline produced under the incomplete lookup.
 
 ## Numbers from the final run
 
@@ -339,6 +375,80 @@ all, and the per-section paper counts get thin enough that the thresholds stop
 meaning much. With the full OpenAlex coverage restored, section level would be
 worth revisiting for the larger departments, and `pure_natsci_affiliations.csv`
 would need a section column to support it.
+
+## What I could not verify
+
+**Whether the ranking is stable.** It is not, and the honesty panel now carries
+a `ranking_stability` block saying so. Two facts drive it. First, OpenAlex
+coverage varies by department from 14.3 percent for Mathematics to 33.0 percent
+for the Arctic Research Centre, a 2.3 times spread, and since the AU half of the
+score is a scaled paper count, departments are currently being compared on
+unequal evidence for reasons that have nothing to do with their research.
+Second, 13 of the 25 candidates are flagged white space on between 5 and 12
+observed papers each. Projecting the observed 9.1 percent company co-authorship
+rate onto the unseen papers, roughly 2 of those 13 flags would survive a
+complete lookup. That projection is labelled as a projection everywhere it
+appears and rests on two assumptions that are both false in known ways: that a
+company co-author is equally likely on any paper, and that the covered papers
+are a random sample. Treat the direction as real and the decimals as noise.
+
+**Whether the 2,025 covered works are representative.** They are not a random
+sample, they are a publication-year slice, so any statement of the form "AU
+Natural Sciences co-publishes with companies at 9.1 percent" is really a
+statement about 2022 output. I could not test for a time trend because there is
+almost no non-2022 data to test against.
+
+**Whether a "not yet connected" organisation is genuinely unconnected.** Only
+falsifiable, never confirmable. The offline check found 17 contradicted claims
+out of 214 using co-authorship, and a miss there proves nothing.
+
+**Whether OpenAlex company typing is right.** Taken on trust. One visible oddity
+survived into the output: a Physics and Astronomy candidate lists "Kjobenhavns
+Telefon Aktieselskab" as a Danish company co-author, which is a defunct telecom
+name. Institution typing was not audited and should not be assumed clean.
+
+## Decisions a reader might reasonably make differently
+
+These are judgement calls, not facts. Each is a place where someone sensible
+could choose the other way, and each is a single edit.
+
+**Excluding universities from the partner lists.** `PARTNER_ACTIVITY_TYPES` in
+`rank.py` drops CORDIS activity type HES. Without it every topic was topped by
+Copenhagen, DTU, Aalborg and SDU, because universities are the heaviest Horizon
+Europe participants by far. Someone running a secretariat that also brokers
+university-to-university work would keep them.
+
+**Turning off the keyword route in the topic bridge.** This costs 14 percentage
+points of CORDIS project coverage and halves the candidate count, on the
+evidence of five hand-checked mappings. Five is a small sample to change a
+default on. The split was clean, four wrong and none right against four right
+and none wrong, but someone who wanted more candidates and was willing to
+hand-filter them could pass `--with-keyword-matching`.
+
+**Counting a work by its primary topic only.** A paper gets one subfield, its
+strongest. OpenAlex offers up to three, and using all three would widen every
+candidate and make white space much harder to claim. Primary-only is the
+conservative choice for a white space flag and the restrictive one for
+everything else.
+
+**The thresholds of 5 papers and 3 organisations.** Arbitrary. They were chosen
+to keep the list readable. Both are command line flags.
+
+**The gap factor running 0.5 to 1.0 rather than 0 to 1.** A topic where AU
+already has partners is still a legitimate Action, so an existing partner
+reduces a candidate's score but never zeroes it. Someone hunting strictly for
+untouched ground would want the harsher version.
+
+**Scoring on the geometric mean.** It requires both halves of a candidate to be
+real, so a topic strong on one side and empty on the other cannot rank. An
+arithmetic mean would let either half carry a candidate, which would surface
+more AU strengths that no Danish organisation is working on. That is a different
+and also useful question, just not the one the tool was asked.
+
+**Keeping author names in the raw cache.** Emails, office addresses, employee
+identifiers and ORCIDs are stripped at harvest. Names are not, because a name on
+a paper is the published byline. No derived table carries them. Someone with a
+stricter reading of the brief would strip those too.
 
 ## Rules followed
 

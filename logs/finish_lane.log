@@ -1,0 +1,53 @@
+[2026-09-14T19:12:48Z] ===== finish_lane starting =====
+[2026-09-14T19:12:48Z] step 1 of 4: openalex lookup
+[21:12:48] 8920 Pure works, 7329 distinct DOIs to look up
+[21:12:48] 0 DOIs already cached, 7329 still to fetch
+[21:12:48]   HTTP 429 with Retry-After 17230s, longer than the 120s cap. Not waiting.
+[21:12:48] OpenAlex returned 429 with Retry-After 17230s. Body: {"error":"Rate limit exceeded","message":"Insufficient budget. This request costs $0.0001 but you only have $0 remaining. Resets at midnight UTC. Need more? Add funds at https://openalex.org/pricing","retryAfter":17230,"costUsd":0.0001,"dailyRemainingUsd":0,"prepaidRemainingUsd":0,"creditsRequired":
+[21:12:48] Stopping with 7329 DOIs still unfetched; rerun this script after the reset and it resumes from the cache.
+[21:12:48] wrote /home/bolgac/projects/action-finder/data/openalex-raw/known_misses.json (0 kB)
+[21:12:48] per-DOI cache holds 0 of 7329 DOIs; 0 confirmed absent from OpenAlex
+[21:12:48] wrote /home/bolgac/projects/action-finder/data/derived/openalex_works.csv (2025 rows, 2025 carried over from an earlier run)
+[21:12:48] wrote /home/bolgac/projects/action-finder/data/derived/openalex_work_institutions.csv (12125 rows, 12125 carried over from an earlier run)
+[21:12:48] wrote /home/bolgac/projects/action-finder/data/derived/openalex_work_topics.csv (5962 rows, 5962 carried over from an earlier run)
+[21:12:48] wrote /home/bolgac/projects/action-finder/data/derived/openalex_coverage.json (2 kB)
+[21:12:48] output covers 2025 of 7329 DOIs (27.6%), 184 works have a company co-author
+[21:12:48] INCOMPLETE: 5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.
+[2026-09-14T19:12:48Z] step 2 of 4: cordis partners and the topic bridge
+[21:12:49] building the euroSciVoc to OpenAlex subfield bridge
+[21:12:50] wrote /home/bolgac/projects/action-finder/data/derived/topic_bridge.json (131 kB)
+[21:12:50]   mapped 377 of 1007 euroSciVoc paths
+[21:12:50] reading CORDIS
+[21:12:52]   project.csv: 23451 usable rows, 193 malformed by unescaped quotes in the objective text
+[21:12:52]   Aarhus University (999997736) on 439 projects
+[21:12:52]   held separate: Aarhus Universitetshospital (999643880) on 12 projects
+[21:12:52]   held separate: Aarhus Kommune (992597994) on 15 projects
+[21:12:52]   held separate: Arkitektskolen i Aarhus (968659849) on 1 projects
+[21:12:52]   14706 of 20161 CORDIS projects placed on a subfield
+[21:12:53]   726 distinct Danish organisations in Horizon Europe
+[21:12:53]   1324 organisation by subfield rows
+[21:12:53] wrote /home/bolgac/projects/action-finder/data/derived/cordis_checks.json (1 kB)
+[21:12:53]   recheck: 67 Danish for-profit partner rows covering 53 organisations
+[2026-09-14T19:12:53Z] step 3 of 4: rank and the honesty panel
+[21:12:54] 2359 department-by-paper rows carry a topic
+[21:13:01] 25 candidate department-by-topic pairs clear the thresholds
+[21:13:01] wrote /home/bolgac/projects/action-finder/data/derived/topic_check_sample.json (8 kB)
+[21:13:01] wrote /home/bolgac/projects/action-finder/data/derived/honesty.json (38 kB)
+[21:13:01] wrote /home/bolgac/projects/action-finder/data/actions.json (461 kB)
+[21:13:01] 25 candidates, wrote top 25, 13 flagged white space, 8 departments
+[2026-09-14T19:13:01Z] step 4 of 4: page data
+wrote docs/data.js (319 KB), 25 candidate Actions
+[2026-09-14T19:13:01Z] verifying coverage
+  match rate 27.6 percent, 2025 of 7329 DOIs, 5304 never asked, 0 confirmed absent
+    2020: 1/1 (100.0%)
+    2021: 4/4 (100.0%)
+    2022: 1623/1650 (98.4%)
+    2023: 122/1518 (8.0%)
+    2024: 1/1580 (0.1%)
+    2025: 81/1584 (5.1%)
+    2026: 193/992 (19.5%)
+  LOOKUP STILL INCOMPLETE, run this again after the next reset
+[2026-09-14T19:13:01Z] FAILED at line 74. Nothing downstream was rebuilt from a bad step.
+[2026-09-14T19:13:19Z] ===== finish_lane starting =====
+[2026-09-14T19:13:19Z] it is 2026-09-14T19:13:19Z, before the 2026-09-15T00:05:00Z guard.
+[2026-09-14T19:13:19Z] The OpenAlex budget has not reset yet. Not touching it. Exiting 5.
