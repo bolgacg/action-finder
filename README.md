@@ -20,9 +20,26 @@ a shared European project already exists, and the components of the score. The s
 formula printed next to every row it produced, so a reader can disagree with the weighting and
 recompute rather than take it on trust.
 
-The last act is the instrument measuring itself: harvest coverage by year, how many records
-carry a DOI and can therefore reach a topic at all, how often a hand-checked topic label looks
-wrong, and how often its own top candidates turn out to be collaborating already.
+The last act is the instrument measuring itself, and it is the part worth reading first.
+
+- **The coverage is uneven, and the page says by how much.** OpenAlex moved to a paid interface
+  partway through this build and the free daily allowance ran out, so only part of the papers
+  have reached a topic. The missing ones are not missing at random: the lookup works down a list
+  and stopped where the budget ran out, which left 2022 almost complete and 2024 barely started.
+  The ranking is therefore closer to a ranking of one year than of the window it claims.
+- **How much the order is an accident.** The covered papers are resampled two thousand times and
+  the whole ranking recomputed, thresholds included, so a candidate that only just clears the bar
+  can vanish. The page reports how often each candidate survives, and states plainly that
+  redrawing the papers already in hand says nothing about the ones never fetched.
+- **One named failure rather than a general warning.** Novo Nordisk appears under Ecology, which
+  looks absurd until you follow it: the company is a partner in a clinical trials project that
+  CORDIS tags with the keyword *ecosystems*, a term that sits under ecology in the vocabulary and
+  meant something else in the project. The mapping worked and the answer is still wrong.
+- **Whether its own candidates are already talking**, and how often a hand-checked topic label
+  looks wrong.
+
+Every score on the page is recomputed in the reader's browser from the components shipped beside
+it, so the formula printed next to each row can be checked rather than believed.
 
 ## The joins, and why they are safe
 
@@ -55,6 +72,8 @@ in the same administration as Science Bridge.
 | `study/openalex.py` | Topics and co-author institution types for the harvested DOIs |
 | `study/partners.py` | Danish organisations per topic from CORDIS, and whether AU already shares a project |
 | `study/rank.py` | Writes `data/actions.json` and the honesty panel |
+| `study/stability.py` | Resamples the covered papers and reruns the whole ranking, two thousand times |
+| `study/finish_when_budget_resets.sh` | Waits for the OpenAlex daily allowance, finishes the lookup, rebuilds and pushes |
 | `study/build_page_data.py` | Writes `docs/data.js` |
 | `FACTS.md` | What was verified by hand before any of this was written, with the numbers |
 | `NOTES.md` | What could not be verified, and the decisions a reader might make differently |
