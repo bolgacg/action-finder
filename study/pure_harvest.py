@@ -300,6 +300,14 @@ def parse_all() -> dict:
     affil_rows: list[dict] = []
     seen_records = 0
     faculty_counter: collections.Counter = collections.Counter()
+    # Census of every record in the cache by its publication year, counted
+    # before any faculty filter, any DOI requirement and any join. This is the
+    # number to look at first when a year looks thin downstream: if the year is
+    # present here, the harvest is fine and the thinness was introduced later.
+    raw_year_counter: collections.Counter = collections.Counter()
+    raw_records_per_set: collections.Counter = collections.Counter()
+    natsci_year_counter: collections.Counter = collections.Counter()
+    natsci_with_doi_year: collections.Counter = collections.Counter()
 
     for set_dir in sorted(os.listdir(PURE_RAW)):
         full = os.path.join(PURE_RAW, set_dir)
@@ -316,8 +324,10 @@ def parse_all() -> dict:
                 continue
             for rec in root.iter("{%s}record" % NS["oai"]):
                 seen_records += 1
+                raw_records_per_set[set_dir] += 1
                 doc = rec.find("oai:metadata/mxd:ddf_doc", NS)
                 if doc is not None:
+                    raw_year_counter[doc.get("doc_year") or "none"] += 1
                     for org in doc.findall("mxd:organisation", NS):
                         for name in org.findall("mxd:name", NS):
                             lang = name.get(
@@ -335,6 +345,10 @@ def parse_all() -> dict:
                 if row["rec_id"] in works:
                     continue
                 works[row["rec_id"]] = row
+                y = str(row["pub_year"]) if row["pub_year"] else "none"
+                natsci_year_counter[y] += 1
+                if row["doi"]:
+                    natsci_with_doi_year[y] += 1
                 for dept in row["departments"].split("|"):
                     if dept:
                         affil_rows.append(
@@ -375,6 +389,25 @@ def parse_all() -> dict:
 
     coverage = {
         "records_seen_in_cache": seen_records,
+        "harvest_census": {
+            "what_this_is": (
+                "every record in the raw cache counted by its publication year, "
+                "before any faculty filter, DOI requirement or join. Read this "
+                "first when a year looks thin further down the pipeline"
+            ),
+            "all_au_records_by_publication_year": dict(
+                sorted(raw_year_counter.items())
+            ),
+            "all_au_records_by_harvested_set": dict(
+                sorted(raw_records_per_set.items())
+            ),
+            "natural_sciences_works_by_publication_year": dict(
+                sorted(natsci_year_counter.items())
+            ),
+            "natural_sciences_works_with_doi_by_publication_year": dict(
+                sorted(natsci_with_doi_year.items())
+            ),
+        },
         "natural_sciences_works": len(works),
         "natural_sciences_works_with_doi": with_doi,
         "doi_share_pct": round(100.0 * with_doi / len(works), 1) if works else 0.0,

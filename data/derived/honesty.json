@@ -1,8 +1,48 @@
 {
-  "generated_at": "2026-09-14T21:08:49",
+  "generated_at": "2026-09-14T21:12:24",
   "what_this_panel_is": "the numbers that say how far the ranked list can be trusted, computed by the same scripts that produced the list",
-  "headline_limitation": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "headline_limitation": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
   "coverage_pure": {
+    "harvest_census": {
+      "what_this_is": "every record in the raw cache counted by its publication year, before any faculty filter, DOI requirement or join. Read this first when a year looks thin further down the pipeline",
+      "all_au_records_by_publication_year": {
+        "2015": 1,
+        "2020": 11,
+        "2021": 45,
+        "2022": 13724,
+        "2023": 13106,
+        "2024": 12959,
+        "2025": 14365,
+        "2026": 8898,
+        "2027": 5
+      },
+      "all_au_records_by_harvested_set": {
+        "publications_year2022": 13782,
+        "publications_year2023": 13139,
+        "publications_year2024": 13051,
+        "publications_year2025": 13697,
+        "publications_year2026": 9445
+      },
+      "natural_sciences_works_by_publication_year": {
+        "2020": 1,
+        "2021": 4,
+        "2022": 2002,
+        "2023": 1871,
+        "2024": 1925,
+        "2025": 1931,
+        "2026": 1185,
+        "2027": 1
+      },
+      "natural_sciences_works_with_doi_by_publication_year": {
+        "2020": 1,
+        "2021": 4,
+        "2022": 1655,
+        "2023": 1524,
+        "2024": 1581,
+        "2025": 1586,
+        "2026": 993
+      }
+    },
     "harvest_window_publication_years": {
       "2020": 1,
       "2021": 4,
@@ -47,7 +87,7 @@
   },
   "coverage_openalex": {
     "lookup_complete": false,
-    "incomplete_because": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+    "incomplete_because": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
     "dois_never_asked": 5304,
     "dois_looked_up": 7329,
     "dois_matched": 2025,
@@ -56,7 +96,44 @@
     "matched_works_with_a_primary_subfield": 2025,
     "works_with_a_company_coauthor": 184,
     "company_coauthor_share_pct": 9.1,
-    "institution_type_counts": {}
+    "institution_type_counts": {},
+    "coverage_by_publication_year": {
+      "2020": {
+        "natural_sciences_dois": 1,
+        "covered_by_openalex": 1,
+        "coverage_pct": 100.0
+      },
+      "2021": {
+        "natural_sciences_dois": 4,
+        "covered_by_openalex": 4,
+        "coverage_pct": 100.0
+      },
+      "2022": {
+        "natural_sciences_dois": 1650,
+        "covered_by_openalex": 1623,
+        "coverage_pct": 98.4
+      },
+      "2023": {
+        "natural_sciences_dois": 1518,
+        "covered_by_openalex": 122,
+        "coverage_pct": 8.0
+      },
+      "2024": {
+        "natural_sciences_dois": 1580,
+        "covered_by_openalex": 1,
+        "coverage_pct": 0.1
+      },
+      "2025": {
+        "natural_sciences_dois": 1584,
+        "covered_by_openalex": 81,
+        "coverage_pct": 5.1
+      },
+      "2026": {
+        "natural_sciences_dois": 992,
+        "covered_by_openalex": 193,
+        "coverage_pct": 19.5
+      }
+    }
   },
   "coverage_cordis": {
     "au_participant_id": "999997736",
@@ -101,6 +178,134 @@
     "rows_running_short": 0,
     "rows_usable_for_this_study": 23451,
     "why_usable": "the corruption is in the free-text objective column at index 15; every column this study reads sits before it and is still correctly positioned on a long row"
+  },
+  "ranking_stability": {
+    "status": "PROJECTION, not a measurement. See the assumptions below",
+    "why_it_matters": "the Danish half of every score is final, because CORDIS is complete. The AU half rests on the covered papers only, so the ranking will move when the rest of the lookup lands",
+    "department_openalex_coverage_pct": {
+      "Arctic Research Centre": 33.0,
+      "Department of Physics and Astronomy": 26.6,
+      "Department of Molecular Biology and Genetics": 24.9,
+      "Department of Chemistry": 24.8,
+      "Interdisciplinary Nanoscience Center": 23.4,
+      "Department of Biology": 22.0,
+      "Department of Computer Science": 20.1,
+      "Department of Mathematics": 14.3
+    },
+    "coverage_spread_note": "departments are not currently comparable with each other. Coverage runs from 14.3 percent to 33.0 percent across the departments in this list, so a department whose papers happened to fall in the covered slice looks stronger than one whose papers did not, for no reason connected to its research",
+    "observed_company_coauthor_rate_pct": 9.1,
+    "white_space_flags_now": 13,
+    "estimated_white_space_flags_surviving": 2.0,
+    "per_white_space_candidate": [
+      {
+        "rank": 4,
+        "action_id": "department-of-biology__2305",
+        "observed_works": 12,
+        "department_openalex_coverage_pct": 22.0,
+        "estimated_unseen_works_in_this_topic": 42.5,
+        "estimated_chance_it_stays_white_space_pct": 1.7
+      },
+      {
+        "rank": 7,
+        "action_id": "interdisciplinary-nanoscience-center__2502",
+        "observed_works": 10,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 32.7,
+        "estimated_chance_it_stays_white_space_pct": 4.4
+      },
+      {
+        "rank": 12,
+        "action_id": "department-of-biology__2310",
+        "observed_works": 6,
+        "department_openalex_coverage_pct": 22.0,
+        "estimated_unseen_works_in_this_topic": 21.3,
+        "estimated_chance_it_stays_white_space_pct": 13.2
+      },
+      {
+        "rank": 13,
+        "action_id": "department-of-mathematics__2604",
+        "observed_works": 9,
+        "department_openalex_coverage_pct": 14.3,
+        "estimated_unseen_works_in_this_topic": 53.8,
+        "estimated_chance_it_stays_white_space_pct": 0.6
+      },
+      {
+        "rank": 14,
+        "action_id": "interdisciplinary-nanoscience-center__1503",
+        "observed_works": 6,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 19.6,
+        "estimated_chance_it_stays_white_space_pct": 15.4
+      },
+      {
+        "rank": 15,
+        "action_id": "department-of-chemistry__1503",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 24.8,
+        "estimated_unseen_works_in_this_topic": 15.2,
+        "estimated_chance_it_stays_white_space_pct": 23.6
+      },
+      {
+        "rank": 16,
+        "action_id": "department-of-chemistry__1604",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 24.8,
+        "estimated_unseen_works_in_this_topic": 15.2,
+        "estimated_chance_it_stays_white_space_pct": 23.6
+      },
+      {
+        "rank": 17,
+        "action_id": "department-of-chemistry__1607",
+        "observed_works": 7,
+        "department_openalex_coverage_pct": 24.8,
+        "estimated_unseen_works_in_this_topic": 21.2,
+        "estimated_chance_it_stays_white_space_pct": 13.2
+      },
+      {
+        "rank": 19,
+        "action_id": "department-of-molecular-biology-and-genetics__1307",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 24.9,
+        "estimated_unseen_works_in_this_topic": 15.1,
+        "estimated_chance_it_stays_white_space_pct": 23.7
+      },
+      {
+        "rank": 21,
+        "action_id": "department-of-molecular-biology-and-genetics__2713",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 24.9,
+        "estimated_unseen_works_in_this_topic": 15.1,
+        "estimated_chance_it_stays_white_space_pct": 23.7
+      },
+      {
+        "rank": 22,
+        "action_id": "department-of-physics-and-astronomy__1607",
+        "observed_works": 8,
+        "department_openalex_coverage_pct": 26.6,
+        "estimated_unseen_works_in_this_topic": 22.0,
+        "estimated_chance_it_stays_white_space_pct": 12.3
+      },
+      {
+        "rank": 24,
+        "action_id": "interdisciplinary-nanoscience-center__2210",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 16.4,
+        "estimated_chance_it_stays_white_space_pct": 21.1
+      },
+      {
+        "rank": 25,
+        "action_id": "interdisciplinary-nanoscience-center__2730",
+        "observed_works": 5,
+        "department_openalex_coverage_pct": 23.4,
+        "estimated_unseen_works_in_this_topic": 16.4,
+        "estimated_chance_it_stays_white_space_pct": 21.1
+      }
+    ],
+    "assumptions": [
+      "a company co-author is equally likely on any paper, which is false: some topics are far more industry-facing than others",
+      "the covered papers are a random sample of each department's output, which is false: they are heavy with one publication year"
+    ]
   },
   "topic_assignment_accuracy": {
     "sample_drawn_from": "a run made before the topic keyword route was switched off, which is what this check found and removed",

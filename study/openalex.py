@@ -197,11 +197,23 @@ def main() -> None:
                 # far is already on disk per DOI, so stopping here costs nothing
                 # and the run resumes from exactly this point later.
                 retry_after = (exc.headers or {}).get("Retry-After")
+                # OpenAlex meters the API against a daily spend. A 429 here
+                # usually means the free allowance is gone rather than that
+                # requests are arriving too fast, and the body says which. It is
+                # worth printing, because the two look identical from the status
+                # code and call for opposite responses: slow down, or wait for
+                # the reset at midnight UTC.
+                try:
+                    body = exc.read().decode("utf-8", "replace")[:300]
+                except Exception:  # noqa: BLE001
+                    body = "(no body)"
                 log(
-                    f"OpenAlex rate limited this address (429). Retry-After is "
-                    f"{retry_after} seconds. Stopping with "
-                    f"{len(todo) - i} DOIs still unfetched; rerun this script "
-                    f"later and it will resume from the cache."
+                    f"OpenAlex returned 429 with Retry-After {retry_after}s. "
+                    f"Body: {body}"
+                )
+                log(
+                    f"Stopping with {len(todo) - i} DOIs still unfetched; rerun "
+                    f"this script after the reset and it resumes from the cache."
                 )
                 rate_limited = True
                 break
@@ -349,6 +361,36 @@ def main() -> None:
             return 0
 
     represented = {r["doi"] for r in work_rows}
+
+    # Coverage broken out by publication year. A candidate Action shows its
+    # papers by year, and a year that reads as zero there is ambiguous on its
+    # own: it could mean the department published nothing, or it could mean the
+    # lookup never reached those papers. This table is what tells the two apart,
+    # so it travels with the output rather than living in someone's head.
+    doi_year = {}
+    for row in pure_rows:
+        d = normalise_doi(row.get("doi"))
+        if d:
+            doi_year.setdefault(d, str(row.get("pub_year") or "none"))
+    per_year_total: collections.Counter = collections.Counter()
+    per_year_covered: collections.Counter = collections.Counter()
+    for d in dois:
+        y = doi_year.get(d, "none")
+        per_year_total[y] += 1
+        if d in represented:
+            per_year_covered[y] += 1
+    coverage_by_year = {
+        y: {
+            "natural_sciences_dois": per_year_total[y],
+            "covered_by_openalex": per_year_covered[y],
+            "coverage_pct": (
+                round(100.0 * per_year_covered[y] / per_year_total[y], 1)
+                if per_year_total[y]
+                else 0.0
+            ),
+        }
+        for y in sorted(per_year_total)
+    }
     # Counted after the merge, so a DOI that an earlier run already resolved is
     # not also reported as never asked.
     unfetched = [
@@ -374,9 +416,13 @@ def main() -> None:
             if not unfetched
             else (
                 f"{len(unfetched)} of {len(dois)} Natural Sciences DOIs have "
-                "not been looked up, because OpenAlex rate limited this address "
-                "with a Retry-After of about five hours. Everything downstream "
-                "is computed on the "
+                "not been looked up. OpenAlex now meters its API against a daily "
+                "spending allowance and this address had spent its free "
+                "allowance: the service replies 'Insufficient budget ... you "
+                "only have $0 remaining. Resets at midnight UTC'. That is a "
+                "budget, not a rate limit, so backing off does not help and "
+                "waiting for the reset does. Everything downstream is computed "
+                "on the "
                 f"{len(in_scope)} DOIs that are covered, which is "
                 f"{round(100.0 * len(in_scope) / len(dois), 1)} percent of them. "
                 "Rerun study/openalex.py to finish the lookup; it resumes from "
@@ -395,6 +441,7 @@ def main() -> None:
             round(100.0 * with_company / len(work_rows), 1) if work_rows else 0.0
         ),
         "matched_with_danish_company_coauthor": with_dk_company,
+        "coverage_by_publication_year": coverage_by_year,
         "institution_type_counts": dict(inst_type_counter.most_common()),
         "institution_type_counts_scope": (
             "counted from works fetched in this run only"

@@ -61,4 +61,25 @@ print(f"match rate now {c['openalex_match_rate_pct']} percent, "
 print("lookup complete" if c['lookup_complete'] else "LOOKUP STILL INCOMPLETE")
 PY
 
+# Publish the completed data. The page is already live and says openly that it was
+# built on a fraction of the papers, so the honest move is to replace that state as
+# soon as there is a better one rather than to leave the caveat standing.
+if git diff --quiet -- docs/data.js data/actions.json data/derived; then
+  say "no change to the published data, nothing to push"
+else
+  MATCHED=$(python3 -c "import json;print(json.load(open('data/derived/openalex_coverage.json'))['openalex_match_rate_pct'])")
+  git add -A -- docs data
+  git commit -q -m "Complete the OpenAlex lookup and rerank
+
+The first build reached ${MATCHED} percent of the Natural Sciences papers
+carrying a DOI, because OpenAlex moved to a paid interface partway through
+and the free daily allowance ran out. This is the same pipeline rerun once
+the allowance reset, with the ranking recomputed on the fuller set."
+  if git push -q origin HEAD 2>>"$LOG"; then
+    say "pushed the completed data, match rate now ${MATCHED} percent"
+  else
+    say "rebuild succeeded but the push failed, run git push by hand"
+  fi
+fi
+
 say "done"

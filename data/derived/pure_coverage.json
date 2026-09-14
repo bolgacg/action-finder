@@ -1,5 +1,45 @@
 {
   "records_seen_in_cache": 63114,
+  "harvest_census": {
+    "what_this_is": "every record in the raw cache counted by its publication year, before any faculty filter, DOI requirement or join. Read this first when a year looks thin further down the pipeline",
+    "all_au_records_by_publication_year": {
+      "2015": 1,
+      "2020": 11,
+      "2021": 45,
+      "2022": 13724,
+      "2023": 13106,
+      "2024": 12959,
+      "2025": 14365,
+      "2026": 8898,
+      "2027": 5
+    },
+    "all_au_records_by_harvested_set": {
+      "publications_year2022": 13782,
+      "publications_year2023": 13139,
+      "publications_year2024": 13051,
+      "publications_year2025": 13697,
+      "publications_year2026": 9445
+    },
+    "natural_sciences_works_by_publication_year": {
+      "2020": 1,
+      "2021": 4,
+      "2022": 2002,
+      "2023": 1871,
+      "2024": 1925,
+      "2025": 1931,
+      "2026": 1185,
+      "2027": 1
+    },
+    "natural_sciences_works_with_doi_by_publication_year": {
+      "2020": 1,
+      "2021": 4,
+      "2022": 1655,
+      "2023": 1524,
+      "2024": 1581,
+      "2025": 1586,
+      "2026": 993
+    }
+  },
   "natural_sciences_works": 8920,
   "natural_sciences_works_with_doi": 7344,
   "doi_share_pct": 82.3,

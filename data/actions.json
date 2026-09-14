@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:08:49",
+  "generated_at": "2026-09-14T21:12:24",
   "what_this_is": "candidate Actions: a department at the AU Faculty of Natural Sciences paired with a topic where Danish organisations are active in Horizon Europe. Each entry is a proposal for a conversation, not a partnership, and carries the evidence that produced it.",
   "unit_of_analysis": "AU Natural Sciences department by OpenAlex subfield",
   "danish_partner_scope": {
@@ -25,7 +25,84 @@
     "topic_and_coauthors": "OpenAlex, institution I204337017",
     "danish_organisations": "CORDIS Horizon Europe bulk export, CC BY 4.0"
   },
-  "coverage_warning": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "coverage_warning": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "harvest_and_coverage_by_year": {
+    "what_this_is": "what the harvest actually covered, and how much of it reached a topic. The Pure harvest is even across the window; the unevenness downstream is the OpenAlex lookup, not the harvest",
+    "all_au_records_harvested_by_publication_year": {
+      "2015": 1,
+      "2020": 11,
+      "2021": 45,
+      "2022": 13724,
+      "2023": 13106,
+      "2024": 12959,
+      "2025": 14365,
+      "2026": 8898,
+      "2027": 5
+    },
+    "records_harvested_per_set": {
+      "publications_year2022": 13782,
+      "publications_year2023": 13139,
+      "publications_year2024": 13051,
+      "publications_year2025": 13697,
+      "publications_year2026": 9445
+    },
+    "natural_sciences_works_by_publication_year": {
+      "2020": 1,
+      "2021": 4,
+      "2022": 2002,
+      "2023": 1871,
+      "2024": 1925,
+      "2025": 1931,
+      "2026": 1185,
+      "2027": 1
+    },
+    "natural_sciences_works_with_doi_by_publication_year": {
+      "2020": 1,
+      "2021": 4,
+      "2022": 1655,
+      "2023": 1524,
+      "2024": 1581,
+      "2025": 1586,
+      "2026": 993
+    },
+    "openalex_coverage_by_publication_year": {
+      "2020": {
+        "natural_sciences_dois": 1,
+        "covered_by_openalex": 1,
+        "coverage_pct": 100.0
+      },
+      "2021": {
+        "natural_sciences_dois": 4,
+        "covered_by_openalex": 4,
+        "coverage_pct": 100.0
+      },
+      "2022": {
+        "natural_sciences_dois": 1650,
+        "covered_by_openalex": 1623,
+        "coverage_pct": 98.4
+      },
+      "2023": {
+        "natural_sciences_dois": 1518,
+        "covered_by_openalex": 122,
+        "coverage_pct": 8.0
+      },
+      "2024": {
+        "natural_sciences_dois": 1580,
+        "covered_by_openalex": 1,
+        "coverage_pct": 0.1
+      },
+      "2025": {
+        "natural_sciences_dois": 1584,
+        "covered_by_openalex": 81,
+        "coverage_pct": 5.1
+      },
+      "2026": {
+        "natural_sciences_dois": 992,
+        "covered_by_openalex": 193,
+        "coverage_pct": 19.5
+      }
+    }
+  },
   "counts": {
     "candidate_pairs_clearing_thresholds": 25,
     "actions_written": 25,
@@ -342,7 +419,34 @@
             "openalex_primary_topic": "Environmental DNA in Biodiversity Studies",
             "cited_by_count": 105
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 2,
+            "2022": 363,
+            "2023": 367,
+            "2024": 405,
+            "2025": 434,
+            "2026": 305
+          },
+          "openalex_covered_by_year": {
+            "2021": 2,
+            "2022": 323,
+            "2023": 12,
+            "2024": 0,
+            "2025": 21,
+            "2026": 55
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 89.0,
+            "2023": 3.3,
+            "2024": 0.0,
+            "2025": 4.8,
+            "2026": 18.0
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 7,
@@ -1098,7 +1202,31 @@
             "openalex_primary_topic": "Cryptography and Data Security",
             "cited_by_count": 45
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 230,
+            "2023": 230,
+            "2024": 222,
+            "2025": 276,
+            "2026": 130
+          },
+          "openalex_covered_by_year": {
+            "2022": 180,
+            "2023": 6,
+            "2024": 0,
+            "2025": 10,
+            "2026": 23
+          },
+          "coverage_pct_by_year": {
+            "2022": 78.3,
+            "2023": 2.6,
+            "2024": 0.0,
+            "2025": 3.6,
+            "2026": 17.7
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 18,
@@ -1806,7 +1934,34 @@
             "openalex_primary_topic": "Ecology and biodiversity studies",
             "cited_by_count": 30
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 1,
+            "2022": 128,
+            "2023": 98,
+            "2024": 90,
+            "2025": 78,
+            "2026": 26
+          },
+          "openalex_covered_by_year": {
+            "2021": 1,
+            "2022": 121,
+            "2023": 7,
+            "2024": 0,
+            "2025": 3,
+            "2026": 7
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 94.5,
+            "2023": 7.1,
+            "2024": 0.0,
+            "2025": 3.8,
+            "2026": 26.9
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 7,
@@ -2549,7 +2704,34 @@
             "openalex_primary_topic": "Microbial Fuel Cells and Bioremediation",
             "cited_by_count": 36
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 2,
+            "2022": 363,
+            "2023": 367,
+            "2024": 405,
+            "2025": 434,
+            "2026": 305
+          },
+          "openalex_covered_by_year": {
+            "2021": 2,
+            "2022": 323,
+            "2023": 12,
+            "2024": 0,
+            "2025": 21,
+            "2026": 55
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 89.0,
+            "2023": 3.3,
+            "2024": 0.0,
+            "2025": 4.8,
+            "2026": 18.0
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 49,
@@ -3393,7 +3575,31 @@
             "openalex_primary_topic": "Quantum Information and Cryptography",
             "cited_by_count": 31
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 356,
+            "2023": 295,
+            "2024": 304,
+            "2025": 289,
+            "2026": 156
+          },
+          "openalex_covered_by_year": {
+            "2022": 318,
+            "2023": 21,
+            "2024": 0,
+            "2025": 10,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2022": 89.3,
+            "2023": 7.1,
+            "2024": 0.0,
+            "2025": 3.5,
+            "2026": 15.4
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 18,
@@ -4100,7 +4306,31 @@
             "openalex_primary_topic": "Asymmetric Synthesis and Catalysis",
             "cited_by_count": 30
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 12,
@@ -4622,7 +4852,31 @@
             "openalex_primary_topic": "Electrospun Nanofibers in Biomedical Applications",
             "cited_by_count": 16
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 5,
@@ -5113,7 +5367,31 @@
             "openalex_primary_topic": "Diatoms and Algae Research",
             "cited_by_count": 6
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 5,
@@ -5601,7 +5879,31 @@
             "openalex_primary_topic": "Advanced Polymer Synthesis and Characterization",
             "cited_by_count": 6
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 12,
@@ -6126,7 +6428,34 @@
             "openalex_primary_topic": "Complement system in diseases",
             "cited_by_count": 9
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 1,
+            "2022": 258,
+            "2023": 240,
+            "2024": 245,
+            "2025": 216,
+            "2026": 158
+          },
+          "openalex_covered_by_year": {
+            "2021": 1,
+            "2022": 219,
+            "2023": 19,
+            "2024": 0,
+            "2025": 15,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 84.9,
+            "2023": 7.9,
+            "2024": 0.0,
+            "2025": 6.9,
+            "2026": 15.2
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 4,
@@ -6598,7 +6927,31 @@
             "openalex_primary_topic": "High Entropy Alloys Studies",
             "cited_by_count": 7
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 14,
@@ -7075,7 +7428,34 @@
             "openalex_primary_topic": "Microbial bioremediation and biosurfactants",
             "cited_by_count": 29
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 2,
+            "2022": 363,
+            "2023": 367,
+            "2024": 405,
+            "2025": 434,
+            "2026": 305
+          },
+          "openalex_covered_by_year": {
+            "2021": 2,
+            "2022": 323,
+            "2023": 12,
+            "2024": 0,
+            "2025": 21,
+            "2026": 55
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 89.0,
+            "2023": 3.3,
+            "2024": 0.0,
+            "2025": 4.8,
+            "2026": 18.0
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 1,
@@ -7602,7 +7982,37 @@
             "openalex_primary_topic": "Geometric Analysis and Curvature Flows",
             "cited_by_count": 5
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2020": 1,
+            "2022": 146,
+            "2023": 162,
+            "2024": 182,
+            "2025": 188,
+            "2026": 157,
+            "2027": 1
+          },
+          "openalex_covered_by_year": {
+            "2020": 1,
+            "2022": 72,
+            "2023": 23,
+            "2024": 1,
+            "2025": 3,
+            "2026": 20,
+            "2027": 0
+          },
+          "coverage_pct_by_year": {
+            "2020": 100.0,
+            "2022": 49.3,
+            "2023": 14.2,
+            "2024": 0.5,
+            "2025": 1.6,
+            "2026": 12.7,
+            "2027": 0.0
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 4,
@@ -7841,7 +8251,31 @@
             "openalex_primary_topic": "Ammonia Synthesis and Nitrogen Reduction",
             "cited_by_count": 3
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 4,
@@ -8276,7 +8710,31 @@
             "openalex_primary_topic": "Ionic liquids properties and applications",
             "cited_by_count": 2
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 4,
@@ -8710,7 +9168,31 @@
             "openalex_primary_topic": "Inorganic Fluorides and Related Compounds",
             "cited_by_count": 6
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 10,
@@ -9176,7 +9658,31 @@
             "openalex_primary_topic": "Advanced NMR Techniques and Applications",
             "cited_by_count": 11
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 272,
+            "2023": 267,
+            "2024": 229,
+            "2025": 256,
+            "2026": 154
+          },
+          "openalex_covered_by_year": {
+            "2022": 235,
+            "2023": 18,
+            "2024": 0,
+            "2025": 10,
+            "2026": 29
+          },
+          "coverage_pct_by_year": {
+            "2022": 86.4,
+            "2023": 6.7,
+            "2024": 0.0,
+            "2025": 3.9,
+            "2026": 18.8
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 3,
@@ -9363,7 +9869,31 @@
             "openalex_primary_topic": "Data Management and Algorithms",
             "cited_by_count": 19
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 230,
+            "2023": 230,
+            "2024": 222,
+            "2025": 276,
+            "2026": 130
+          },
+          "openalex_covered_by_year": {
+            "2022": 180,
+            "2023": 6,
+            "2024": 0,
+            "2025": 10,
+            "2026": 23
+          },
+          "coverage_pct_by_year": {
+            "2022": 78.3,
+            "2023": 2.6,
+            "2024": 0.0,
+            "2025": 3.6,
+            "2026": 17.7
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 2,
@@ -9628,7 +10158,34 @@
             "openalex_primary_topic": "Cellular transport and secretion",
             "cited_by_count": 4
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 1,
+            "2022": 258,
+            "2023": 240,
+            "2024": 245,
+            "2025": 216,
+            "2026": 158
+          },
+          "openalex_covered_by_year": {
+            "2021": 1,
+            "2022": 219,
+            "2023": 19,
+            "2024": 0,
+            "2025": 15,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 84.9,
+            "2023": 7.9,
+            "2024": 0.0,
+            "2025": 6.9,
+            "2026": 15.2
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 4,
@@ -9893,7 +10450,34 @@
             "openalex_primary_topic": "Microbial Community Ecology and Physiology",
             "cited_by_count": 12
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 1,
+            "2022": 258,
+            "2023": 240,
+            "2024": 245,
+            "2025": 216,
+            "2026": 158
+          },
+          "openalex_covered_by_year": {
+            "2021": 1,
+            "2022": 219,
+            "2023": 19,
+            "2024": 0,
+            "2025": 15,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 84.9,
+            "2023": 7.9,
+            "2024": 0.0,
+            "2025": 6.9,
+            "2026": 15.2
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 7,
@@ -10637,7 +11221,34 @@
             "openalex_primary_topic": "Liver Disease Diagnosis and Treatment",
             "cited_by_count": 3
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2021": 1,
+            "2022": 258,
+            "2023": 240,
+            "2024": 245,
+            "2025": 216,
+            "2026": 158
+          },
+          "openalex_covered_by_year": {
+            "2021": 1,
+            "2022": 219,
+            "2023": 19,
+            "2024": 0,
+            "2025": 15,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2021": 100.0,
+            "2022": 84.9,
+            "2023": 7.9,
+            "2024": 0.0,
+            "2025": 6.9,
+            "2026": 15.2
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 6,
@@ -11156,7 +11767,31 @@
             "openalex_primary_topic": "Mass Spectrometry Techniques and Applications",
             "cited_by_count": 15
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 356,
+            "2023": 295,
+            "2024": 304,
+            "2025": 289,
+            "2026": 156
+          },
+          "openalex_covered_by_year": {
+            "2022": 318,
+            "2023": 21,
+            "2024": 0,
+            "2025": 10,
+            "2026": 24
+          },
+          "coverage_pct_by_year": {
+            "2022": 89.3,
+            "2023": 7.1,
+            "2024": 0.0,
+            "2025": 3.5,
+            "2026": 15.4
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 3,
@@ -11345,7 +11980,31 @@
             "openalex_primary_topic": "Inorganic Fluorides and Related Compounds",
             "cited_by_count": 6
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 10,
@@ -11813,7 +12472,31 @@
             "openalex_primary_topic": "Catalysis and Hydrodesulfurization Studies",
             "cited_by_count": 0
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 14,
@@ -12291,7 +12974,31 @@
             "openalex_primary_topic": "CAR-T cell therapy research",
             "cited_by_count": 2
           }
-        ]
+        ],
+        "openalex_coverage_for_this_department": {
+          "note": "works_by_year above counts only the papers this pipeline could place on a topic, which needs an OpenAlex record. Compare it with pure_works_with_doi_by_year to see what the department actually published and how much of it the lookup reached.",
+          "pure_works_with_doi_by_year": {
+            "2022": 298,
+            "2023": 291,
+            "2024": 325,
+            "2025": 321,
+            "2026": 187
+          },
+          "openalex_covered_by_year": {
+            "2022": 256,
+            "2023": 28,
+            "2024": 0,
+            "2025": 17,
+            "2026": 32
+          },
+          "coverage_pct_by_year": {
+            "2022": 85.9,
+            "2023": 9.6,
+            "2024": 0.0,
+            "2025": 5.3,
+            "2026": 17.1
+          }
+        }
       },
       "topic_bridge_quality": {
         "euroscivoc_terms_feeding_this_topic": 14,

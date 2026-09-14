@@ -160,7 +160,19 @@
   function renderWorked() {
     var host = $('#worked');
     var top = D.actions.slice().sort(function (a, b) { return b.score - a.score; })[0];
-    if (typeof WORKED === 'undefined' || !WORKED || WORKED.action_id !== top.action_id) {
+    // Two different failures, and telling a reader they are the same would be a lie.
+    // Not written yet is a job unfinished. Written for a different candidate is a
+    // brief that has gone stale, which is worse, because it would still read well.
+    if (typeof WORKED === 'undefined' || !WORKED) {
+      host.innerHTML = '<p class="small"><b>This act is not written yet.</b> ' +
+        'The instrument currently ranks <code>' + esc(top.action_id) + '</code> first, and the ' +
+        'hand-written Action belongs to whichever candidate is top once the harvest is complete. ' +
+        'Act three explains why it is not complete: the topic lookup has seen ' +
+        'part of the papers, so the ranking can still move, and writing a brief against a ' +
+        'ranking that is still moving would be writing it twice.</p>';
+      return;
+    }
+    if (WORKED.action_id !== top.action_id) {
       host.innerHTML = '<p class="small"><b>The written brief and the instrument have drifted apart.</b> ' +
         'The hand-written Action below was prepared for <code>' +
         esc(typeof WORKED !== 'undefined' && WORKED ? WORKED.action_id : 'nothing') +

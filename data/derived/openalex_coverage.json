@@ -8,13 +8,50 @@
   "dois_never_asked": 5304,
   "lookup_complete": false,
   "rate_limited_this_run": true,
-  "coverage_warning": "5304 of 7329 Natural Sciences DOIs have not been looked up, because OpenAlex rate limited this address with a Retry-After of about five hours. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
+  "coverage_warning": "5304 of 7329 Natural Sciences DOIs have not been looked up. OpenAlex now meters its API against a daily spending allowance and this address had spent its free allowance: the service replies 'Insufficient budget ... you only have $0 remaining. Resets at midnight UTC'. That is a budget, not a rate limit, so backing off does not help and waiting for the reset does. Everything downstream is computed on the 2025 DOIs that are covered, which is 27.6 percent of them. Rerun study/openalex.py to finish the lookup; it resumes from the per-DOI cache.",
   "openalex_match_rate_pct": 27.6,
   "matched_share_of_all_pure_works_pct": 22.7,
   "matched_with_primary_subfield": 2025,
   "matched_with_company_coauthor": 184,
   "company_coauthor_share_pct": 9.1,
   "matched_with_danish_company_coauthor": 39,
+  "coverage_by_publication_year": {
+    "2020": {
+      "natural_sciences_dois": 1,
+      "covered_by_openalex": 1,
+      "coverage_pct": 100.0
+    },
+    "2021": {
+      "natural_sciences_dois": 4,
+      "covered_by_openalex": 4,
+      "coverage_pct": 100.0
+    },
+    "2022": {
+      "natural_sciences_dois": 1650,
+      "covered_by_openalex": 1623,
+      "coverage_pct": 98.4
+    },
+    "2023": {
+      "natural_sciences_dois": 1518,
+      "covered_by_openalex": 122,
+      "coverage_pct": 8.0
+    },
+    "2024": {
+      "natural_sciences_dois": 1580,
+      "covered_by_openalex": 1,
+      "coverage_pct": 0.1
+    },
+    "2025": {
+      "natural_sciences_dois": 1584,
+      "covered_by_openalex": 81,
+      "coverage_pct": 5.1
+    },
+    "2026": {
+      "natural_sciences_dois": 992,
+      "covered_by_openalex": 193,
+      "coverage_pct": 19.5
+    }
+  },
   "institution_type_counts": {},
   "institution_type_counts_scope": "no works fetched in this run; see the institutions CSV",
   "note": "A DOI that does not match is usually a chapter, report or conference item that was never registered with Crossref. Unmatched works are dropped from the topic analysis, not counted as zero-company."

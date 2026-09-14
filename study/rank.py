@@ -133,6 +133,42 @@ def main() -> None:
     joined = joined[joined["pub_year_i"] >= args.year_from]
     log(f"{len(joined)} department-by-paper rows carry a topic")
 
+    # Per department, how many DOI-carrying Pure works exist per year and how
+    # many of them the OpenAlex lookup actually reached. Each candidate carries
+    # its department's row so that a zero year in works_by_year can never be
+    # read as "this department published nothing that year" when it really
+    # means "the lookup never got that far".
+    covered_dois = set(oa["doi"])
+    dept_year_total: dict = collections.defaultdict(collections.Counter)
+    dept_year_covered: dict = collections.defaultdict(collections.Counter)
+    for _, r in affil.iterrows():
+        if not r["doi"]:
+            continue
+        y = str(r["pub_year"] or "none")
+        dept_year_total[r["department"]][y] += 1
+        if r["doi"] in covered_dois:
+            dept_year_covered[r["department"]][y] += 1
+
+    def coverage_context(dept: str) -> dict:
+        total = dept_year_total.get(dept, collections.Counter())
+        cov = dept_year_covered.get(dept, collections.Counter())
+        return {
+            "note": (
+                "works_by_year above counts only the papers this pipeline could "
+                "place on a topic, which needs an OpenAlex record. Compare it "
+                "with pure_works_with_doi_by_year to see what the department "
+                "actually published and how much of it the lookup reached."
+            ),
+            "pure_works_with_doi_by_year": dict(sorted(total.items())),
+            "openalex_covered_by_year": {
+                y: cov.get(y, 0) for y in sorted(total)
+            },
+            "coverage_pct_by_year": {
+                y: round(100.0 * cov.get(y, 0) / total[y], 1)
+                for y in sorted(total) if total[y]
+            },
+        }
+
     # -------------------------------------------------- AU side, per dept/topic
     au_cells: dict[tuple[str, str], dict] = {}
     for (dept, sub_id), grp in joined.groupby(["department", "subfield_id"]):
@@ -321,6 +357,9 @@ def main() -> None:
                     "works_with_danish_company_coauthor": au["works_with_danish_company_coauthor"],
                     "danish_company_coauthors": au["danish_company_coauthors"],
                     "example_works": au["examples"],
+                    "openalex_coverage_for_this_department": coverage_context(
+                        c["department"]
+                    ),
                 },
                 "topic_bridge_quality": bridge_quality(au["subfield_id"]),
                 "danish_evidence": {
@@ -536,6 +575,54 @@ def main() -> None:
     )
     n_with_company = sum(1 for r in already if r["au_has_company_coauthor_in_topic"])
 
+    # How much of this ranking is likely to survive the missing OpenAlex data.
+    #
+    # This is the one block in the panel that is a PROJECTION rather than a
+    # measurement, and it is labelled as such wherever it appears. It exists
+    # because the alternative is for a reader to assume the ranking is settled
+    # when the AU half of every score rests on roughly a quarter of the papers.
+    #
+    # Assumptions, both of which are wrong in ways that matter: that a company
+    # co-author is equally likely on any paper, when in truth some topics are far
+    # more industry-facing than others; and that the covered papers are a random
+    # sample of each department's output, when in truth they are a slice heavy
+    # with one publication year. Treat the direction as meaningful and the
+    # decimals as noise.
+    company_rate = (
+        oa_cov["matched_with_company_coauthor"] / oa_cov["openalex_matched"]
+        if oa_cov["openalex_matched"]
+        else 0.0
+    )
+    dept_coverage = {}
+    for dept in {a["department"] for a in top}:
+        tot = sum(dept_year_total.get(dept, {}).values())
+        cov = sum(dept_year_covered.get(dept, {}).values())
+        dept_coverage[dept] = (cov / tot) if tot else 0.0
+
+    fragility = []
+    for a in top:
+        if not a["white_space"]:
+            continue
+        cov = dept_coverage.get(a["department"], 0.0) or 1.0
+        observed = a["au_evidence"]["works_in_window"]
+        expected_more = observed * (1.0 / cov - 1.0)
+        survives = (1.0 - company_rate) ** expected_more
+        fragility.append(
+            {
+                "rank": a["rank"],
+                "action_id": a["action_id"],
+                "observed_works": observed,
+                "department_openalex_coverage_pct": round(100 * cov, 1),
+                "estimated_unseen_works_in_this_topic": round(expected_more, 1),
+                "estimated_chance_it_stays_white_space_pct": round(
+                    100 * survives, 1
+                ),
+            }
+        )
+    expected_surviving = sum(
+        f["estimated_chance_it_stays_white_space_pct"] / 100 for f in fragility
+    )
+
     honesty = {
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
         "what_this_panel_is": (
@@ -544,6 +631,7 @@ def main() -> None:
         ),
         "headline_limitation": oa_cov.get("coverage_warning"),
         "coverage_pure": {
+            "harvest_census": pure_cov["harvest_census"],
             "harvest_window_publication_years": pure_cov["works_by_year"],
             "records_read_from_cache": pure_cov["records_seen_in_cache"],
             "natural_sciences_works": pure_cov["natural_sciences_works"],
@@ -574,10 +662,44 @@ def main() -> None:
             ],
             "company_coauthor_share_pct": oa_cov["company_coauthor_share_pct"],
             "institution_type_counts": oa_cov["institution_type_counts"],
+            "coverage_by_publication_year": oa_cov.get(
+                "coverage_by_publication_year", {}
+            ),
         },
         "coverage_cordis": cordis_checks["facts_recheck"],
         "topic_bridge": cordis_checks["topic_bridge"],
         "cordis_project_file": cordis_checks.get("cordis_project_file", {}),
+        "ranking_stability": {
+            "status": "PROJECTION, not a measurement. See the assumptions below",
+            "why_it_matters": (
+                "the Danish half of every score is final, because CORDIS is "
+                "complete. The AU half rests on the covered papers only, so the "
+                "ranking will move when the rest of the lookup lands"
+            ),
+            "department_openalex_coverage_pct": {
+                d: round(100 * c, 1)
+                for d, c in sorted(dept_coverage.items(), key=lambda x: -x[1])
+            },
+            "coverage_spread_note": (
+                "departments are not currently comparable with each other. "
+                "Coverage runs from "
+                f"{round(100 * min(dept_coverage.values()), 1)} percent to "
+                f"{round(100 * max(dept_coverage.values()), 1)} percent across "
+                "the departments in this list, so a department whose papers "
+                "happened to fall in the covered slice looks stronger than one "
+                "whose papers did not, for no reason connected to its research"
+            ),
+            "observed_company_coauthor_rate_pct": round(100 * company_rate, 1),
+            "white_space_flags_now": len(fragility),
+            "estimated_white_space_flags_surviving": round(expected_surviving, 1),
+            "per_white_space_candidate": fragility,
+            "assumptions": [
+                "a company co-author is equally likely on any paper, which is "
+                "false: some topics are far more industry-facing than others",
+                "the covered papers are a random sample of each department's "
+                "output, which is false: they are heavy with one publication year",
+            ],
+        },
         "topic_assignment_accuracy": topic_accuracy,
         "falsification_spotcheck": (
             read_json(os.path.join(DERIVED, "spotcheck.json"))
@@ -643,6 +765,28 @@ def main() -> None:
             "danish_organisations": "CORDIS Horizon Europe bulk export, CC BY 4.0",
         },
         "coverage_warning": oa_cov.get("coverage_warning"),
+        "harvest_and_coverage_by_year": {
+            "what_this_is": (
+                "what the harvest actually covered, and how much of it reached "
+                "a topic. The Pure harvest is even across the window; the "
+                "unevenness downstream is the OpenAlex lookup, not the harvest"
+            ),
+            "all_au_records_harvested_by_publication_year": pure_cov[
+                "harvest_census"
+            ]["all_au_records_by_publication_year"],
+            "records_harvested_per_set": pure_cov["harvest_census"][
+                "all_au_records_by_harvested_set"
+            ],
+            "natural_sciences_works_by_publication_year": pure_cov[
+                "harvest_census"
+            ]["natural_sciences_works_by_publication_year"],
+            "natural_sciences_works_with_doi_by_publication_year": pure_cov[
+                "harvest_census"
+            ]["natural_sciences_works_with_doi_by_publication_year"],
+            "openalex_coverage_by_publication_year": oa_cov.get(
+                "coverage_by_publication_year", {}
+            ),
+        },
         "counts": {
             "candidate_pairs_clearing_thresholds": len(actions),
             "actions_written": len(top),
