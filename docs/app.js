@@ -156,12 +156,22 @@
       d.className = 'arow' + (state.sel === a.action_id ? ' on' : '');
       d.setAttribute('role', 'button');
       d.setAttribute('tabindex', '0');
+      // A row that survives only some resamples is close to the threshold, and a reader
+      // scanning the list cannot tell that from the score alone. It is marked here rather
+      // than dropped, for the same reason weak topic tags are marked: the page's argument
+      // is that a specialist does the judging, and hiding the weak rows takes that away.
+      var st = (D.stability && D.stability.available && D.stability.by_action) ? D.stability.by_action[a.action_id] : null;
+      var shaky = st && st.appears_pct != null && st.appears_pct < 80;
       d.innerHTML = '<div class="top"><div class="t">' + esc(a.topic.subfield) +
         (a.white_space ? '<span class="tagws">white space</span>' : '') +
+        (shaky ? '<span class="tagun" title="appears in ' + Math.round(st.appears_pct) +
+          ' percent of 2,000 resamples of the evidence">unstable</span>' : '') +
         '</div><div class="sc">score ' + a.score.toFixed(2) + '</div></div>' +
         '<div class="sub">' + a.au_evidence.works_in_window + ' papers from this department, ' +
         a.danish_evidence.organisations_on_this_topic + ' Danish organisations on the topic, ' +
-        a.danish_evidence.no_shared_project_with_au_on_this_topic + ' of them with no shared project with Aarhus</div>';
+        a.danish_evidence.no_shared_project_with_au_on_this_topic + ' of them with no shared project with Aarhus' +
+        (shaky ? '. Clears the bar in only ' + Math.round(st.appears_pct) +
+          ' percent of resamples, so treat its position as provisional' : '') + '</div>';
       d.onclick = function () { state.sel = a.action_id; renderList(); renderDetail(); };
       d.onkeydown = function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); d.onclick(); } };
       host.appendChild(d);
