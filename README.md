@@ -1,8 +1,17 @@
-# Which introduction has nobody made yet?
+# Which Danish partners has Aarhus not worked with, and on what?
 
 A shortlist of candidate Actions for Science Bridge, the knowledge-exchange secretariat at
 Aarhus University's Faculty of Natural Sciences: a department paired with a research topic
-where Aarhus publishes, Danish organisations are working, and the two have not yet met.
+where Aarhus publishes, Danish organisations are active in European projects, and much of
+that activity has no Aarhus link.
+
+A pair qualifies on two counts and nothing else, five papers from the department in that
+topic and three Danish organisations working on it. Whether Aarhus has already worked with
+those organisations is one multiplier in the score, never a filter, and the page reports how
+often the answer is yes: for 18 of the 25 candidates, some Danish organisation already shares
+a European project with Aarhus on that very topic. So this is rarely about strangers. Aarhus
+usually knows somebody, and what it has not done is work with them on that particular
+subject.
 
 Live page: https://bolgacg.github.io/action-finder/
 
