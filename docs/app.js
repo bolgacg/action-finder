@@ -185,6 +185,38 @@
     host.innerHTML = WORKED.html;
   }
 
+  // The page prints the scoring formula beside every row it produced, which is only
+  // worth anything if the formula is the one that ran. So the browser recomputes every
+  // score from the components shipped with it and says whether they match. A page that
+  // quietly disagreed with its own arithmetic would look exactly like one that did not.
+  function selfCheck() {
+    var host = $('#selfcheck'); if (!host) return;
+    var worst = 0, worstRow = null, n = 0;
+    D.actions.forEach(function (a) {
+      var c = a.score_components || {};
+      if (c.au_strength_scaled == null || c.danish_activity_scaled == null || c.unconnected_share == null) return;
+      var mine = Math.sqrt(c.au_strength_scaled * c.danish_activity_scaled) * (0.5 + 0.5 * c.unconnected_share);
+      var diff = Math.abs(mine - a.score);
+      n++;
+      if (diff > worst) { worst = diff; worstRow = a; }
+    });
+    if (!n) { host.textContent = 'No score components shipped, so nothing could be rechecked.'; return; }
+    // Scores travel rounded to four decimals, so anything at that scale is the rounding
+    // and not a disagreement. Anything larger is a real one and is named as such.
+    var tol = 5e-4;
+    if (worst <= tol) {
+      host.innerHTML = '<b>Matched.</b> All ' + n + ' scores on this page were recomputed here from ' +
+        'their own components using the printed formula, ' + esc(D.actions[0].score_components.formula) +
+        '. The largest disagreement is ' + worst.toExponential(1) + ', which is the rounding applied ' +
+        'when the numbers were written into this page and not a difference in the arithmetic.';
+    } else {
+      host.innerHTML = '<b>Did not match.</b> Recomputing the ' + n + ' scores from their own components ' +
+        'gives a different answer, worst on ' + esc(worstRow.action_id) + ' by ' + worst.toFixed(4) +
+        '. The formula printed on this page is therefore not the formula that produced the ranking, ' +
+        'and the ranking should not be used until that is resolved.';
+    }
+  }
+
   /* ---------- act three, the two measurements of the instrument itself ---------- */
 
   // A single coverage percentage invites the reader to assume the missing papers are
@@ -469,6 +501,7 @@
     renderList();
     renderDetail();
     renderWorked();
+    selfCheck();
     renderCoverageByYear();
     renderStability();
     renderCoverage();

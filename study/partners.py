@@ -374,6 +374,70 @@ def main() -> None:
     acronyms = proj.set_index("id")["acronym"].to_dict()
     start = proj.set_index("id")["startDate"].to_dict()
 
+    # ---------------------------------------------------- how solid is the tag
+    #
+    # The bridge can map a term correctly and the result still be wrong, because
+    # the CORDIS tag itself was loose. The case that found this: Novo Nordisk
+    # reaches Ecology through project 101166227, "REpresentative Clinical
+    # Research, ADvancing Inclusivity in Europe", which carries exactly one
+    # euroSciVoc term, "ecosystems", whose path is natural sciences / biological
+    # sciences / ecology / ecosystems. The bridge did its job. The tag means
+    # research ecosystems and the vocabulary reads it as ecological ones.
+    # "Ecosystems" is a genuine homonym and it is the single biggest source of
+    # this failure in the current candidate list.
+    #
+    # The obvious test, "does the project carry other terms from a different
+    # domain", does not catch that project, because it carries no other terms at
+    # all. So the test used here asks the more general question: is the topic tag
+    # CORROBORATED on this project, meaning does at least one OTHER term on the
+    # same project sit in the same euroSciVoc domain as the term that carried the
+    # topic. A project with a single term fails that automatically, which is
+    # right, because a single tag has nothing backing it. A project tagged
+    # "ecosystems" among a cluster of medical terms fails it too. Both are the
+    # thing we want to see.
+    #
+    # This measures SUPPORT, not correctness. Blue World Technologies reaches
+    # Organic Chemistry through "alcohols" on a bio-methanol project, which is
+    # uncorroborated and also entirely correct, because methanol is an alcohol.
+    # So the output marks weakly supported links; it does not drop them.
+    paths_by_project: dict[str, list] = collections.defaultdict(list)
+    for pid, path in zip(voc["projectID"], voc["euroSciVocPath"]):
+        if isinstance(path, str):
+            paths_by_project[pid].append(path)
+
+    def tag_support(project_ids: list, subfield_id: str) -> dict:
+        best = None
+        for pid in project_ids:
+            paths = paths_by_project.get(pid, [])
+            carrying = [
+                p for p in paths
+                if bridge.get(p, {}).get("subfield_id") == subfield_id
+            ]
+            if not carrying:
+                continue
+            domains = {p.split("/")[0] for p in carrying}
+            same_domain = [p for p in paths if p.split("/")[0] in domains]
+            rec = {
+                "project_id": pid,
+                "terms_on_project": len(paths),
+                "terms_in_same_domain": len(same_domain),
+                "carrying_terms": sorted({p.split("/")[-1] for p in carrying}),
+                "other_domains": sorted(
+                    {p.split("/")[0] for p in paths} - domains
+                ),
+            }
+            if best is None or rec["terms_in_same_domain"] > best["terms_in_same_domain"]:
+                best = rec
+        if best is None:
+            return {"support": "unknown", "detail": None}
+        if best["terms_in_same_domain"] >= 2:
+            level = "corroborated"
+        elif best["terms_on_project"] == 1:
+            level = "single_tag"
+        else:
+            level = "minority_tag"
+        return {"support": level, "detail": best}
+
     rows = []
     for (oid, sid), grp in dk_topics.groupby(["organisationID", "subfield_id"]):
         pids = sorted(set(grp["projectID"]))
@@ -383,10 +447,18 @@ def main() -> None:
         # have worked together on microbial ecology, and a global flag would
         # wrongly mark that topic as already covered.
         shared_here = sorted(set(pids) & au_projects)
+        sup = tag_support(pids, sid)
+        det = sup["detail"] or {}
         rows.append(
             {
                 "organisationID": oid,
                 "subfield_id": sid,
+                "topic_support": sup["support"],
+                "support_terms_on_project": det.get("terms_on_project", ""),
+                "support_terms_in_same_domain": det.get("terms_in_same_domain", ""),
+                "support_carrying_terms": "|".join(det.get("carrying_terms", [])),
+                "support_other_domains": "|".join(det.get("other_domains", [])),
+                "support_project_id": det.get("project_id", ""),
                 "subfield": grp["subfield"].iloc[0],
                 "field": grp["field"].iloc[0],
                 "domain": grp["domain"].iloc[0],

@@ -376,6 +376,47 @@ meaning much. With the full OpenAlex coverage restored, section level would be
 worth revisiting for the larger departments, and `pure_natsci_affiliations.csv`
 would need a section column to support it.
 
+## A correct bridge can still produce a wrong row
+
+The hand-checked sample tested whether the bridge maps a euroSciVoc term to the
+right OpenAlex subfield. It cannot see a different failure, where the bridge maps
+the term correctly and the CORDIS tag itself was loose.
+
+The case that exposed it: Novo Nordisk appears under Ecology because project
+101166227, "REpresentative Clinical Research, ADvancing Inclusivity in Europe",
+carries exactly one euroSciVoc term, "ecosystems", whose path is natural
+sciences, biological sciences, ecology, ecosystems. The bridge did its job. The
+project means research ecosystems and the vocabulary means ecological ones.
+
+The obvious test, whether the project's other terms sit in a different domain,
+does not catch that project, because it has no other terms. So the test used is
+the more general one: a link is **corroborated** when at least one other term on
+the same project sits in the same euroSciVoc domain as the term that carried the
+topic. A single-term project fails automatically, which is correct, and a lone
+ecology term among medical ones fails too.
+
+Across the 1,324 organisation-by-topic links, 845 are corroborated, 353 are a
+minority tag and 126 are a single tag, so **36.2 percent are weakly supported**.
+Of the organisations actually listed on the page, **24.8 percent** are. "Ecology"
+is the worst affected candidate at 61.1 percent, and "ecosystems" is the worst
+carrying term, because it is a genuine homonym: ecological, business, innovation
+and health ecosystems are all called ecosystems.
+
+Two things this number is not. It is not a wrongness measure: Blue World
+Technologies reaches Organic Chemistry through "alcohols" on a bio-methanol
+project, which is uncorroborated and entirely correct. And it is a floor rather
+than a measure, because corroboration is checked at the coarse domain level.
+Region Hovedstaden reaches Ecology partly through a psilocybin palliative-care
+trial tagged ecosystems, neurobiology, multiple sclerosis and anxiety disorders;
+ecosystems and neurobiology are both natural sciences and both are still
+biological sciences a level down, so no level of this test catches it.
+Tightening to the next level flags 63 percent of listed organisations instead of
+25 and still misses that case, so the conservative version is kept.
+
+Weakly supported links are marked, not dropped. Dropping would hide the problem
+and would also discard correct links, and the page's argument is that a
+specialist does the judging.
+
 ## What I could not verify
 
 **Whether the ranking is stable.** It is not, and the honesty panel now carries

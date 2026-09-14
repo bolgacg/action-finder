@@ -39,7 +39,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import pandas as pd  # noqa: E402
 
-from common import DATA, DERIVED, log, read_json, write_json  # noqa: E402
+from common import (  # noqa: E402
+    DATA,
+    DERIVED,
+    load_cordis_projects,
+    log,
+    read_json,
+    write_json,
+)
 
 STUDY = os.path.dirname(os.path.abspath(__file__))
 
@@ -120,6 +127,14 @@ def main() -> None:
     pure_cov = read_json(os.path.join(DERIVED, "pure_coverage.json"))
     oa_cov = read_json(os.path.join(DERIVED, "openalex_coverage.json"))
     cordis_checks = read_json(os.path.join(DERIVED, "cordis_checks.json"))
+
+    # Project titles, so a weakly supported link can be named with the project
+    # that produced it rather than just a bare identifier. A reader cannot judge
+    # "Novo Nordisk under Ecology" without seeing that the project is a clinical
+    # trials inclusivity study.
+    _proj, _ = load_cordis_projects()
+    project_titles = dict(zip(_proj["id"], _proj["title"]))
+    project_calls = dict(zip(_proj["id"], _proj["topics"]))
 
     oa["n_companies"] = pd.to_numeric(oa["n_companies"], errors="coerce").fillna(0)
     oa["cited_by_count"] = pd.to_numeric(oa["cited_by_count"],
@@ -241,6 +256,14 @@ def main() -> None:
                 "sme": str(info.get("sme")).lower() == "true",
                 "city": info.get("city") or "",
                 "horizon_projects_on_this_topic": int(r["n_projects"]),
+                # Aliases for the page, which reads these two names. They point
+                # at the canonical fields above and below rather than holding
+                # anything of their own. "projects" is the count the list is
+                # ordered by; "shares_project_with_au" is the ANY-topic flag,
+                # because for deciding whether a call is warm or cold what
+                # matters is that a working relationship exists at all, not that
+                # it happens to be on this topic.
+                "projects": int(r["n_projects"]),
                 "project_ids_on_this_topic": pipe_list(r["project_ids"]),
                 "project_acronyms_on_this_topic": pipe_list(r["project_acronyms"]),
                 # Two different questions, kept apart on purpose.
@@ -249,6 +272,21 @@ def main() -> None:
                 "shares_any_project_with_au": str(
                     info.get("already_worked_with_au")
                 ).lower() == "true",
+                "shares_project_with_au": str(
+                    info.get("already_worked_with_au")
+                ).lower() == "true",
+                # How solid the CORDIS tag that put this organisation on this
+                # topic actually is. See tag_support in partners.py.
+                "topic_support": r.get("topic_support") or "unknown",
+                "topic_support_detail": {
+                    "carrying_terms": pipe_list(r.get("support_carrying_terms")),
+                    "terms_on_project": r.get("support_terms_on_project") or "",
+                    "terms_in_same_domain": r.get("support_terms_in_same_domain") or "",
+                    "other_domains_on_project": pipe_list(
+                        r.get("support_other_domains")
+                    ),
+                    "project_id": r.get("support_project_id") or "",
+                },
                 "au_shared_project_ids_any_topic": pipe_list(
                     info.get("au_shared_project_ids")
                 ),
@@ -389,6 +427,22 @@ def main() -> None:
                         "organisations with CORDIS activity type HES, higher "
                         "and secondary education, which are universities "
                         "rather than external partners"
+                    ),
+                    "weakly_supported_organisations": sum(
+                        1 for o in orgs if o["topic_support"] != "corroborated"
+                    ),
+                    "weakly_supported_pct": round(
+                        100.0
+                        * sum(1 for o in orgs if o["topic_support"] != "corroborated")
+                        / len(orgs),
+                        1,
+                    ) if orgs else 0.0,
+                    "what_weakly_supported_means": (
+                        "the CORDIS project that put this organisation on this "
+                        "topic carries no second euroSciVoc term from the same "
+                        "domain, so the topic tag stands alone and may be using "
+                        "the word loosely. It marks weak support, not a wrong "
+                        "link: some of these are correct"
                     ),
                     "organisation_order": (
                         "most Horizon Europe projects on this topic first, "
@@ -623,6 +677,101 @@ def main() -> None:
         f["estimated_chance_it_stays_white_space_pct"] / 100 for f in fragility
     )
 
+    # ------------------------------------------------- loose CORDIS tag summary
+    tag_counts = collections.Counter(dk_sub["topic_support"].fillna("unknown"))
+    tag_totals = {
+        "all": int(sum(tag_counts.values())),
+        "corroborated": int(tag_counts.get("corroborated", 0)),
+        "minority_tag": int(tag_counts.get("minority_tag", 0)),
+        "single_tag": int(tag_counts.get("single_tag", 0)),
+    }
+    tag_totals["weak_pct"] = (
+        round(
+            100.0
+            * (tag_totals["minority_tag"] + tag_totals["single_tag"])
+            / tag_totals["all"],
+            1,
+        )
+        if tag_totals["all"]
+        else 0.0
+    )
+
+    listed_orgs = [o for a in top for o in a["danish_evidence"]["organisations"]]
+    listed_weak = sum(1 for o in listed_orgs if o["topic_support"] != "corroborated")
+    listed_weak_pct = (
+        round(100.0 * listed_weak / len(listed_orgs), 1) if listed_orgs else 0.0
+    )
+
+    worst_tagged = sorted(
+        (
+            {
+                "rank": a["rank"],
+                "action_id": a["action_id"],
+                "department": a["department"],
+                "topic": a["topic"]["subfield"],
+                "weakly_supported_pct": a["danish_evidence"]["weakly_supported_pct"],
+                "weakly_supported_organisations": a["danish_evidence"][
+                    "weakly_supported_organisations"
+                ],
+                "organisations_on_this_topic": a["danish_evidence"][
+                    "organisations_on_this_topic"
+                ],
+            }
+            for a in top
+        ),
+        key=lambda r: -r["weakly_supported_pct"],
+    )[:8]
+
+    term_weak: collections.Counter = collections.Counter()
+    term_all: collections.Counter = collections.Counter()
+    named_examples = []
+    for a in top:
+        for o in a["danish_evidence"]["organisations"]:
+            for t in o["topic_support_detail"]["carrying_terms"]:
+                term_all[t] += 1
+                if o["topic_support"] != "corroborated":
+                    term_weak[t] += 1
+            if o["topic_support"] == "single_tag":
+                named_examples.append(
+                    {
+                        "organisation": o["name"],
+                        "organisation_type": o["activity"],
+                        "topic": a["topic"]["subfield"],
+                        "department": a["department"],
+                        "rank": a["rank"],
+                        "carried_by_term": o["topic_support_detail"]["carrying_terms"],
+                        "project_id": o["topic_support_detail"]["project_id"],
+                        "project_title": project_titles.get(
+                            o["topic_support_detail"]["project_id"], ""
+                        ),
+                        "call_topic": project_calls.get(
+                            o["topic_support_detail"]["project_id"], ""
+                        ),
+                        "terms_on_that_project": o["topic_support_detail"][
+                            "terms_on_project"
+                        ],
+                    }
+                )
+    # One organisation reaching the same loose tag from several candidates is one
+    # finding, not several, so the list is deduplicated on the organisation and
+    # the project that carried it, keeping the highest-ranked candidate.
+    seen_examples = {}
+    for e in sorted(named_examples, key=lambda x: x["rank"]):
+        key = (e["organisation"], e["project_id"])
+        if key not in seen_examples:
+            seen_examples[key] = e
+    named_examples = list(seen_examples.values())
+
+    worst_terms = [
+        {
+            "term": t,
+            "uncorroborated_uses": n,
+            "total_uses": term_all[t],
+            "uncorroborated_pct": round(100.0 * n / term_all[t], 1),
+        }
+        for t, n in term_weak.most_common(8)
+    ]
+
     honesty = {
         "generated_at": datetime.datetime.now().isoformat(timespec="seconds"),
         "what_this_panel_is": (
@@ -699,6 +848,58 @@ def main() -> None:
                 "the covered papers are a random sample of each department's "
                 "output, which is false: they are heavy with one publication year",
             ],
+        },
+        "loose_cordis_tags": {
+            "what_this_measures": (
+                "a link can be produced by a correct bridge from a loose tag. "
+                "A CORDIS project tagged with one euroSciVoc term uses that word "
+                "with nothing to corroborate it, and some of those words are "
+                "homonyms. An organisation is counted weakly supported on a "
+                "topic when no project connecting it to that topic carries a "
+                "second euroSciVoc term from the same domain as the term that "
+                "carried the topic"
+            ),
+            "why_not_the_simpler_test": (
+                "asking whether the project's OTHER terms sit in a different "
+                "domain misses the worst cases, because the worst projects have "
+                "no other terms at all. The project that exposed this, Novo "
+                "Nordisk under Ecology, carries exactly one term"
+            ),
+            "what_this_test_misses": (
+                "corroboration is checked at the euroSciVoc DOMAIN level, which "
+                "is coarse, so a loose tag sitting beside an unrelated term from "
+                "the same broad domain passes. Region Hovedstaden reaches "
+                "Ecology partly through project 101137378, a psilocybin trial in "
+                "palliative care, whose terms are ecosystems, neurobiology, "
+                "multiple sclerosis and anxiety disorders. Ecosystems and "
+                "neurobiology are both natural sciences, and both are still "
+                "biological sciences one level down, so no level of this test "
+                "catches it. Tightening the test to the next level down flags "
+                "63 percent of listed organisations instead of 25 and still "
+                "misses that case, so the conservative version is kept and this "
+                "number is a floor on the problem, not a measure of it."
+            ),
+            "a_named_case_the_test_correctly_clears": (
+                "Region Hovedstaden also reaches Ecology through project "
+                "101112723, on remediation and restoration of contaminated "
+                "land, which is a genuinely ecological link. A health region "
+                "under Ecology looks wrong and is not always wrong"
+            ),
+            "not_a_wrongness_measure": (
+                "weak support is not the same as a wrong link. Blue World "
+                "Technologies reaches Organic Chemistry through the term "
+                "alcohols on a bio-methanol project, which is uncorroborated and "
+                "entirely correct"
+            ),
+            "organisation_by_topic_links_in_corpus": tag_totals["all"],
+            "corroborated": tag_totals["corroborated"],
+            "minority_tag": tag_totals["minority_tag"],
+            "single_tag": tag_totals["single_tag"],
+            "weakly_supported_pct_of_corpus": tag_totals["weak_pct"],
+            "weakly_supported_pct_of_listed_organisations": listed_weak_pct,
+            "worst_candidates": worst_tagged,
+            "worst_carrying_terms": worst_terms,
+            "named_examples": named_examples,
         },
         "topic_assignment_accuracy": topic_accuracy,
         "falsification_spotcheck": (
