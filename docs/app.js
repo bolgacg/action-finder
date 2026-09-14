@@ -622,9 +622,10 @@
       'which can mean an opening or can mean the topic is simply not one industry works on. ' +
       'The instrument cannot tell those apart, and a specialist can in about a minute, which is roughly the division ' +
       'of labour this page is arguing for.';
-    $('#v2').innerHTML = '<b>The instrument stops where the job starts.</b> ' +
-      'Everything above this act is arithmetic over public records. Everything in it is judgement, and the page ' +
-      'marks the seam rather than blurring it.';
+    $('#v2').innerHTML = '<b>Most of what the instrument returned was thrown away to get here.</b> ' +
+      'Ninety organisations became one, and the reasons for discarding the other eighty-nine are ' +
+      'written out above rather than left as a judgement call the reader has to trust. That is the ' +
+      'work the shortlist exists to make possible, and it is still a person doing it.';
     tour();
   });
 })();
