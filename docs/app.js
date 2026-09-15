@@ -417,9 +417,24 @@
         ? h.candidates_appearing_in_at_least_99_pct + ' of the ' + D.actions.length +
           ' candidates survive almost every redraw, while ' + h.candidates_appearing_in_under_80_pct +
           ' come and go. Those are the rows to distrust. ' : '') +
-      'One thing this cannot do, and the page will not pretend otherwise: redrawing the papers ' +
-      'already in hand says nothing about the ones never fetched. Since those are missing by year ' +
-      'rather than at random, the real movement is larger than these bands.';
+      // What the bootstrap cannot see depends on whether anything is still unlooked. While the
+      // lookup was stalled that was thousands of papers, missing by year rather than at random.
+      // Finished, the blind spot is the records with no DOI, which is a different and smaller
+      // claim. Saying the first after the lookup completed contradicts the section above it.
+      (function () {
+        var oa = (D.honesty_panel || {}).coverage_openalex || {};
+        if (oa.lookup_complete === false) {
+          return 'One thing this cannot do, and the page will not pretend otherwise: redrawing ' +
+            'the papers already in hand says nothing about the ones never fetched. Since those ' +
+            'are missing by year rather than at random, the real movement is larger than these ' +
+            'bands.';
+        }
+        return 'One thing this cannot do, and the page will not pretend otherwise: redrawing the ' +
+          'papers already in hand says nothing about the ones it never sees. Every paper with a ' +
+          'DOI has now been looked up, so what is left outside these bands is the records ' +
+          'carrying no DOI at all, and a department that publishes where DOIs are rare is ' +
+          'underweighted here in a way no resampling can reveal.';
+      })();
 
     var by = st.by_action || {};
     // A twelve-row chart scaled into 390px puts its labels at about five pixels. On a

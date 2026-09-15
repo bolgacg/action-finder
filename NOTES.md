@@ -8,9 +8,14 @@ into a file in `data/`, and nothing in this file was typed in by hand.
 
 ## Read this first
 
-The OpenAlex lookup is **incomplete**. Of the 7,329 Natural Sciences DOIs, 2,025
-have OpenAlex data and 5,304 do not, which is 27.6 percent coverage. Everything
-downstream is computed on the covered 2,025.
+The OpenAlex lookup is **complete** as of 15 September 2026, 00:12 UTC. Of the
+7,329 Natural Sciences DOIs, 7,224 have OpenAlex data and 105 are confirmed
+absent from OpenAlex rather than unasked, which is 98.6 percent coverage.
+
+Numbers written further down this file under the heading "the numbers below are
+what the pipeline produced under the incomplete lookup" are a build behind and
+are kept only as the record of that run. `data/derived/honesty.json` is
+regenerated on every build and is the current version of all of them.
 
 The cause is not a rate limit that backing off would solve. OpenAlex now meters
 its API against a daily spending allowance, and this address had spent its free

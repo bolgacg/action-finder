@@ -31,15 +31,22 @@ recompute rather than take it on trust.
 
 The last act is the instrument measuring itself, and it is the part worth reading first.
 
-- **The coverage is uneven, and the page says by how much.** OpenAlex moved to a paid interface
-  partway through this build and the free daily allowance ran out, so only part of the papers
-  have reached a topic. The missing ones are not missing at random: the lookup works down a list
-  and stopped where the budget ran out, which left 2022 almost complete and 2024 barely started.
-  The ranking is therefore closer to a ranking of one year than of the window it claims.
+- **The coverage is bounded by the DOI, and the page says by how much.** Every Natural Sciences
+  paper carrying a DOI has now been looked up: 7,224 of 7,329, with the remaining 105 confirmed
+  absent from OpenAlex rather than unasked. Coverage runs between 97.1 and 99.4 percent across
+  every year in the window. What the instrument still cannot see is the 17.8 percent of harvested
+  records that carry no DOI at all, and a department publishing where DOIs are rare is quieter
+  here than it is in life.
+- **What the interruption taught, which is kept because it is the useful part.** OpenAlex moved to
+  a paid interface partway through this build and the free daily allowance ran out at 27.6 percent
+  of the papers. A partial lookup does not fail at random: it works down a list and stops, so the
+  interrupted run had 2022 at 98.4 percent against 2024 at 0.1, and was close to a ranking of one
+  publication year rather than of the window it claimed. An unattended job finished the lookup when
+  the allowance reset and rebuilt everything downstream.
 - **How much the order is an accident.** The covered papers are resampled two thousand times and
   the whole ranking recomputed, thresholds included, so a candidate that only just clears the bar
-  can vanish. The page reports how often each candidate survives, and states plainly that
-  redrawing the papers already in hand says nothing about the ones never fetched.
+  can vanish. The top candidate now survives every one of those two thousand redraws. The page
+  states plainly that resampling the papers in hand says nothing about the records with no DOI.
 - **One named failure rather than a general warning.** Novo Nordisk appears under Ecology, which
   looks absurd until you follow it: the company is a partner in a clinical trials project that
   CORDIS tags with the keyword *ecosystems*, a term that sits under ecology in the vocabulary and
