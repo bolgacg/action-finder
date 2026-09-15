@@ -351,14 +351,27 @@
     var rows = cy.rows.filter(function (r) { return Number(r.year) >= from && r.coverage_pct != null; });
     if (!rows.length) { text.textContent = 'Not measured.'; return; }
     var b = cy.best_year, w = cy.worst_year;
-    text.innerHTML = 'The papers that have not been looked up are not a random quarter of the whole. ' +
-      'The lookup works down a list and stopped where the budget ran out, so it finished one year and ' +
-      'barely started another. Of the papers published in ' + esc(b.year) + ', ' + b.coverage_pct +
-      ' percent reached a topic. Of those published in ' + esc(w.year) + ', ' + w.coverage_pct +
-      ' percent did. <b>So the ranking above is close to a ranking of what Aarhus published in ' +
-      esc(b.year) + '</b>, rather than of the window it claims. A department whose work shifted between ' +
-      'those years is misrepresented here, and that is a stronger objection than the headline ' +
-      'percentage on its own suggests.';
+    // A partial lookup does not fail evenly: it works down a list and stops. Whether that
+    // happened is a fact about the numbers, so the paragraph is chosen from them rather
+    // than from the framing the page was written under.
+    var skew = (b && w && b.coverage_pct != null && w.coverage_pct != null)
+      ? b.coverage_pct - w.coverage_pct : null;
+    text.innerHTML = (skew != null && skew > 25)
+      ? 'The papers that have not been looked up are not a random share of the whole. ' +
+        'The lookup works down a list and stopped where the budget ran out, so it finished one year and ' +
+        'barely started another. Of the papers published in ' + esc(b.year) + ', ' + b.coverage_pct +
+        ' percent reached a topic. Of those published in ' + esc(w.year) + ', ' + w.coverage_pct +
+        ' percent did. <b>So the ranking above is close to a ranking of what Aarhus published in ' +
+        esc(b.year) + '</b>, rather than of the window it claims. A department whose work shifted between ' +
+        'those years is misrepresented here, and that is a stronger objection than the headline ' +
+        'percentage on its own suggests.'
+      : '<b>The lookup finished, and it finished evenly.</b> This chart exists because a partial ' +
+        'lookup does not fail at random: it works down a list and stops, so an interrupted run ranks ' +
+        'one year rather than the window it claims. That is what this page showed while the budget was ' +
+        'exhausted. Now every year in the window reaches a topic at between ' + w.coverage_pct +
+        ' and ' + b.coverage_pct + ' percent, a spread of ' + skew.toFixed(1) + ' points, so no single ' +
+        'year is carrying the ranking and a department whose work shifted inside the window is not ' +
+        'misrepresented by the shape of the harvest.';
 
     var narrow = isNarrow();
     var W = narrow ? 400 : 860, H = narrow ? 230 : 212;
@@ -592,8 +605,10 @@
     }
     if (lo != null && hi != null && done.length > 1) {
       v3 += ' The harvest itself is even across the finished years in the window, at no fewer than ' +
-        n(lo) + ' and no more than ' + n(hi) + ' records in any one of them, so the shortfall sits in ' +
-        'the topic lookup rather than in what was collected.';
+        n(lo) + ' and no more than ' + n(hi) + ' records in any one of them' +
+        (oa.lookup_complete === false
+          ? ', so the shortfall sits in the topic lookup rather than in what was collected.'
+          : ', so no year is carrying more of the ranking than another.');
     }
     if (strayRecords) {
       v3 += ' A further ' + strayRecords + (strayRecords === 1 ? ' record carries' : ' records carry') +
@@ -602,13 +617,19 @@
     }
     $('#v3').innerHTML = v3;
 
-    $('#lim1').textContent = 'Coverage is partial, as act three shows. Only ' +
+    $('#lim1').textContent = (oa.lookup_complete === false
+      ? 'Coverage is partial, as act three shows. Only '
+      : 'Coverage is bounded by the DOI, as act three shows. Only ') +
       (cov.doi_share_pct != null ? cov.doi_share_pct + ' percent' : 'some') +
       ' of the harvested Natural Sciences records carry a DOI, and only those can reach a topic at all. ' +
-      (oa.match_rate_pct != null
-        ? 'Of those, ' + oa.match_rate_pct + ' percent have been looked up so far, so what you are reading is ' +
-          'computed on a fraction of what Aarhus published.'
-        : 'Anything published without one is invisible to this instrument.');
+      (oa.match_rate_pct == null
+        ? 'Anything published without one is invisible to this instrument.'
+        : oa.lookup_complete === false
+          ? 'Of those, ' + oa.match_rate_pct + ' percent have been looked up so far, so what you are ' +
+            'reading is computed on a fraction of what Aarhus published.'
+          : 'Of those, ' + oa.match_rate_pct + ' percent were matched to a topic, so the lookup is no ' +
+            'longer the limit here. What is left out is everything published without a DOI, and a ' +
+            'department that publishes where DOIs are rare will look quieter here than it is.');
     // Quoting the raw 10-of-20 here would be unfair in the other direction: that sample
     // was drawn from a run that still used a matching route this check then removed. The
     // split by route is the honest reading, and so is saying the fix is not re-verified.
