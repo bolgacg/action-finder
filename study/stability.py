@@ -93,6 +93,63 @@ def score_once(
     return valid, ranks, company[valid] == 0
 
 
+# The two caveats below were written while the topic lookup was unfinished, and
+# both named the size of the gap. A finished lookup makes them false rather than
+# merely out of date, so they are generated from the coverage file instead of
+# being carried forward. A missing coverage file is treated as unknown, never as
+# complete.
+def _coverage_state():
+    path = os.path.join(DERIVED, "openalex_coverage.json")
+    if not os.path.exists(path):
+        return None
+    try:
+        return read_json(path)
+    except Exception:
+        return None
+
+
+def _coverage_sentence():
+    c = _coverage_state()
+    if c is None:
+        return ("that the papers not looked up resemble the ones that were. Whether any "
+                "are outstanding could not be read here, so treat these bands as a floor.")
+    missing = c.get("dois_never_asked")
+    if c.get("lookup_complete") and not missing:
+        total, with_doi = c.get("pure_works_total"), c.get("pure_works_with_doi")
+        no_doi = (round(100.0 * (total - with_doi) / total, 1)
+                  if total and with_doi is not None and total > 0 else None)
+        return ("that the works carrying a DOI resemble the ones that do not. These bands "
+                "describe sampling wobble in the works this instrument can see, and every "
+                "DOI in the window has now been looked up, so nothing is outstanding to "
+                "widen them. What they still cannot see is "
+                + (f"the {no_doi} percent of harvested records with no DOI at all."
+                   if no_doi is not None
+                   else "the harvested records with no DOI at all, a share this file could "
+                        "not read."))
+    return ("that the papers not yet looked up resemble the ones that were. They probably "
+            "do not: the covered works are heavy with one publication year rather than "
+            "being a random sample, so these bands describe sampling wobble within the "
+            "covered slice and understate the movement the missing "
+            + f"{missing:,}" + " will actually cause.")
+
+
+def _white_space_risk_sentence():
+    c = _coverage_state()
+    missing = (c or {}).get("dois_never_asked")
+    if c is not None and c.get("lookup_complete") and not missing:
+        return ("The risk that used to dominate this flag, a company appearing among works "
+                "never looked up, is gone: every DOI in the window has been looked up. What "
+                "remains is a company co-author on a paper with no DOI, which this "
+                "instrument cannot reach at all.")
+    if missing:
+        return ("The real risk to a white space flag is a company appearing among the "
+                + f"{missing:,}" + " works never looked up, which no resampling of the "
+                "covered works can see. The projection in honesty.json under "
+                "ranking_stability estimates that separately, and far less favourably.")
+    return ("Whether any works remain unlooked could not be read here, so treat this "
+            "number as a floor rather than as the chance the flag survives.")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--resamples", type=int, default=2000)
@@ -301,13 +358,7 @@ def main() -> None:
             "complete census rather than a sample, and treating a census as "
             "uncertain would widen every band and flatter the ranking."
         ),
-        "what_this_assumes": (
-            "that the papers not yet looked up resemble the ones that were. "
-            "They probably do not: the covered works are heavy with one "
-            "publication year rather than being a random sample, so these bands "
-            "describe sampling wobble within the covered slice and understate "
-            "the movement the missing 72 percent will actually cause."
-        ),
+        "what_this_assumes": _coverage_sentence(),
         "scoring_source": (
             "imported from study/rank.py and verified against data/actions.json "
             "before any resampling"
@@ -327,11 +378,7 @@ def main() -> None:
             "company co-author among those works will have none in almost any "
             "redraw of them, so this number is close to vacuous by "
             "construction. It says only that the flag is not an accident of "
-            "which covered works were drawn. The real risk to a white space "
-            "flag is a company appearing among the 5,304 works never looked "
-            "up, which no resampling of the covered works can see. The "
-            "projection in honesty.json under ranking_stability estimates that "
-            "separately, and far less favourably."
+            "which covered works were drawn. " + _white_space_risk_sentence()
         ),
         "headline": {
             "top_candidate": (
