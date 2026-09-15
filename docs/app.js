@@ -49,17 +49,129 @@
 
   var state = { dept: null, sel: null, names: false };
 
+  /* ---------- the first screen: what the instrument narrowed, and what it admits ----------
+     Bar length is the square root of the count. Linear would draw the last two stages as
+     nothing; log draws 68 at three quarters of 63,114, which is worse than useless because
+     it hides the narrowing that is the whole point. Square root keeps the collapse visible
+     and the small stages on the page. Every count is printed beside its own bar anyway.
+     The 34 against 6 split gets its own full-width bar, because at funnel scale the six
+     would be two pixels and that number is the honest size of the find. */
+  function drawBluf() {
+    var host = $('#blufviz');
+    if (!host) return;
+    host.innerHTML = '';
+    var hp = D.honesty_panel || {};
+    var cov = hp.coverage_pure || {};
+    var oa = hp.coverage_openalex || {};
+    var already = hp.top_candidates_already_collaborating || {};
+    var c = D.counts || {};
+
+    var open = already.candidates_where_a_danish_organisation_already_shares_an_au_project_on_the_same_topic;
+    var written = c.actions_written;
+    var fresh = (open != null && written != null) ? written - open : null;
+
+    var rows = [
+      { lab: 'Aarhus records read', v: cov.records_read_from_cache, sub: 'everything Pure published from 2022' },
+      { lab: 'Natural Sciences', v: cov.natural_sciences_works, sub: 'the faculty Science Bridge covers' },
+      { lab: 'Carry a DOI', v: cov.natural_sciences_works_with_doi, sub: 'only these can reach a topic' },
+      { lab: 'Matched to a topic', v: oa.dois_matched, sub: 'looked up in OpenAlex' },
+      { lab: 'Department and topic pairs', v: c.candidate_pairs_clearing_thresholds, sub: 'clearing both thresholds' },
+      { lab: 'Candidates written up', v: written, sub: 'each with its evidence' }
+    ].filter(function (r) { return r.v != null; });
+    if (!rows.length) return;
+
+    var narrow = isNarrow();
+    var W = narrow ? 390 : 860;
+    // At phone width a label column steals more than a third of the picture and every
+    // caption ends in an ellipsis. Stacking the label above its own bar gives the words
+    // the full column and costs only vertical space, which a phone has.
+    var rowH = narrow ? 56 : 40;
+    var padT = 8;
+    var labW = narrow ? 0 : 232;
+    var barX = narrow ? 0 : labW + 10;
+    var numW = narrow ? 56 : 62;          // room for "63,114" so it never clips
+    var barMax = W - barX - numW;
+    var splitTop = padT + rows.length * rowH + (narrow ? 18 : 22);
+    var H = splitTop + (narrow ? 112 : 84);
+
+    var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+      'aria-label': 'Funnel from ' + n(rows[0].v) + ' Aarhus records down to ' + n(written) +
+        ' candidates, of which ' + n(open) + ' already share a project with Aarhus on that topic and ' +
+        n(fresh) + ' do not.' });
+
+    var top = Math.sqrt(rows[0].v);
+    var wOf = function (v) { return Math.max(2, barMax * (Math.sqrt(Math.max(v, 0)) / top)); };
+    var fsLab = narrow ? 12 : 13, fsNum = narrow ? 12 : 14, fsSub = narrow ? 10 : 11;
+    var anch = narrow ? 'start' : 'end';
+    var labX = narrow ? 0 : labW;
+
+    rows.forEach(function (r, i) {
+      var y = padT + i * rowH, bw = wOf(r.v);
+      var barY = narrow ? y + 30 : y + 4;
+      s.appendChild(el('text', { x: labX, y: y + (narrow ? 11 : 15), 'text-anchor': anch,
+        'font-size': fsLab, fill: '#1a1d21', 'font-weight': '600' }, shorten(r.lab, narrow ? 44 : 32)));
+      s.appendChild(el('text', { x: labX, y: y + (narrow ? 24 : 28), 'text-anchor': anch,
+        'font-size': fsSub, fill: '#8b95a1' }, shorten(r.sub, narrow ? 48 : 36)));
+      s.appendChild(el('rect', { x: barX, y: barY, width: bw, height: 21, fill: '#2c4a6b',
+        'fill-opacity': String(0.93 - i * 0.09) }));
+      s.appendChild(el('text', { x: barX + bw + 6, y: barY + 16, 'font-size': fsNum,
+        fill: '#1a1d21', 'font-weight': '600' }, n(r.v)));
+    });
+
+    if (fresh != null && written) {
+      var full = W - barX - (narrow ? 2 : 18);
+      var wOpen = full * (open / written);
+      var sBarY = splitTop + (narrow ? 30 : 3);
+      s.appendChild(el('text', { x: labX, y: splitTop + (narrow ? 11 : 14), 'text-anchor': anch,
+        'font-size': fsLab, fill: '#1a1d21', 'font-weight': '600' }, 'Those ' + n(written) + ', checked'));
+      s.appendChild(el('text', { x: labX, y: splitTop + (narrow ? 24 : 27), 'text-anchor': anch,
+        'font-size': fsSub, fill: '#8b95a1' }, shorten('against shared projects', narrow ? 48 : 36)));
+      s.appendChild(el('rect', { x: barX, y: sBarY, width: wOpen, height: 22, fill: '#c9c5be' }));
+      s.appendChild(el('rect', { x: barX + wOpen, y: sBarY, width: full - wOpen, height: 22, fill: '#2f7d54' }));
+      s.appendChild(el('text', { x: barX + 7, y: sBarY + 16, 'font-size': fsNum,
+        fill: '#1a1d21', 'font-weight': '600' }, n(open)));
+      s.appendChild(el('text', { x: barX + wOpen + (full - wOpen) / 2, y: sBarY + 16,
+        'text-anchor': 'middle', 'font-size': fsNum, fill: '#fff', 'font-weight': '600' }, n(fresh)));
+
+      var ly = sBarY + (narrow ? 40 : 43);
+      [['#c9c5be', n(open) + (narrow ? ' already share a project on that topic'
+                                     : ' already share an Aarhus project on that topic')],
+       ['#2f7d54', n(fresh) + (narrow ? ' do not: the new conversations'
+                                      : ' do not, and those are the new conversations')]
+      ].forEach(function (p, i) {
+        var yy = ly + i * (narrow ? 19 : 17);
+        s.appendChild(el('rect', { x: barX, y: yy - 9, width: 11, height: 11, fill: p[0] }));
+        s.appendChild(el('text', { x: barX + 17, y: yy, 'font-size': fsSub + 1, fill: '#5b6470' },
+          shorten(p[1], narrow ? 46 : 70)));
+      });
+    }
+    host.appendChild(s);
+
+    caption('#blufviz', 'From everything Aarhus published to the conversations that are not already ' +
+      'happening. Bar length is the square root of the count, so the small stages stay visible; ' +
+      'each count is printed beside its bar.');
+
+    var t = $('#bluftext');
+    if (t && fresh != null) {
+      t.textContent = 'No one reads ' + n(rows[0].v) + ' records by hand, which is the reason to build ' +
+        'this at all. It ends at ' + n(written) + ' candidate Actions, each carrying the papers and the ' +
+        'organisations that produced it. Then it measures itself and reports the uncomfortable half: ' +
+        n(open) + ' of those ' + n(written) + ' are pairs where a Danish organisation already shares an ' +
+        'Aarhus project on that very topic, so ' + n(fresh) + ' are genuinely new. That is the honest ' +
+        'size of the find, and the rest of this page is how it was reached and where it can be wrong.';
+    }
+    redrawOnWidthChange(drawBluf);
+  }
+
   /* ---------- the three sources, drawn once ---------- */
   function drawDomain() {
     var host = $('#domainviz'); if (!host) return;
     var boxes = [
-      { t: 'AU Pure', s: 'which faculty and department a paper belongs to, which is the one thing OpenAlex cannot say' },
+      { t: 'AU Pure', s: 'which faculty a paper belongs to, the one thing OpenAlex cannot say' },
       { t: 'OpenAlex', s: 'the topic of each paper, and whether any co-author was a company' },
       { t: 'CORDIS', s: 'Danish organisations working on the same topics in European projects' },
       { t: 'A candidate', s: 'a department and a topic, ranked partly by how much of that Danish activity has no Aarhus link' }
     ];
-    var foot = 'The AU to Danish-organisation link is a join on the European participant identifier, ' +
-      'so no organisation name is ever matched to another.';
     function wrap(text, perLine, put) {
       var words = text.split(' '), line = '';
       words.forEach(function (w) {
@@ -71,7 +183,7 @@
     // label to under four pixels. Stacked, each box gets the whole width instead.
     var narrow = isNarrow(), s2;
     if (narrow) {
-      var BW = 380, BH = 78, GAP = 16, W = 400, H = boxes.length * (BH + GAP) + 46;
+      var BW = 380, BH = 78, GAP = 16, W = 400, H = boxes.length * (BH + GAP) - GAP + 8;
       s2 = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
         'aria-label': 'Three public sources joined on identifiers to produce candidate Actions' });
       boxes.forEach(function (b, i) {
@@ -91,14 +203,8 @@
           s2.appendChild(el('circle', { cx: 200, cy: y + BH + GAP - 3, r: 2.5, fill: '#8b95a1' }));
         }
       });
-      var fy = boxes.length * (BH + GAP) + 6;
-      wrap(foot, 56, function (line) {
-        s2.appendChild(el('text', { x: 10, y: fy, 'font-family': "'IBM Plex Mono',monospace",
-          'font-size': 9.5, fill: '#8b95a1' }, line));
-        fy += 13;
-      });
     } else {
-      var W2 = 900, H2 = 200;
+      var W2 = 900, H2 = 166;
       s2 = el('svg', { viewBox: '0 0 ' + W2 + ' ' + H2, role: 'img',
         'aria-label': 'Three public sources joined on identifiers to produce candidate Actions' });
       var xs = [{ x: 8, w: 200 }, { x: 236, w: 200 }, { x: 464, w: 200 }, { x: 700, w: 192 }];
@@ -119,8 +225,6 @@
           s2.appendChild(el('circle', { cx: x2 - 2, cy: 90, r: 2.5, fill: '#8b95a1' }));
         }
       });
-      s2.appendChild(el('text', { x: 8, y: 180, 'font-family': "'IBM Plex Mono',monospace",
-        'font-size': 10.5, fill: '#8b95a1' }, foot));
     }
     host.innerHTML = ''; host.appendChild(s2);
   }
@@ -167,11 +271,11 @@
         (shaky ? '<span class="tagun" title="appears in ' + Math.round(st.appears_pct) +
           ' percent of 2,000 resamples of the evidence">unstable</span>' : '') +
         '</div><div class="sc">score ' + a.score.toFixed(2) + '</div></div>' +
-        '<div class="sub">' + a.au_evidence.works_in_window + ' papers from this department, ' +
-        a.danish_evidence.organisations_on_this_topic + ' Danish organisations on the topic, ' +
-        a.danish_evidence.no_shared_project_with_au_on_this_topic + ' of them with no shared project with Aarhus' +
+        '<div class="sub">' + a.au_evidence.works_in_window + ' AU papers, ' +
+        a.danish_evidence.organisations_on_this_topic + ' Danish organisations, ' +
+        a.danish_evidence.no_shared_project_with_au_on_this_topic + ' with no Aarhus project' +
         (shaky ? '. Clears the bar in only ' + Math.round(st.appears_pct) +
-          ' percent of resamples, so treat its position as provisional' : '') + '</div>';
+          ' percent of resamples' : '') + '</div>';
       d.onclick = function () { state.sel = a.action_id; renderList(); renderDetail(); };
       d.onkeydown = function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); d.onclick(); } };
       host.appendChild(d);
@@ -194,13 +298,12 @@
       n(a.danish_evidence.organisations_on_this_topic) + '. And <b>how many of those have never shared ' +
       'a project with Aarhus</b>, which is ' + n(a.danish_evidence.no_shared_project_with_au_on_this_topic) +
       ', or ' + pct(a.score_components.unconnected_share) + ' of them.</p>' +
-      '<p class="small">The first two are each measured against the strongest candidate on this page ' +
-      'and on a log scale, so that a department with two hundred papers does not count twenty times a ' +
-      'department with ten and cannot own the whole list. They are then combined as a geometric mean, ' +
-      'so a topic strong on one side and weak on the other cannot score well, and the third can at ' +
-      'most double the result. Written out: <code>' + esc(a.score_components.formula) + '</code>, where ' +
+      '<p class="small">The first two are measured against the strongest candidate on this page and on ' +
+      'a log scale, so a department with two hundred papers cannot own the whole list, then combined ' +
+      'as a geometric mean, so a topic strong on one side and weak on the other cannot score well. The ' +
+      'third can at most double the result. <code>' + esc(a.score_components.formula) + '</code>, where ' +
       'the two scaled terms are ' + a.score_components.au_strength_scaled.toFixed(2) + ' and ' +
-      a.score_components.danish_activity_scaled.toFixed(2) + ' for this candidate.</p>' +
+      a.score_components.danish_activity_scaled.toFixed(2) + ' here.</p>' +
       '<div class="stat">' +
       '<div><div class="k">AU papers</div><div class="n">' + a.au_evidence.works_in_window +
       '</div><div class="s">in this topic, in the window</div></div>' +
@@ -212,10 +315,9 @@
       '</div><div class="s">of the department\'s papers here</div></div>' +
       '</div>' +
       '<p class="small" style="margin-top:14px"><b>Danish organisations on this topic.</b> ' +
-      'Each one says whether Aarhus is already on a European project with it, on this topic or on ' +
-      'another, because those are three different phone calls. Some also carry a warning: the ' +
-      'project keyword that put the organisation on this topic has nothing corroborating it, which ' +
-      'is how a pharmaceutical company ends up under Ecology.</p>' +
+      'Each says whether Aarhus is already on a European project with it, on this topic or on ' +
+      'another, because those are three different phone calls. A warning means the project keyword ' +
+      'that put the organisation here has nothing corroborating it.</p>' +
       '<div class="orglist">' + orgs.map(function (o) {
         // Three states, not two, because they are three different phone calls: a
         // partner already on an Aarhus project about this topic, one already on an
@@ -244,9 +346,8 @@
           ', and this candidate meets that, which is why it is marked white space.</p>') +
       '<div style="margin-top:14px"><button class="chip" id="namebtn" aria-pressed="' + (state.names ? 'true' : 'false') + '">' +
       (state.names ? 'Hide the authors' : 'Show the authors behind these papers') + '</button>' +
-      '<p class="hint" style="margin-top:6px">These are the authors of the public papers cited above, taken from the ' +
-      'bibliographic record. They are shown because a specialist needs to know who to write to, and for no other reason. ' +
-      'Nothing on this page ranks a person.</p></div>' +
+      '<p class="hint" style="margin-top:6px">The authors of the public papers cited above, shown because a ' +
+      'specialist needs to know who to write to. Nothing on this page ranks a person.</p></div>' +
       (state.names ? renderNames(a) : '');
     var nb = $('#namebtn');
     if (nb) nb.onclick = function () { state.names = !state.names; renderDetail(); };
@@ -323,10 +424,10 @@
     // and not a disagreement. Anything larger is a real one and is named as such.
     var tol = 5e-4;
     if (worst <= tol) {
-      host.innerHTML = '<b>Matched.</b> All ' + n + ' scores on this page were recomputed here from ' +
+      host.innerHTML = '<b>Matched.</b> All ' + n + ' scores were recomputed in your browser from ' +
         'their own components using the printed formula, ' + esc(D.actions[0].score_components.formula) +
-        '. The largest disagreement is ' + worst.toExponential(1) + ', which is the rounding applied ' +
-        'when the numbers were written into this page and not a difference in the arithmetic.';
+        '. The largest disagreement is ' + worst.toExponential(1) + ', the rounding applied when the ' +
+        'numbers were written into this page.';
     } else {
       host.innerHTML = '<b>Did not match.</b> Recomputing the ' + n + ' scores from their own components ' +
         'gives a different answer, worst on ' + esc(worstRow.action_id) + ' by ' + worst.toFixed(4) +
@@ -357,21 +458,17 @@
     var skew = (b && w && b.coverage_pct != null && w.coverage_pct != null)
       ? b.coverage_pct - w.coverage_pct : null;
     text.innerHTML = (skew != null && skew > 25)
-      ? 'The papers that have not been looked up are not a random share of the whole. ' +
-        'The lookup works down a list and stopped where the budget ran out, so it finished one year and ' +
-        'barely started another. Of the papers published in ' + esc(b.year) + ', ' + b.coverage_pct +
-        ' percent reached a topic. Of those published in ' + esc(w.year) + ', ' + w.coverage_pct +
-        ' percent did. <b>So the ranking above is close to a ranking of what Aarhus published in ' +
-        esc(b.year) + '</b>, rather than of the window it claims. A department whose work shifted between ' +
-        'those years is misrepresented here, and that is a stronger objection than the headline ' +
-        'percentage on its own suggests.'
-      : '<b>The lookup finished, and it finished evenly.</b> This chart exists because a partial ' +
-        'lookup does not fail at random: it works down a list and stops, so an interrupted run ranks ' +
-        'one year rather than the window it claims. That is what this page showed while the budget was ' +
-        'exhausted. Now every year in the window reaches a topic at between ' + w.coverage_pct +
-        ' and ' + b.coverage_pct + ' percent, a spread of ' + skew.toFixed(1) + ' points, so no single ' +
-        'year is carrying the ranking and a department whose work shifted inside the window is not ' +
-        'misrepresented by the shape of the harvest.';
+      ? '<b>The papers that have not been looked up are not a random share of the whole.</b> ' +
+        'The lookup works down a list and stopped where the budget ran out, so of the papers published ' +
+        'in ' + esc(b.year) + ', ' + b.coverage_pct + ' percent reached a topic, against ' +
+        w.coverage_pct + ' percent of those published in ' + esc(w.year) + '. The ranking above is ' +
+        'therefore close to a ranking of what Aarhus published in ' + esc(b.year) + ', and a department ' +
+        'whose work shifted between those years is misrepresented here.'
+      : '<b>The lookup finished, and it finished evenly.</b> A partial lookup does not fail at random: ' +
+        'it works down a list and stops, so while the daily budget was exhausted this page was ranking ' +
+        'one year rather than the window it claims. Every year now reaches a topic at between ' +
+        w.coverage_pct + ' and ' + b.coverage_pct + ' percent, a spread of ' + skew.toFixed(1) +
+        ' points, so no single year is carrying the ranking.';
 
     var narrow = isNarrow();
     var W = narrow ? 400 : 860, H = narrow ? 230 : 212;
@@ -392,7 +489,7 @@
         'font-family': "'IBM Plex Mono',monospace", 'font-size': 9.5, fill: '#b5bcc4' },
         n(r.looked_up) + ' of ' + n(r.with_doi)));
     });
-    caption('#covyearviz', 'Share of each year’s papers that reached a topic, with the counts beneath. ' +
+    caption('#covyearviz', 'Share of each year’s papers that reached a topic, counts beneath. ' +
       'Red is under a quarter.');
     host.innerHTML = ''; host.appendChild(s);
   }
@@ -409,14 +506,14 @@
     }
     var h = st.headline || {};
     text.innerHTML = 'The covered papers were drawn again with replacement ' + st.resamples +
-      ' times, and the whole ranking recomputed each time, thresholds included, so a candidate ' +
-      'that only just clears the bar is allowed to vanish. ' +
+      ' times and the whole ranking recomputed each time, thresholds included, so a candidate ' +
+      'that only just clears the bar can vanish. ' +
       (h.top_candidate ? '<b>' + esc(h.top_candidate) + '</b> comes first in ' +
         h.top_candidate_ranked_first_pct + ' percent of them. ' : '') +
       (h.candidates_appearing_in_under_80_pct != null
         ? h.candidates_appearing_in_at_least_99_pct + ' of the ' + D.actions.length +
           ' candidates survive almost every redraw, while ' + h.candidates_appearing_in_under_80_pct +
-          ' come and go. Those are the rows to distrust. ' : '') +
+          ' come and go; those are the rows to distrust. ' : '') +
       // What the bootstrap cannot see depends on whether anything is still unlooked. While the
       // lookup was stalled that was thousands of papers, missing by year rather than at random.
       // Finished, the blind spot is the records with no DOI, which is a different and smaller
@@ -424,16 +521,10 @@
       (function () {
         var oa = (D.honesty_panel || {}).coverage_openalex || {};
         if (oa.lookup_complete === false) {
-          return 'One thing this cannot do, and the page will not pretend otherwise: redrawing ' +
-            'the papers already in hand says nothing about the ones never fetched. Since those ' +
-            'are missing by year rather than at random, the real movement is larger than these ' +
-            'bands.';
+          return 'What redrawing cannot see is the papers never fetched. They are missing by year ' +
+            'rather than at random, so the real movement is larger than these bands.';
         }
-        return 'One thing this cannot do, and the page will not pretend otherwise: redrawing the ' +
-          'papers already in hand says nothing about the ones it never sees. Every paper with a ' +
-          'DOI has now been looked up, so what is left outside these bands is the records ' +
-          'carrying no DOI at all, and a department that publishes where DOIs are rare is ' +
-          'underweighted here in a way no resampling can reveal.';
+        return 'What redrawing cannot see is the records with no DOI, which were never in the draw.';
       })();
 
     var by = st.by_action || {};
@@ -453,9 +544,9 @@
     var X = function (v) { return P.l + (v - 1) / Math.max(1, maxR - 1) * (W - P.l - P.r); };
     var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
       'aria-label': 'Rank of each candidate across resamples, with its 5th to 95th percentile band' });
-    caption('#stabviz', 'Rank across ' + st.resamples + ' redraws. Left is better, and the bar is the ' +
-      'middle 90 percent of where a candidate landed. A percentage on the right means the candidate ' +
-      'did not survive every redraw.');
+    caption('#stabviz', 'Rank across ' + st.resamples + ' redraws, left is better. The bar is the ' +
+      'middle 90 percent of where a candidate landed; a percentage on the right means it did not ' +
+      'survive every redraw.');
     rows.forEach(function (r, i) {
       var y = P.t + i * rowH + rowH / 2;
       s.appendChild(el('text', { x: P.l - 10, y: y + 4, 'text-anchor': 'end',
@@ -518,8 +609,8 @@
         s.appendChild(el('text', { x: P.l + i * bw + bw / 2, y: H - P.b - hgt - 5, 'text-anchor': 'middle',
           'font-family': "'IBM Plex Mono',monospace", 'font-size': 10.5, fill: '#5b6470' }, n(years[k])));
       });
-      caption('#covviz', 'Harvested Aarhus records by publication year, over the window the harvest ' +
-        'asked for. The last bar is the year in progress, so it is short because the year is not over.');
+      caption('#covviz', 'Harvested Aarhus records by publication year. The last bar is the year in ' +
+        'progress, so it is short.');
       host.innerHTML = '';
       host.appendChild(s);
     }
@@ -533,8 +624,8 @@
     var taWrong = ta.judged_wrong != null ? ta.judged_wrong : null;
     var already = h.top_candidates_already_collaborating || {};
     $('#covstat').innerHTML =
-      '<div><div class="k">AU records read</div><div class="n">' + (cov.records_read_from_cache || 'n/a') +
-      '</div><div class="s">' + (cov.natural_sciences_works || 0) + ' of them Natural Sciences</div></div>' +
+      '<div><div class="k">AU records read</div><div class="n">' + n(cov.records_read_from_cache) +
+      '</div><div class="s">' + n(cov.natural_sciences_works) + ' of them Natural Sciences</div></div>' +
       '<div><div class="k">With a DOI</div><div class="n">' + (cov.doi_share_pct != null ? cov.doi_share_pct + '%' : 'n/a') +
       '</div><div class="s">only these can reach OpenAlex</div></div>' +
       '<div><div class="k">Topic labels checked</div><div class="n">' +
@@ -550,15 +641,15 @@
     var amEl = $('#alreadymet');
     if (amEl) {
       amEl.innerHTML = am.share_pct_same_topic != null
-        ? 'It measures that against itself, and the answer is not comfortable: of the ' +
-          am.top_n_examined + ' candidates here, <b>' +
+        ? 'It measures that against itself, and the answer is not comfortable: <b>' +
           am.candidates_where_a_danish_organisation_already_shares_an_au_project_on_the_same_topic +
-          ' already have a Danish organisation on a European project with Aarhus about that very topic</b>, ' +
-          'which is ' + am.share_pct_same_topic + ' percent of them. Widen it to any topic at all and it is ' +
+          ' of these ' + am.top_n_examined + ' candidates already have a Danish organisation on a ' +
+          'European project with Aarhus about that very topic</b>, ' + am.share_pct_same_topic +
+          ' percent of them, and ' +
           am.candidates_where_a_danish_organisation_already_shares_an_au_project_on_any_topic + ' of ' +
-          am.top_n_examined + '. So this list mostly finds rooms where some door is already open, ' +
-          'and the value is in which door and about what, not in discovering strangers.' +
-          (am.note ? ' Read it as a floor: ' + esc(am.note) + '.' : '')
+          am.top_n_examined + ' on any topic at all. So this list mostly finds rooms where a door is ' +
+          'already open, and the value is in which door and about what.' +
+          (am.note ? ' ' + esc(am.note).charAt(0).toUpperCase() + esc(am.note).slice(1) + '.' : '')
         : 'How often its own candidates turn out to be talking already was not measured in this build.';
     }
 
@@ -572,27 +663,23 @@
         || (lt.named_examples || [])[0];
       var worst = (lt.worst_candidates || [])[0];
       ltEl.innerHTML = (ex
-        ? 'The clearest case is on the top candidate. <b>' + esc(ex.organisation) + '</b> is offered as ' +
-          'a partner for ' + esc(ex.department) + ' on ' + esc(ex.topic) + ', because it joined project ' +
-          esc(ex.project_id) + ', "' + esc(ex.project_title) + '", and CORDIS tagged that project with the ' +
-          'keyword <i>' + esc((ex.carried_by_term || []).join(', ')) + '</i>. That word sits under ecology in ' +
-          'the vocabulary and meant something else in the project, so the page ends up proposing that ' +
-          'Aarhus introduce its ecologists to its own university hospital about rare diseases. The mapping ' +
-          'worked correctly and the answer is still wrong. '
+        ? '<b>' + esc(ex.organisation) + '</b> is offered as a partner for ' + esc(ex.department) +
+          ' on ' + esc(ex.topic) + ' because it joined project ' + esc(ex.project_id) + ', "' +
+          esc(ex.project_title) + '", which CORDIS tagged with the keyword <i>' +
+          esc((ex.carried_by_term || []).join(', ')) + '</i>. That keyword sits under ecology, so the ' +
+          'page proposes that Aarhus introduce its ecologists to its own hospital about rare diseases. ' +
+          'The mapping worked and the answer is still wrong. '
         : '') +
         (lt.weakly_supported_pct_of_listed_organisations != null
-          ? 'This is measured rather than left as a warning: ' + lt.weakly_supported_pct_of_listed_organisations +
-            ' percent of the organisations listed on this page reach their topic through a keyword with ' +
-            'nothing corroborating it, and they are marked as such where they appear. '
+          ? 'Across the page, ' + lt.weakly_supported_pct_of_listed_organisations +
+            ' percent of the organisations listed reach their topic that way and are marked where ' +
+            'they appear' +
+            (worst ? ', and <b>' + esc(worst.topic) + ' is the worst affected at ' +
+              worst.weakly_supported_pct + ' percent</b>' : '') + '. '
           : '') +
-        (worst
-          ? 'It is not spread evenly. <b>' + esc(worst.topic) + ' is the worst affected at ' +
-            worst.weakly_supported_pct + ' percent</b>, because "ecosystems" means one thing to a biologist ' +
-            'and another to everyone writing about business, innovation and health. '
-          : '') +
-        'Weak support is not the same as a wrong link, which is why none of these are dropped: a ' +
-        'bio-methanol company reaches organic chemistry through the word "alcohols", uncorroborated and ' +
-        'entirely correct. Read the project titles before reading the organisation names.';
+        'None are dropped, because weak support is not a wrong link: a bio-methanol company reaches ' +
+        'organic chemistry through the word "alcohols", uncorroborated and correct. Read the project ' +
+        'titles before the organisation names.';
     }
 
     var oa = h.coverage_openalex || {};
@@ -609,42 +696,39 @@
         'Of the ' + n(oa.dois_looked_up) + ' Natural Sciences papers that carry a DOI, ' + n(oa.dois_matched) +
         ' have been matched to a topic, which is ' + oa.match_rate_pct + ' percent of them. ' +
         'OpenAlex moved to a paid interface partway through this build and the free daily allowance ran out, ' +
-        'so the other ' + n(oa.dois_never_asked) + ' are waiting on the next reset rather than on a fix to the code. ' +
-        'Every count and every ranking above is computed on the matched share alone, so read the ordering as a draft ' +
-        'that has not yet seen three quarters of its own evidence.';
+        'so the other ' + n(oa.dois_never_asked) + ' wait on the next reset rather than on a fix to the code. ' +
+        'Every ranking above is computed on the matched share alone.';
     } else {
-      v3 = '<b>Every ranking here rests on the share of papers that could be matched to a topic.</b> ' +
-        'That share is ' + (oa.match_rate_pct != null ? oa.match_rate_pct + ' percent' : 'partial') +
+      v3 = '<b>Every ranking here rests on the share of papers that could be matched to a topic</b>, ' +
+        'which is ' + (oa.match_rate_pct != null ? oa.match_rate_pct + ' percent' : 'partial') +
         ' of the Natural Sciences papers carrying a DOI. The rest are invisible to this instrument, ' +
         'and a department that publishes where DOIs are rare will look quieter here than it is.';
     }
     if (lo != null && hi != null && done.length > 1) {
-      v3 += ' The harvest itself is even across the finished years in the window, at no fewer than ' +
-        n(lo) + ' and no more than ' + n(hi) + ' records in any one of them' +
+      v3 += ' The harvest is even across the finished years, between ' + n(lo) + ' and ' + n(hi) +
+        ' records in each' +
         (oa.lookup_complete === false
           ? ', so the shortfall sits in the topic lookup rather than in what was collected.'
-          : ', so no year is carrying more of the ranking than another.');
+          : '.');
     }
     if (strayRecords) {
-      v3 += ' A further ' + strayRecords + (strayRecords === 1 ? ' record carries' : ' records carry') +
-        ' a publication year outside the window (' + strayYears.join(', ') + '). That is how those records are dated ' +
-        'in Pure rather than a fault in the harvest, and they are left out of the chart above.';
+      v3 += ' A further ' + strayRecords + (strayRecords === 1 ? ' record is' : ' records are') +
+        ' dated outside the window (' + strayYears.join(', ') + ') and left off the chart.';
     }
     $('#v3').innerHTML = v3;
 
     $('#lim1').textContent = (oa.lookup_complete === false
-      ? 'Coverage is partial, as act three shows. Only '
-      : 'Coverage is bounded by the DOI, as act three shows. Only ') +
+      ? 'Coverage is partial. Only '
+      : 'Coverage is bounded by the DOI. Only ') +
       (cov.doi_share_pct != null ? cov.doi_share_pct + ' percent' : 'some') +
-      ' of the harvested Natural Sciences records carry a DOI, and only those can reach a topic at all. ' +
+      ' of the harvested Natural Sciences records carry one, and only those can reach a topic at all. ' +
       (oa.match_rate_pct == null
         ? 'Anything published without one is invisible to this instrument.'
         : oa.lookup_complete === false
           ? 'Of those, ' + oa.match_rate_pct + ' percent have been looked up so far, so what you are ' +
             'reading is computed on a fraction of what Aarhus published.'
-          : 'Of those, ' + oa.match_rate_pct + ' percent were matched to a topic, so the lookup is no ' +
-            'longer the limit here. What is left out is everything published without a DOI, and a ' +
-            'department that publishes where DOIs are rare will look quieter here than it is.');
+          : 'Of those, ' + oa.match_rate_pct + ' percent were matched. What is left out is everything ' +
+            'published without a DOI.');
     // Quoting the raw 10-of-20 here would be unfair in the other direction: that sample
     // was drawn from a run that still used a matching route this check then removed. The
     // split by route is the honest reading, and so is saying the fix is not re-verified.
@@ -653,15 +737,14 @@
     var byType = ta.by_check_type || {};
     var paper = byType.paper_to_subfield || {};
     $('#lim2').innerHTML = 'A topic is an OpenAlex subfield, assigned by a classifier rather than by ' +
-      'the authors, and the labels were checked by hand rather than trusted. ' +
-      (taChecked ? 'Twenty were read one by one. ' : '') +
+      'the authors, so ' + (taChecked ? String(taChecked) : 'twenty') + ' labels were read by hand. ' +
       (kw.checked ? 'That check is why one matching route is gone: of ' + kw.checked +
         ' labels made by matching a project term against a topic keyword, ' + kw.wrong +
-        ' were plainly wrong, so that route was switched off and nothing on this page uses it. ' : '') +
+        ' were plainly wrong, so the route was switched off and nothing here uses it. ' : '') +
       (sn.checked ? 'The route that remains, matching against a subfield name, was right ' + sn.right +
         ' times in ' + sn.checked + '. ' : '') +
-      (paper.checked ? 'On the paper side, ' + paper.checked + ' labels were read and ' + paper.wrong +
-        ' were wrong with ' + paper.partly_right + ' partly right. ' : '') +
+      (paper.checked ? 'On the paper side, ' + paper.checked + ' labels were read with ' + paper.wrong +
+        ' wrong and ' + paper.partly_right + ' partly right. ' : '') +
       '<b>The fix has not been re-verified on a fresh sample</b>, so the strongest claim available ' +
       'is that the worst route was found and removed, not that what remains has been measured.';
   }
@@ -675,22 +758,17 @@
       ' pairs of an Aarhus Natural Sciences department and a research topic clear the bar, and ' +
       (c.white_space_in_written || 0) + ' of the ' + D.actions.length +
       ' written up have no company co-author anywhere in the world.</strong> ' +
-      'Each one carries the papers, the Danish organisations and the reason it was scored that way, ' +
-      'so you can disagree with the ranking and recompute it. ' +
       (already.share_pct_same_topic != null
-        ? 'This is rarely about strangers: ' + already.share_pct_same_topic + ' percent of these candidates ' +
-          'already have a Danish organisation on a European project with Aarhus about that very topic, ' +
-          'so what is missing is usually the subject rather than the introduction. '
-        : '') +
-      'The last act is the instrument measuring what it cannot tell you.';
+        ? 'But ' + already.share_pct_same_topic + ' percent of those 40 already have a Danish ' +
+          'organisation on a European project with Aarhus about that very topic, so what is missing ' +
+          'is usually the subject rather than the introduction.'
+        : '');
     $('#methodtext').innerHTML =
-      'Aarhus Pure is harvested over its OAI-PMH endpoint, which is the only source that knows which faculty a paper ' +
-      'belongs to. Those papers reach OpenAlex by DOI, which supplies the topic and the institution type of every ' +
-      'co-author, so a company co-author is a fact in the record rather than an inference. The partner side comes from ' +
-      'the CORDIS Horizon Europe export, where Aarhus University is participant ' +
-      '999997736 and appears on 439 projects; self-joining that file on those project identifiers gives the Danish ' +
-      'organisations who have already worked with Aarhus, and the topics give the ones who have not. Every link in ' +
-      'that chain is an identifier match. No organisation name is ever compared to another.';
+      'Aarhus Pure is harvested over its OAI-PMH endpoint, the only source that knows which faculty a paper ' +
+      'belongs to. Those papers reach OpenAlex by DOI, which gives the topic and the institution type of every ' +
+      'co-author, so a company co-author is a fact rather than an inference. Aarhus is CORDIS participant ' +
+      '999997736 on 439 projects, and self-joining that file gives the Danish organisations it has already ' +
+      'worked with. Every link is an identifier match, never a name.';
   }
 
   /* ---------- the walkthrough ---------- */
@@ -749,6 +827,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof D === 'undefined') return;
+    drawBluf();
     drawDomain();
     renderDepts();
     renderList();
@@ -763,14 +842,12 @@
     renderCoverage();
     fillProse();
     $('#v1').innerHTML = '<b>The white-space mark is the one worth arguing with.</b> ' +
-      'It means the department has published in a topic without a single company co-author anywhere in the world, ' +
-      'which can mean an opening or can mean the topic is simply not one industry works on. ' +
-      'The instrument cannot tell those apart, and a specialist can in about a minute, which is roughly the division ' +
-      'of labour this page is arguing for.';
-    $('#v2').innerHTML = '<b>Most of what the instrument returned was thrown away to get here.</b> ' +
-      'Ninety organisations became one, and the reasons for discarding the other eighty-nine are ' +
-      'written out above rather than left as a judgement call the reader has to trust. That is the ' +
-      'work the shortlist exists to make possible, and it is still a person doing it.';
+      'It means the department has published in a topic with no company co-author anywhere in the world, ' +
+      'which can mean an opening or can mean industry simply does not work on that topic. ' +
+      'The instrument cannot tell those apart; a specialist can in about a minute.';
+    $('#v2').innerHTML = '<b>Most of what the instrument returned was thrown away to get here</b>, ' +
+      'ninety organisations down to one, with the reasons written out above. That work is what the ' +
+      'shortlist exists to make possible, and a person is still the one doing it.';
     tour();
   });
 })();

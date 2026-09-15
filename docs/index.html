@@ -163,29 +163,28 @@ tr.on td{background:#eef2f7}
   </div>
 </div></header>
 
+<section id="bluf"><div class="wrap">
+  <p class="hint" id="blufviz-cap"></p>
+  <div class="viz" id="blufviz"></div>
+  <p class="small" id="bluftext"></p>
+</div></section>
+
 <section id="primer"><div class="wrap">
   <div class="sec-label">Before anything else</div>
-  <h2>Five things to know</h2>
-  <p class="lede">This is the instrument, not the argument. Here is what it does and what it
-  refuses to do.</p>
+  <h2>Four things to know</h2>
   <div class="card">
     <ol class="small" style="padding-left:18px;line-height:1.75">
-      <li>Science Bridge starts <b>Actions</b>: small interdisciplinary collaborations where
-        researchers and external partners explore one specific challenge together. Finding the
-        pairs worth starting one about is the job this page does a piece of.</li>
-      <li>A candidate here is one <b>department at the Faculty of Natural Sciences</b> paired with
-        one <b>research topic</b>. It never proposes a person.</li>
-      <li>A pair qualifies on two counts and nothing else: the department has published at least
-        five papers in that topic, and at least three Danish organisations work on it in European
-        projects. Whether Aarhus has worked with those organisations does not decide whether a pair
-        appears, only where it lands in the order. So this is rarely about strangers. Aarhus usually
-        knows somebody already, and what it has not done is work with them <b>on this particular
-        subject</b>.</li>
-      <li>Every candidate carries the evidence that produced it: the papers, the organisations, the
-        counts, and the reason it was scored the way it was. You can disagree with the score and
-        recompute it.</li>
-      <li>The last section is the one that matters most. It says what this instrument cannot tell
-        you, using numbers it computed about itself.</li>
+      <li>Science Bridge starts <b>Actions</b>, small collaborations where researchers and an
+        external partner explore one challenge together. This page finds the pairs worth starting
+        one about.</li>
+      <li>A candidate is one <b>department at the Faculty of Natural Sciences</b> paired with one
+        <b>research topic</b>, never a person.</li>
+      <li>A pair qualifies on two counts and nothing else: at least five papers from the department
+        in that topic, and at least three Danish organisations working on it in European projects.
+        Whether Aarhus already knows those organisations decides only where a pair lands in the
+        order.</li>
+      <li>The last act says what the instrument cannot tell you, using numbers it computed about
+        itself. It is the section that matters most.</li>
     </ol>
   </div>
 
@@ -198,16 +197,14 @@ tr.on td{background:#eef2f7}
   <div class="card">
     <div class="card-title">Terms</div>
     <div class="gloss">
-      <div><b>Action</b> Science Bridge's own word for a small, structured collaboration between
-        researchers and an external partner around one challenge.</div>
-      <div><b>topic</b> An OpenAlex subfield, for example Ecology or Analytical Chemistry. It is a
-        classification applied to papers, not a description of a capability.</div>
+      <div><b>topic</b> An OpenAlex subfield such as Ecology or Analytical Chemistry. It labels
+        papers; it does not describe a capability.</div>
       <div><b>white space</b> A topic where the department publishes and not one of those papers
         has a company co-author anywhere in the world.</div>
       <div><b>already met</b> Checked two ways that fail independently: a shared European project,
-        matched on the participant identifier, and a company co-author on a paper.</div>
+        and a company co-author on a paper.</div>
       <div><b>participant identifier</b> The number the European Commission gives an organisation.
-        Aarhus University is 999997736. Joining on it means no name matching anywhere.</div>
+        Aarhus University is 999997736.</div>
     </div>
   </div>
 </div></section>
@@ -215,19 +212,16 @@ tr.on td{background:#eef2f7}
 <section id="words"><div class="wrap">
   <div class="sec-label">Their words</div>
   <h2>What the job actually asks for</h2>
-  <p class="lede">The advertisement describes the work in a way that names its hardest part, and
-  that part is what this page attacks.</p>
+  <p class="lede">The advertisement names the hardest part of the job.</p>
   <div class="quote">Initiating, structuring and driving Actions, smaller, interdisciplinary
     collaborations where researchers and external partners share knowledge and jointly explore
     specific challenges [...] Facilitating dialogue and matchmaking between researchers and relevant
     companies, organisations and public authorities.
     <small>Aarhus University, Science Bridge, Innovation specialist, position 165085,
       read 2 September 2026</small></div>
-  <p class="small">Matchmaking at a faculty that publishes tens of thousands of papers is a
-  search problem before it is a relationship problem. A specialist who already knows a field can
-  name the pairs from memory; a new secretariat covering eight departments cannot, and that is
-  exactly where an instrument helps. The rest of the job, the part this page does not touch, is
-  everything that happens after the introduction.</p>
+  <p class="small">Matchmaking at a faculty that publishes tens of thousands of papers is a search
+  problem before it is a relationship problem. A specialist who knows a field names the pairs from
+  memory; a secretariat covering eight departments cannot, and that is where an instrument helps.</p>
 </div></section>
 
 <section id="act1"><div class="wrap">
@@ -235,11 +229,9 @@ tr.on td{background:#eef2f7}
   <h2>The candidates, with their evidence attached</h2>
   <p class="why"><b>Why this matters</b> A ranked list is only useful if you can see why each line
   is on it and throw out the ones you disagree with.</p>
-  <p class="lede">Pick a department. Each row is a topic where that department publishes and Danish
-  organisations are active. Click a row to open the evidence.</p>
   <div class="chips" id="deptchips" role="group" aria-label="Choose a department"></div>
-  <p class="howto"><b>Click a department</b> above, then a row below. The panel shows the papers,
-  the organisations and whether the two have already worked together.</p>
+  <p class="howto"><b>Click a department</b> above, then a row below. Each row is a topic where
+  that department publishes and Danish organisations are active.</p>
   <div class="card">
     <div class="alist" id="alist"></div>
   </div>
@@ -250,11 +242,10 @@ tr.on td{background:#eef2f7}
 <section id="act2"><div class="wrap">
   <div class="sec-label">Act two</div>
   <h2>One candidate, taken as far as a specialist would take it</h2>
-  <p class="why"><b>Why this matters</b> The instrument produces a shortlist. The job is what
-  happens next, and a shortlist nobody turns into a meeting is worth nothing.</p>
-  <p class="lede">This is the top candidate the instrument returns, written up the way an
-  Innovation specialist would put it on the table: what the challenge is, who would be in the room,
-  what the first session produces, which instrument it could feed, and what would kill it.</p>
+  <p class="why"><b>Why this matters</b> The instrument produces a shortlist, and a shortlist
+  nobody turns into a meeting is worth nothing.</p>
+  <p class="lede">The top candidate it returns, written up the way an Innovation specialist would
+  put it on the table.</p>
   <div class="card" id="worked"></div>
   <div class="verdict" id="v2"></div>
 </div></section>
@@ -279,24 +270,18 @@ tr.on td{background:#eef2f7}
   <p class="hint" id="stabviz-cap"></p>
   <div class="viz" id="stabviz"></div>
 
-  <h3 style="margin-top:28px">Five things it is not</h3>
+  <h3 style="margin-top:28px">Three things it is not</h3>
   <div class="card">
     <ol class="small" style="padding-left:18px;line-height:1.75">
-      <li><b>Not a capability match.</b> A shared topic label means two groups write about similar
-        things. It does not mean one can do what the other needs.</li>
       <li><b>Not a topic label you should trust without reading it.</b> The Danish side takes its
         topic from the keywords a project carries in CORDIS, and some of those keywords are
-        homonyms used loosely. <span id="loosetags"></span></li>
-      <li><b>Not a complete picture of Danish industry.</b> The partner side comes from European
-        project participation, which is the part that is open and joinable. The Danish company
-        register is behind a signed declaration and has no bulk download, and since the industry
-        codes changed on 1 January 2025 they can no longer separate a biotechnology firm from any
-        other natural-science research company.</li>
-      <li><b>Not evidence that nobody has met.</b> Absence of a shared project and of a company
-        co-author is absence in two public records, not in the world. <span id="alreadymet"></span></li>
-      <li><b>Not a recommendation about a person.</b> The unit is a department. Named researchers
-        appear only where they already appear publicly, as authors of the papers cited as evidence,
-        and only when you ask for them.</li>
+        homonyms. <span id="loosetags"></span></li>
+      <li><b>Not a complete picture of Danish industry.</b> The partner side is European project
+        participation, the part that is open and joinable. The Danish company register sits behind a
+        signed declaration with no bulk download, and since the industry codes changed on
+        1 January 2025 it cannot tell a biotechnology firm from any other research company.</li>
+      <li><b>Not evidence that nobody has met.</b> Absence in two public records is not absence in
+        the world. <span id="alreadymet"></span></li>
     </ol>
   </div>
 </div></section>
@@ -313,32 +298,28 @@ tr.on td{background:#eef2f7}
 
   <h3>Handling of personal data</h3>
   <p class="small">The Pure feeds carry institutional email addresses, usernames and employee
-  identifiers next to author names. All three are stripped at harvest, before anything is written to
-  disk, and the code says why at the point it does it. Nothing person-level is computed, ranked or
-  stored, and the files this page ships contain no identifier from which a person could be ranked.
-  Author names appear only behind the control in act one, only for papers that are already public,
-  and only as the citation they already are.</p>
-  <p class="small">The Aarhus University Pure portal reserves text and data mining rights in its
-  footer, which is a reservation under Article 4(3) of the EU copyright directive, so the portal
-  itself is not scraped. The harvest uses the OAI-PMH endpoint, which exists to be harvested and
-  feeds the Danish national research database, with a self-identifying user agent and spaced
-  requests. Before anything built from it were published more widely, the right step is a note to
-  the Pure administrators, who sit in the same administration as Science Bridge.</p>
+  identifiers next to author names. All three are stripped at harvest, before anything reaches
+  disk. Nothing person-level is computed, ranked or stored, and author names appear only behind the
+  control in act one, only for papers that are already public.</p>
+  <p class="small">The Pure portal reserves text and data mining rights in its footer, a
+  reservation under Article 4(3) of the EU copyright directive, so the portal itself is not
+  scraped. The harvest uses the OAI-PMH endpoint, which exists to be harvested, with a
+  self-identifying user agent and spaced requests. Before this went any wider, the right step is a
+  note to the Pure administrators, who sit in the same administration as Science Bridge.</p>
 
   <div class="limits">
     <h3>Limits, stated before you find them</h3>
     <p id="lim1"></p>
     <p id="lim2"></p>
-    <p>The score is a dull formula and is exposed next to every row it produced. It is there to put
-      the list in an order, not to be believed. Two reasonable people would weight it differently
-      and the page hands them what they need to do that.</p>
+    <p>The score is a dull formula, printed next to every row it produced. It puts the list in an
+      order; it is not there to be believed, and two reasonable people would weight it
+      differently.</p>
   </div>
 
   <h3 style="margin-top:26px">Sources and licences</h3>
   <ul class="small" style="padding-left:18px;line-height:1.8">
     <li>Faculty and department structure: Aarhus University Pure, OAI-PMH endpoint
-      <code>pure.au.dk/ws/oai</code>. It is the only source that knows which AU faculty a paper
-      belongs to.</li>
+      <code>pure.au.dk/ws/oai</code>.</li>
     <li>Topics and co-authors: <a href="https://openalex.org">OpenAlex</a>, institution
       I204337017, licensed CC0.</li>
     <li>Danish organisations and projects: the CORDIS Horizon Europe bulk export, licensed CC BY 4.0
